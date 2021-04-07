@@ -1,4 +1,4 @@
-@extends('layouts.welcome')
+@extends('layouts.frame')
 @section('content')
 <section class="content">
     <header class="content__title px-0 border-0">
@@ -143,5 +143,4 @@
 </section>
 @endsection
 @section('scripts')
-@include('scripts.all-objections')
 @endsection

@@ -17109,18 +17109,6 @@ ul.hero_list li:last-child {
     padding-left: 2rem im !important;
 }
 
-.login-img-container img{
-    height: 200px;
-   }
-
-.login-img-container{
-    display: flex;
-    margin: 10px;
-    padding: 20px;
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-
 .btn-login{
     display: block;
     width: 100%;
@@ -17158,7 +17146,7 @@ ul.hero_list li:last-child {
 }
 
 .the-login-logo{
-    height: 50px;
+    height: 70px;
     margin-bottom: 20px;
 }
 
@@ -17366,4 +17354,132 @@ ul.hero_list li:last-child {
 
 .navigation__active:focus{
     background-color: #215939 !important;
+}
+
+.nms-logo{
+    padding-left: 3px;
+    border-width:1px;  
+    border-left-style:solid;
+}
+
+.login-img-container img{
+    height: 200px;
+   }
+
+.login-img-container{
+    display: flex;
+    margin: 10px;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 44px;
+}
+
+.login-content h2{
+    font-weight: 800;
+    color: #163560;
+    font-size: 1.8rem;
+}
+.login-content label strong{
+    color: #163560;
+    font-size: large;
+    font-weight: 600;
+}
+.login-content .form-control{
+    height: calc(1.5em + .75rem + 15px);
+    padding: 0.375rem 1.75rem;
+    color: #163560;
+    border-radius: 0;
+}
+
+.login-content .form-control:focus{
+    border-color:  #163560;
+}
+.login-content{
+    background: url("../images/header/header_11.jpg");
+    background-color: white;
+}
+
+.login-content-overlay{
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.op-1 {
+    opacity: 0.7;
+}
+
+.login-form-container{
+    opacity: 1;
+    z-index: 20;
+    width: 400px;
+}
+.input-email-login:before {
+    color: #163560;
+    position: absolute;
+    top: 44px;
+    left: 15px;
+    content: "\e75a";
+    font-family: 'themify';
+    font-size: 18px;
+   
+}
+
+.input-pass-login:before {
+    color: #163560;
+    position: absolute;
+    top: 44px;
+    left: 15px;
+    content: "\e62b";
+    font-family: 'themify';
+    font-size: 18px;
+   
+}
+
+.input-email-login .form-control, .input-pass-login .form-control{
+    padding-left: 3rem;
+}
+
+
+.input-email-login:before .form-control:focus, .input-pass-login:before .form-control:focus{
+    color: #163560;
+}
+/* calendar styling */
+.fc-header-toolbar{
+    display: none ;
+}
+.calendar th {
+    background-color: #161b26;
+    color: white;
+    font-weight: bold;
+    border-color: #323841;
+}
+.actions__tags .nav-link:hover, .actions__tags .nav-link.active{
+    color:#0653a1;
+    font-weight: bold;;
+}
+.calendar .fc-toolbar{
+    display: none;
+}
+
+
+
+
+
+@media (max-width: 576px) {
+    .dont-display-small {
+        display: none !important;
+    }
+    .login-content{
+        padding: 0px;
+    }
+    .login-content{
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
