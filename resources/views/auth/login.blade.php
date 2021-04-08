@@ -87,7 +87,7 @@
                                 <strong>Email</strong> <strong class="text-danger">*</strong>
                             </label>
                             <div class="input-email-login">
-                                <input name="email" type="email" value="pmtua@live.com" class="form-control"
+                                <input name="email" type="email" class="form-control"
                                     placeholder="Enter your email address" required>
                             </div>
 
@@ -98,7 +98,7 @@
                                 <strong>Password</strong> <strong class="text-danger">*</strong>
                             </label>
                             <div class="input-pass-login">
-                                <input name="password" type="password" value="password" class="form-control"
+                                <input name="password" type="password" class="form-control"
                                     placeholder="Enter your password" required>
                             </div>
 

@@ -45,7 +45,7 @@ class UploadRollController extends Controller
 
     public function to_curl($url, $data){
         $headers = array(
-            'Content-Type: multipart/form-data',
+            'Content-Type: application/json',
             'Authorization: JWT ' .$data['token'],
             'api-key:7935cf09148cbce9794db37be028260a',
             'Content-Length: ' . strlen(json_encode($data))

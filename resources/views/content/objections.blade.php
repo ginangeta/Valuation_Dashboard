@@ -64,6 +64,118 @@
                                                 class="zmdi zmdi-block"></i>Delete</button>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>000002</td>
+                                    <td>57/1796</td>
+                                    <td>
+                                        <p class="mb-0">Kasarani</p>
+                                        <p class="mb-0">
+                                            <small>Kasarani Road</small>
+                                        </p>
+                                    </td>
+                                    <td>REU CRIPUS NDEGWA MUNGAI</td>
+                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
+                                    <td>25 Mar 2021</td>
+                                    <td>4,876,300</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#objection-details"><i
+                                                class="zmdi zmdi-eye"></i>Details</button>
+                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
+                                                class="zmdi zmdi-print"></i>Print</a>
+                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#edit-car-booking"><i
+                                                class="zmdi zmdi-edit"></i>Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
+                                            title="delete this property" data-toggle="modal"
+                                            data-target="#deactivate-property"><i
+                                                class="zmdi zmdi-block"></i>Delete</button>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>000003</td>
+                                    <td>57/1159</td>
+                                    <td>
+                                        <p class="mb-0">Kasarani</p>
+                                        <p class="mb-0">
+                                            <small>Thika Road</small>
+                                        </p>
+                                    </td>
+                                    <td>REV. DANIEL STAKOS MWANIKI AND LYDIA MUTHONI MWANIKI</td>
+                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
+                                    <td>25 Mar 2021</td>
+                                    <td>4,876,300</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#objection-details"><i
+                                                class="zmdi zmdi-eye"></i>Details</button>
+                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
+                                                class="zmdi zmdi-print"></i>Print</a>
+                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#edit-car-booking"><i
+                                                class="zmdi zmdi-edit"></i>Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
+                                            title="delete this property" data-toggle="modal"
+                                            data-target="#deactivate-property"><i
+                                                class="zmdi zmdi-block"></i>Delete</button>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>000004</td>
+                                    <td>57/447</td>
+                                    <td>
+                                        <p class="mb-0">Kasarani</p>
+                                        <p class="mb-0">
+                                            <small>Thika Road</small>
+                                        </p>
+                                    </td>
+                                    <td class="text-capitalize">RICHARD GITHINGA GITHUA</td>
+                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
+                                    <td>25 Mar 2021</td>
+                                    <td>4,876,300</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#objection-details"><i
+                                                class="zmdi zmdi-eye"></i>Details</button>
+                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
+                                                class="zmdi zmdi-print"></i>Print</a>
+                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#edit-car-booking"><i
+                                                class="zmdi zmdi-edit"></i>Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
+                                            title="delete this property" data-toggle="modal"
+                                            data-target="#deactivate-property"><i
+                                                class="zmdi zmdi-block"></i>Delete</button>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>000005</td>
+                                    <td>57/252</td>
+                                    <td>
+                                        <p class="mb-0">Kasarani</p>
+                                        <p class="mb-0">
+                                            <small>Thika Road</small>
+                                        </p>
+                                    </td>
+                                    <td class="text-capitalize">RICHARD MACHARIA NJARAM</td>
+                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
+                                    <td>25 Mar 2021</td>
+                                    <td>4,876,300</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#objection-details"><i
+                                                class="zmdi zmdi-eye"></i>Details</button>
+                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
+                                                class="zmdi zmdi-print"></i>Print</a>
+                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
+                                            data-toggle="modal" data-target="#edit-car-booking"><i
+                                                class="zmdi zmdi-edit"></i>Edit</button>
+                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
+                                            title="delete this property" data-toggle="modal"
+                                            data-target="#deactivate-property"><i
+                                                class="zmdi zmdi-block"></i>Delete</button>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

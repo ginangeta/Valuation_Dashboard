@@ -1200,7 +1200,7 @@ $('.occupation-text').on("change", function () {
 	var occupation = $(this).text();
 });
 
-$('#nat-id').on('change', function () {
+$('#upload_roll').on('change', function () {
 
 	var file = $(this).val();
 	var fullPath = $(this).val();

@@ -21,8 +21,7 @@
                 <div class="card-body">
                     <div class="form-body">
                         <div class="slider-container1 wow animated slideInLeft">
-                            <form id="submit-property-file" action="{{ route('uploadRoll') }}" method="POST"
-                                class="">
+                            <form id="submit-property-file" action="{{ route('uploadRoll') }}" method="POST" class="">
                                 @csrf
                                 @if (Session::has('success'))
                                     <p class="alert alert-success">
@@ -43,7 +42,7 @@
                                         </div>
                                     </div>
 
-                                    <label class="col-12 form-attach mb-2" for="nat-id">
+                                    <label class="col-12 form-attach mb-2" for="upload_roll">
                                         <div class="id-container img-container">
                                             <span><img src="demo/img/form-svgs/xls.svg"></span>
                                             <h5>Valuation Roll</h5>
@@ -52,7 +51,7 @@
                                             <!-- national id input box -->
                                             <input type="file" name="upload_roll" required
                                                 accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                                                id="nat-id" class="form-control nat-id d-none">
+                                                id="upload_roll" class="form-control nat-id d-none">
                                         </div>
                                     </label>
 
@@ -65,7 +64,8 @@
                                     <div class="col-12">
                                         <div class="form-footer w-100">
                                             <div class="form-btns d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-success btn-next">Submit <span
+                                                <button type="submit"
+                                                    class="btn btn-success btn-next btn-upload-roll">Submit <span
                                                         class="mdi mdi-check-all mx-2"></span></button>
                                             </div>
                                         </div>
@@ -93,4 +93,60 @@
 
 @endsection
 @section('scripts')
+    <script type="text/javascript">
+        $('.btn-upload-roll').on('click', function(e) {
+            e.preventDefault();
+
+            var file = $('#upload_roll').val();
+            // var formData = new FormData($('#upload_roll'));
+
+            var fd = new FormData();
+            var files = $('#upload_roll');
+
+            var form_data = new FormData();
+            form_data.append("file", files);
+
+            console.log(fd);
+            console.log('{{ $session }}');
+
+            $.ajax({
+                url: "{{ config('global.url') }}" + 'uploaded_files/',
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Authorization': 'JWT {{ $session }}'
+                },
+                data: {
+                    file_name: form_data,
+                },
+                enctype: 'multipart/form-data',
+                cache: false,
+                contentType: 'false',
+                processData: false,
+
+                success: function(data) {
+                    console.log("Upload Response: " + response);
+
+                    if (response == "") {
+                        swal('Error!', 'File did not upload successfully', 'error');
+                        console.log('Nothing');
+                        return;
+                    }
+
+                    if (response.status == 200) {
+                        swal('Success!', 'File upload successful', 'error');
+                        console.log('Here');
+
+                    } else {
+                        console.log('Failed');
+                        swal('Error!', data.message, 'error');
+                        return;
+                    }
+                }
+            });
+
+
+        });
+
+    </script>
 @endsection

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 class SiteController extends Controller
 {
@@ -13,7 +15,9 @@ class SiteController extends Controller
 
     public function addProperty()
     {
-        return view('content/new-property');
+        $session = Session::get('token');
+        
+        return view('content/new-property',['session'=> $session]);
     }
 
     public function allProperty(){
