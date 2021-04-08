@@ -55,7 +55,7 @@
                                                 data-toggle="modal"
                                                 data-target="#objection-details{{ $key + 1 }}"><i
                                                     class="zmdi zmdi-eye"></i>Details</button>
-                                            <a onclick="printObjection({{ $Objection->property->lr_no }})" class="btn btn-success btn-sm btn--icon-text"><i
+                                            <a onclick="printObjection(String({{ $Objection->property->lr_no }}))" class="btn btn-success btn-sm btn--icon-text"><i
                                                     class="zmdi zmdi-print"></i>Print</a>
                                             <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
                                                 data-toggle="modal" data-target="#edit-car-booking"><i
@@ -327,7 +327,7 @@
 @section('scripts')
 <script>
     function printObjection(SerialNo) {
-        // alert(LRNo1);
+        // alert(SerialNo);
         let url =
             "singleobjection/:LRNo";
         url = url.replace(':LRNo', SerialNo);

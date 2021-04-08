@@ -129,7 +129,7 @@
                                                         <div class="col-6">
                                                             <h6 class="text-left"><strong>Unimproved Site
                                                                     Value(USV)</strong></h6>
-                                                            <h3 class="text-left">KES {{ number_format($property->usv)) }} </h3>
+                                                            <h3 class="text-left">KES {{ number_format($property->usv) }} </h3>
                                                         </div>
                                                     </div>
                                                 </div>
