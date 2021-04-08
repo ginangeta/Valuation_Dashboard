@@ -28,7 +28,7 @@ Route::post('registration', 'AuthController@registration')->name('registration')
 Route::post('password-request', 'AuthController@requestPassword')->name('password.request');
 Route::get('change-password', 'AuthController@changePassword')->name('password.change');
 Route::post('password-reset', 'AuthController@resetPassword')->name('password.reset');
-Route::post('logout', 'AuthController@logout')->name('logout');
+Route::get('logout', 'AuthController@logout')->name('logout');
 
 //Pages
 Route::get('AddProperty', 'SiteController@addProperty')->name('AddProperty');
@@ -46,6 +46,7 @@ Route::get('userManage', 'SiteController@userManage')->name('userManage');
 Route::get('getAllObjections', 'ReportsController@getAllObjections')->name('getAllObjections');
 Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
 Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
+Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 
 
 // Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');

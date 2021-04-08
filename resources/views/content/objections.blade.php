@@ -35,147 +35,133 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>000001</td>
-                                    <td>20856/19</td>
-                                    <td>
-                                        <p class="mb-0">Kasarani</p>
-                                        <p class="mb-0">
-                                            <small>Kasarani Road</small>
-                                        </p>
-                                    </td>
-                                    <td>RELIABLE REALTY MANAGERS LIMITED</td>
-                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
-                                    <td>25 Mar 2021</td>
-                                    <td>4,876,300</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#objection-details"><i
-                                                class="zmdi zmdi-eye"></i>Details</button>
-                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
-                                                class="zmdi zmdi-print"></i>Print</a>
-                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#edit-car-booking"><i
-                                                class="zmdi zmdi-edit"></i>Edit</button>
-                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
-                                            title="delete this property" data-toggle="modal"
-                                            data-target="#deactivate-property"><i
-                                                class="zmdi zmdi-block"></i>Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>000002</td>
-                                    <td>57/1796</td>
-                                    <td>
-                                        <p class="mb-0">Kasarani</p>
-                                        <p class="mb-0">
-                                            <small>Kasarani Road</small>
-                                        </p>
-                                    </td>
-                                    <td>REU CRIPUS NDEGWA MUNGAI</td>
-                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
-                                    <td>25 Mar 2021</td>
-                                    <td>4,876,300</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#objection-details"><i
-                                                class="zmdi zmdi-eye"></i>Details</button>
-                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
-                                                class="zmdi zmdi-print"></i>Print</a>
-                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#edit-car-booking"><i
-                                                class="zmdi zmdi-edit"></i>Edit</button>
-                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
-                                            title="delete this property" data-toggle="modal"
-                                            data-target="#deactivate-property"><i
-                                                class="zmdi zmdi-block"></i>Delete</button>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>000003</td>
-                                    <td>57/1159</td>
-                                    <td>
-                                        <p class="mb-0">Kasarani</p>
-                                        <p class="mb-0">
-                                            <small>Thika Road</small>
-                                        </p>
-                                    </td>
-                                    <td>REV. DANIEL STAKOS MWANIKI AND LYDIA MUTHONI MWANIKI</td>
-                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
-                                    <td>25 Mar 2021</td>
-                                    <td>4,876,300</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#objection-details"><i
-                                                class="zmdi zmdi-eye"></i>Details</button>
-                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
-                                                class="zmdi zmdi-print"></i>Print</a>
-                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#edit-car-booking"><i
-                                                class="zmdi zmdi-edit"></i>Edit</button>
-                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
-                                            title="delete this property" data-toggle="modal"
-                                            data-target="#deactivate-property"><i
-                                                class="zmdi zmdi-block"></i>Delete</button>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>000004</td>
-                                    <td>57/447</td>
-                                    <td>
-                                        <p class="mb-0">Kasarani</p>
-                                        <p class="mb-0">
-                                            <small>Thika Road</small>
-                                        </p>
-                                    </td>
-                                    <td class="text-capitalize">RICHARD GITHINGA GITHUA</td>
-                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
-                                    <td>25 Mar 2021</td>
-                                    <td>4,876,300</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#objection-details"><i
-                                                class="zmdi zmdi-eye"></i>Details</button>
-                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
-                                                class="zmdi zmdi-print"></i>Print</a>
-                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#edit-car-booking"><i
-                                                class="zmdi zmdi-edit"></i>Edit</button>
-                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
-                                            title="delete this property" data-toggle="modal"
-                                            data-target="#deactivate-property"><i
-                                                class="zmdi zmdi-block"></i>Delete</button>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>000005</td>
-                                    <td>57/252</td>
-                                    <td>
-                                        <p class="mb-0">Kasarani</p>
-                                        <p class="mb-0">
-                                            <small>Thika Road</small>
-                                        </p>
-                                    </td>
-                                    <td class="text-capitalize">RICHARD MACHARIA NJARAM</td>
-                                    <td><a href="tel:0711 223 344">0711 223 344</a></td>
-                                    <td>25 Mar 2021</td>
-                                    <td>4,876,300</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#objection-details"><i
-                                                class="zmdi zmdi-eye"></i>Details</button>
-                                        <a href="objection-doc.html" class="btn btn-success btn-sm btn--icon-text"><i
-                                                class="zmdi zmdi-print"></i>Print</a>
-                                        <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
-                                            data-toggle="modal" data-target="#edit-car-booking"><i
-                                                class="zmdi zmdi-edit"></i>Edit</button>
-                                        <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
-                                            title="delete this property" data-toggle="modal"
-                                            data-target="#deactivate-property"><i
-                                                class="zmdi zmdi-block"></i>Delete</button>
-                                </tr>
+                                @foreach ($Objections as $key => $Objection)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $Objection->property->serial_no }}</td>
+                                        <td>{{ $Objection->property->lr_no }}</td>
+                                        <td>
+                                            <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                            <p class="mb-0 d-none">
+                                                <small>Kasarani Road</small>
+                                            </p>
+                                        </td>
+                                        <td>{{ $Objection->property->owner }}</td>
+                                        <td><a href="tel:{{ $Objection->phone }}">{{ $Objection->phone }}</a></td>
+                                        <td>{{ date('d-m-Y', strtotime($Objection->objection_date)) }}</td>
+                                        <td>KES {{ number_format($Objection->property->usv) }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
+                                                data-toggle="modal"
+                                                data-target="#objection-details{{ $key + 1 }}"><i
+                                                    class="zmdi zmdi-eye"></i>Details</button>
+                                            <a onclick="printObjection({{ $Objection->property->lr_no }})" class="btn btn-success btn-sm btn--icon-text"><i
+                                                    class="zmdi zmdi-print"></i>Print</a>
+                                            <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
+                                                data-toggle="modal" data-target="#edit-car-booking"><i
+                                                    class="zmdi zmdi-edit"></i>Edit</button>
+                                            <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
+                                                title="delete this property" data-toggle="modal"
+                                                data-target="#deactivate-property"><i
+                                                    class="zmdi zmdi-block"></i>Delete</button>
+                                        </td>
+
+                                        <!-- Modals -->
+                                        <!-- objector modal -->
+
+
+                                        <!-- objection modal -->
+                                        <div class="modal fade" id="objection-details{{ $key + 1 }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">
+                                                            LR No: {{ $Objection->property->lr_no }} objection
+                                                            details
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <h6><strong>Serial No.</strong></h6>
+                                                        <p>{{ $Objection->property->serial_no }}</p>
+                                                        <hr>
+
+                                                        <h6><strong>Location/Situation</strong></h6>
+                                                        <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                        <hr>
+
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-lg-6">
+                                                                <h6><strong>Owner</strong></h6>
+                                                                <p>{{ $Objection->property->owner }}</p>
+
+                                                                <h6><strong>P.O.Box Address</strong></h6>
+                                                                <p class="mb-0">
+                                                                    {{ $Objection->property->po_box }}-{{ $Objection->property->postal_code }}
+                                                                </p>
+                                                                <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                            </div>
+                                                            <div class="col-sm-12 col-lg-6">
+                                                                <h6><strong>Objcetor</strong></h6>
+                                                                <p>{{ $Objection->objector }}</p>
+
+                                                                <h6><strong>P.O.Box Address</strong></h6>
+                                                                <p class="mb-0">
+                                                                    {{ $Objection->property->po_box }}-{{ $Objection->property->postal_code }}
+                                                                </p>
+                                                                <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+
+                                                        <h6><strong>Approximate Area in Hectares</strong></h6>
+                                                        <p>{{ $Objection->property->approx_area }}</p>
+                                                        <hr>
+
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <h6><strong>Objection Date</strong></h6>
+                                                                <p>{{ date('d-m-Y', strtotime($Objection->objection_date)) }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+
+                                                        <h6><strong>Objections</strong></h6>
+                                                        <ul>
+                                                            @foreach ($Objection->reasons as $key => $reason)
+                                                                <li>{{ $reason->description }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                        <hr>
+
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <h6 class="text-left"><strong>Unimproved Site
+                                                                        Value(USV)</strong></h6>
+                                                                <h3 class="text-left">KES
+                                                                    {{ number_format($Objection->property->usv) }} </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success btn-secondary"
+                                                            data-dismiss="modal">OK</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modals -->
+
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -339,4 +325,14 @@
 
 @endsection
 @section('scripts')
+<script>
+    function printObjection(SerialNo) {
+        // alert(LRNo1);
+        let url =
+            "singleobjection/:LRNo";
+        url = url.replace(':LRNo', SerialNo);
+        document.location.href = url;
+    }
+
+</script>
 @endsection

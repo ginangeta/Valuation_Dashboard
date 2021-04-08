@@ -57,7 +57,7 @@
                                             </p>
                                         </td>
                                         <td>{{ $property->approx_area }}</td>
-                                        <td>{{ $property->usv }}</td>
+                                        <td>KES {{ number_format($property->usv) }}</td>
                                         <td>{{ $property->land_use }}</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
@@ -112,7 +112,7 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <h6><strong>Date Registered</strong></h6>
-                                                            <p>{{ $property->created }}</p>
+                                                            <p>{{ date('d-m-Y', strtotime($property->created)) }}</p>
                                                         </div>
                                                     </div>
                                                     <hr>
@@ -129,7 +129,7 @@
                                                         <div class="col-6">
                                                             <h6 class="text-left"><strong>Unimproved Site
                                                                     Value(USV)</strong></h6>
-                                                            <h3 class="text-left">{{ $property->usv }} </h3>
+                                                            <h3 class="text-left">KES {{ number_format($property->usv)) }} </h3>
                                                         </div>
                                                     </div>
                                                 </div>
