@@ -30,7 +30,7 @@
                                     <th>Objection No.</th>
                                     <th>Transaction Date.</th>
                                     <th>Transacted By</th>
-                                    <th>Phone No.</th>
+                                    <th class="d-none">Phone No.</th>
                                     <th>Amount</th>
                                     <th>Actions</th>
                                 </tr>
@@ -43,15 +43,15 @@
                                     <td>OBJ-2021-20856/19</td>
                                     <td>{{$payment->created_at}}</td>
                                     <td class="w60">
-                                        <a href="#" data-toggle="modal" data-target="#objector-details">Nigel Adema</a>
+                                        <a href="#" data-toggle="modal">NCCG Valuation Portal</a>
                                     </td>
-                                    <td><a href="tel:=254 700 112 233">+254 700 112 233</a></td>
+                                    <td class="d-none"><a href="tel:=254 700 112 233">+254 700 112 233</a></td>
                                     <td class="text-capitalize">KES {{$payment->total}}</td>
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm btn--icon-text"><i
                                                 class="zmdi zmdi-print"></i>Print</a>
                                         &nbsp;
-                                        <a href="#" data-toggle="modal" data-target="#objection-details"
+                                        <a href="#" data-toggle="modal"
                                             class="btn btn-primary btn-sm btn--icon-text"><i class="zmdi zmdi-eye"></i>View
                                             details</a>
                                     </td>
