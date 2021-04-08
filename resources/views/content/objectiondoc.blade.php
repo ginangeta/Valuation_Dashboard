@@ -116,7 +116,7 @@
                         <p style="margin: 0;">Serial No.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->serial_no}}</h5>
+                            {{$ObjectionDetails->property->serial_no}}</h5>
                     </div>
                     <!-- Name -->
                     <div style="padding: 0.02in; border: 1px solid black; font-size: 16px; text-align: left; padding-left: 0.1in; 
@@ -124,7 +124,7 @@
                         <p style="margin: 0;">Name of owner.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->owner}}</h5>
+                            {{$ObjectionDetails->property->owner}}</h5>
                     </div>
                 </div>
                 <div style="margin-top: 0.2in; display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
@@ -134,7 +134,7 @@
                         <p style="margin: 0;">L. R. No.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->lr_no}}
+                            {{$ObjectionDetails->property->lr_no}}
                         </h5>
                     </div>
 
@@ -144,7 +144,7 @@
                         <p style="margin: 0;">Situation.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->situation}}
+                            {{$ObjectionDetails->property->situation}}
                         </h5>
                     </div>
 
@@ -154,7 +154,7 @@
                         <p style="margin: 0;">Unimproved Site Value(KES).</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{number_format($ObjectionDetails->usv)}}
+                            {{number_format($ObjectionDetails->property->usv)}}
                         </h5>
                     </div>
 
@@ -198,7 +198,7 @@
                             <span style="color: black; text-transform: capitalize;">Signature
                                 of objector</span>
                             <span
-                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{$ObjectionDetails->owner}}
+                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{$ObjectionDetails->property->owner}}
                             </span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
@@ -222,7 +222,7 @@
                                 style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">{{date('d', strtotime($ObjectionDetails->objection_date))}}</span>
                             <span style="color: black; text-transform: capitalize;">day of</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{date('MMM', strtotime($ObjectionDetails->objection_date));}}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{date('M', strtotime($ObjectionDetails->objection_date))}}</span>
                             <span style="color: black; text-transform: capitalize;">telephone no</span>
                             <span
                                 style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">{{$ObjectionDetails->phone}}</span>

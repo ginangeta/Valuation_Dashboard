@@ -21,12 +21,12 @@ class ReportsController extends Controller
 
         if(is_null($created))
         {
-            return redirect()->route('AllObjections')->with('errors', 'An error occured.');
+            return redirect()->route('getAllObjections')->with('errors', 'An error occured.');
         }
 
         if($created->success == false)
         {
-            return redirect()->route('AllObjections')->with('errors', 'Obtaining properties');
+            return redirect()->route('getAllObjections')->with('errors', 'Obtaining properties');
         }
 
         return view('content/objections', ['Objections' => $created->data]);

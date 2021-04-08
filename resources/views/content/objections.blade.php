@@ -52,10 +52,10 @@
                                         <td>KES {{ number_format($Objection->property->usv) }}</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                                data-toggle="modal"
-                                                data-target="#objection-details{{ $key + 1 }}"><i
+                                                data-toggle="modal" data-target="#objection-details{{ $key + 1 }}"><i
                                                     class="zmdi zmdi-eye"></i>Details</button>
-                                            <a onclick="printObjection(String({{ $Objection->property->lr_no }}))" class="btn btn-success btn-sm btn--icon-text"><i
+                                            <a onclick="printObjection(String({{ $Objection->property->serial_no }}))"
+                                                class="btn btn-success btn-sm btn--icon-text"><i
                                                     class="zmdi zmdi-print"></i>Print</a>
                                             <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
                                                 data-toggle="modal" data-target="#edit-car-booking"><i
@@ -71,9 +71,8 @@
 
 
                                         <!-- objection modal -->
-                                        <div class="modal fade" id="objection-details{{ $key + 1 }}"
-                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
+                                        <div class="modal fade" id="objection-details{{ $key + 1 }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -325,14 +324,14 @@
 
 @endsection
 @section('scripts')
-<script>
-    function printObjection(SerialNo) {
-        // alert(SerialNo);
-        let url =
-            "singleobjection/:LRNo";
-        url = url.replace(':LRNo', SerialNo);
-        document.location.href = url;
-    }
+    <script>
+        function printObjection(SerialNo) {
+            // alert(SerialNo);
+            let url =
+                "singleobjection/:LRNo";
+            url = url.replace(':LRNo', SerialNo + '.0');
+            document.location.href = url;
+        }
 
-</script>
+    </script>
 @endsection
