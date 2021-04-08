@@ -48,6 +48,6 @@ Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getA
 Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
 
 
-Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
+// Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
 
 

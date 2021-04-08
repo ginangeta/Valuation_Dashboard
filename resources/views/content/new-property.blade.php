@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <div class="form-body">
                         <div class="slider-container1 wow animated slideInLeft">
-                            <form id="submit-property-file" action="{{ route('uploadRoll') }}" method="POST" class="">
+                            <form id="submit-property-file" class="">
                                 @csrf
                                 @if (Session::has('success'))
                                     <p class="alert alert-success">
@@ -121,7 +121,7 @@
                 },
                 enctype: 'multipart/form-data',
                 cache: false,
-                contentType: 'false',
+                content_type='multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
                 processData: false,
 
                 success: function(data) {
@@ -136,6 +136,7 @@
                     if (response.status == 200) {
                         swal('Success!', 'File upload successful', 'error');
                         console.log('Here');
+                        window.location.reload(false); 
 
                     } else {
                         console.log('Failed');
@@ -144,8 +145,6 @@
                     }
                 }
             });
-
-
         });
 
     </script>

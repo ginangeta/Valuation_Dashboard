@@ -364,6 +364,8 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- Vendors: Data tables -->
     <script src="{{ asset('vendors/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset('vendors/datatables-buttons/dataTables.buttons.min.js')}}"></script>

@@ -31,11 +31,14 @@ class AuthController extends Controller
 
         $created = json_decode($response->body());
 
-        // dd($created->data->token);
 
         if(is_null($created))
         {
             return redirect()->back()->with('errors', 'An error occured.');
+        }
+
+        if(is_null($created->data)){
+            return redirect()->back()->with('errors', $created->msg);
         }
 
         if($created->success = false)
