@@ -27,10 +27,11 @@ class AuthController extends Controller
 
         // dd($data);
 
-        $response = Http::withToken(Session::get('token'))->post($url,$data);
+        $response = Http::post($url,$data);
 
         $created = json_decode($response->body());
 
+        // dd($created);
 
         if(is_null($created))
         {
