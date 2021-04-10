@@ -48,7 +48,7 @@
                                         </td>
                                         <td>{{ $Objection->property->owner }}</td>
                                         <td><a href="tel:{{ $Objection->phone }}">{{ $Objection->phone }}</a></td>
-                                        <td>{{ date('d-m-Y', strtotime($Objection->objection_date)) }}</td>
+                                        <td>{{ date('d M Y h:i A', strtotime($Objection->objection_date)) }}</td>
                                         <td>KES {{ number_format($Objection->property->usv) }}</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
@@ -107,7 +107,7 @@
                                                                 <p class="mb-0">{{ $Objection->property->situation }}</p>
                                                             </div>
                                                             <div class="col-sm-12 col-lg-6">
-                                                                <h6><strong>Objcetor</strong></h6>
+                                                                <h6><strong>Objector</strong></h6>
                                                                 <p>{{ $Objection->objector }}</p>
 
                                                                 <h6><strong>P.O.Box Address</strong></h6>
@@ -126,7 +126,7 @@
                                                         <div class="row">
                                                             <div class="col-6">
                                                                 <h6><strong>Objection Date</strong></h6>
-                                                                <p>{{ date('d-m-Y', strtotime($Objection->objection_date)) }}
+                                                                <p>{{ date('d M Y h:i A', strtotime($Objection->objection_date)) }}
                                                                 </p>
                                                             </div>
                                                         </div>

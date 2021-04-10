@@ -13,17 +13,27 @@ class UploadRollController extends Controller
         // dd($request->all());
         $url = config('global.url').'uploaded_files/';
 
-        $data = [
-            'token' => Session::get('token'),
-            'file_name' => $request->upload_roll,
-        ];
+        // $data = [
+        //     'token' => Session::get('token'),
+        //     'file_name' => $request->upload_roll,
+        // ];
 
         // dd($data);
                 
-        $created = json_decode($this->to_curl($url, $data));
+        // $created = json_decode($this->to_curl($url, $data));
         // $response = Http::withToken(Session::get('token'))->post($url,$data);
+        
+        $file_name = $request->file('upload_roll')->getClientOriginalName();
 
-        dd($created);
+        $file = fopen($request->file('upload_roll'), 'r');
+
+        // dd($file);
+
+        $response = Http::withToken(Session::get('token'))->attach('file_name', $file, $file_name)->post($url);
+
+        $created = json_decode($response->body());
+
+        // dd($created);
 
         if(is_null($created))
         {

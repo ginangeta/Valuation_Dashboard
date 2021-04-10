@@ -21,7 +21,8 @@
                 <div class="card-body">
                     <div class="form-body">
                         <div class="slider-container1 wow animated slideInLeft">
-                            <form id="submit-property-file" class="">
+                            <form id="submit-property-file" action="{{ route('uploadRoll') }}"
+                                enctype="multipart/form-data" method="POST">
                                 @csrf
                                 @if (Session::has('success'))
                                     <p class="alert alert-success">
@@ -94,58 +95,58 @@
 @endsection
 @section('scripts')
     <script type="text/javascript">
-        $('.btn-upload-roll').on('click', function(e) {
-            e.preventDefault();
+        // $('.btn-upload-roll').on('click', function(e) {
+        //     e.preventDefault();
 
-            var file = $('#upload_roll').val();
-            // var formData = new FormData($('#upload_roll'));
+        //     var file = $('#upload_roll').val();
+        //     // var formData = new FormData($('#upload_roll'));
 
-            var fd = new FormData();
-            var files = $('#upload_roll');
+        //     var fd = new FormData();
+        //     var files = $('#upload_roll');
 
-            var form_data = new FormData();
-            form_data.append("file", files);
+        //     var form_data = new FormData();
+        //     form_data.append("file", files);
 
-            console.log(fd);
-            console.log('{{ $session }}');
+        //     console.log(fd);
+        //     console.log('{{ $session }}');
 
-            $.ajax({
-                url: "{{ config('global.url') }}" + 'uploaded_files/',
-                type: "POST",
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    'Authorization': 'JWT {{ $session }}'
-                },
-                data: {
-                    file_name: form_data,
-                },
-                enctype: 'multipart/form-data',
-                cache: false,
-                content_type='multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
-                processData: false,
+        //     $.ajax({
+        //         url: "{{ config('global.url') }}" + 'uploaded_files/',
+        //         type: "POST",
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        //             'Authorization': 'JWT {{ $session }}'
+        //         },
+        //         data: {
+        //             file_name: form_data,
+        //         },
+        //         enctype: 'multipart/form-data',
+        //         cache: false,
+        //         content_type='multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
+        //         processData: false,
 
-                success: function(data) {
-                    console.log("Upload Response: " + response);
+        //         success: function(data) {
+        //             console.log("Upload Response: " + response);
 
-                    if (response == "") {
-                        swal('Error!', 'File did not upload successfully', 'error');
-                        console.log('Nothing');
-                        return;
-                    }
+        //             if (response == "") {
+        //                 swal('Error!', 'File did not upload successfully', 'error');
+        //                 console.log('Nothing');
+        //                 return;
+        //             }
 
-                    if (response.status == 200) {
-                        swal('Success!', 'File upload successful', 'error');
-                        console.log('Here');
-                        window.location.reload(false); 
+        //             if (response.status == 200) {
+        //                 swal('Success!', 'File upload successful', 'error');
+        //                 console.log('Here');
+        //                 window.location.reload(false); 
 
-                    } else {
-                        console.log('Failed');
-                        swal('Error!', data.message, 'error');
-                        return;
-                    }
-                }
-            });
-        });
+        //             } else {
+        //                 console.log('Failed');
+        //                 swal('Error!', data.message, 'error');
+        //                 return;
+        //             }
+        //         }
+        //     });
+        // });
 
     </script>
 @endsection

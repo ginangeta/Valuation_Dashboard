@@ -49,6 +49,6 @@ Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPa
 Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 
 
-// Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
+Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
 
 

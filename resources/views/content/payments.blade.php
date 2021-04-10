@@ -41,7 +41,7 @@
                                     <td>{{$payment->bill_no}}</td>
                                     <td>PCP{{$payment->bill_no}}</td>
                                     <td>OBJ-2021-20856/19</td>
-                                    <td>{{$payment->created_at}}</td>
+                                    <td>{{date('d M Y h:i A', strtotime($payment->created_at))}}</td>
                                     <td class="w60">
                                         <a href="#" data-toggle="modal">NCCG Valuation Portal</a>
                                     </td>
