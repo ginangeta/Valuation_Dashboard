@@ -53,5 +53,7 @@ Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll'
 
 //Users
 Route::post('createUser', 'UsersController@createUser' )->name('createUser');
+Route::get('getactiveUsers', 'UsersController@getactiveUsers')->name('getactiveUsers');
+
 
 

@@ -61,7 +61,7 @@
 <!-- Mirrored from byrushan.com/projects/material-admin/app/2.6/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jul 2019 11:34:03 GMT -->
 
 <head>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>

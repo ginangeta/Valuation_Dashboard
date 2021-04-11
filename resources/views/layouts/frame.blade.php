@@ -6,7 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <title>NCCG - Online Valuation Roll Dashboard</title>
     <link rel='icon' href='demo/img/icon_3.png' type='image/x-icon' />
 
@@ -263,7 +264,7 @@
                         <ul>
                             <li><a href="{{ route('newUser') }}"><i class="mdi mdi-account-plus mr-2"></i>New user</a>
                             </li>
-                            <li><a href="{{ route('activeUsers') }}"><i class="zmdi zmdi-check-all mr-2"></i>Active
+                            <li><a href="{{ route('getactiveUsers') }}"><i class="zmdi zmdi-check-all mr-2"></i>Active
                                     users</a></li>
                             <li><a href="{{ route('blockedUsers') }}"><i class="zmdi zmdi-block mr-2"></i>Inactive
                                     users</a></li>

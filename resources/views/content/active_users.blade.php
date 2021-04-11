@@ -33,9 +33,9 @@
                                         <th></th>
                                         <th>User's name</th>
                                         <th>Current Status</th>
+                                        <th>Email</th>
                                         <th>Last seen</th>
-                                        <th>Date created</th>
-                                        <th>Created by</th>
+                                        <th class="d-none">Created by</th>
                                         <th>Actions</th>
 
                                     </tr>
@@ -49,136 +49,46 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td class="w60">
+                                    @foreach ($activeUsers as $key => $activeUser)
 
-                                            <a title="" href="user-profile.html">
-                                                <div class="avatar-char">SO</div>
-                                            </a>
-                                        </td>
-                                        <td class="the_user">
-                                            <p class="mb-0"><a href="user-profile.html"><strong>Scott
-                                                        Ortega</strong></a></p>
-                                            <a href="tel:070235689" title="">070235689</a>
-                                        </td>
-                                        <td><span class="listview__item chat__available">Online (2hrs)</span></td>
-                                        <td>
-                                            <span>22 May 2020 10:02</span>
-                                        </td>
-                                        <td><span>25 Jul 2019 12:56</span></td>
-                                        <td>Ms Mafuko</td>
-                                        <td>
-                                            <span class="icon_pencil-edit icon mr-3" title="Edit  details"></span>
-                                            <button class="btn btn-danger btn--icon-text ml-2 deactivate-user"
-                                                title="deactvate this account" data-toggle="modal"
-                                                data-target="#deactivate-user"><i class="zmdi zmdi-block"></i> Block
-                                                Account</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
+                                        <tr>
+                                            <td class="w60">
 
-                                            <a title="" href="user-profile.html">
-                                                <div class="avatar-char">SO</div>
-                                            </a>
-                                        </td>
-                                        <td class="the_user">
-                                            <p class="mb-0"><a href="user-profile.html"><strong>Scott
-                                                        Ortega</strong></a></p>
-                                            <a href="tel:070235689" title="">070235689</a>
-                                        </td>
-                                        <td><span class="listview__item chat__available">Online (2hrs)</span></td>
-                                        <td>
-                                            <span>22 May 2020 10:02</span>
-                                        </td>
-                                        <td><span>25 Jul 2019 12:56</span></td>
-                                        <td>Ms Mafuko</td>
-                                        <td>
-                                            <span class="icon_pencil-edit icon mr-3" title="Edit  details"></span>
-                                            <button class="btn btn-danger btn--icon-text ml-2 deactivate-user"
-                                                title="deactvate this account" data-toggle="modal"
-                                                data-target="#deactivate-user"><i class="zmdi zmdi-block"></i> Block
-                                                Account</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
-
-                                            <a title="" href="user-profile.html">
-                                                <div class="avatar-char">SO</div>
-                                            </a>
-                                        </td>
-                                        <td class="the_user">
-                                            <p class="mb-0"><a href="user-profile.html"><strong>Scott
-                                                        Ortega</strong></a></p>
-                                            <a href="tel:070235689" title="">070235689</a>
-                                        </td>
-                                        <td><span class="listview__item chat__available">Online (2hrs)</span></td>
-                                        <td>
-                                            <span>22 May 2020 10:02</span>
-                                        </td>
-                                        <td><span>25 Jul 2019 12:56</span></td>
-                                        <td>Ms Mafuko</td>
-                                        <td>
-                                            <span class="icon_pencil-edit icon mr-3" title="Edit  details"></span>
-                                            <button class="btn btn-danger btn--icon-text ml-2 deactivate-user"
-                                                title="deactvate this account" data-toggle="modal"
-                                                data-target="#deactivate-user"><i class="zmdi zmdi-block"></i> Block
-                                                Account</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
-
-                                            <a title="" href="user-profile.html">
-                                                <div class="avatar-char">SO</div>
-                                            </a>
-                                        </td>
-                                        <td class="the_user">
-                                            <p class="mb-0"><a href="user-profile.html"><strong>Scott
-                                                        Ortega</strong></a></p>
-                                            <a href="tel:070235689" title="">070235689</a>
-                                        </td>
-                                        <td><span class="listview__item chat__busy">Offline (2.5hrs)</span></td>
-                                        <td>
-                                            <span>22 May 2020 10:02</span>
-                                        </td>
-                                        <td><span>25 Jul 2019 12:56</span></td>
-                                        <td>Ms Mafuko</td>
-                                        <td>
-                                            <span class="icon_pencil-edit icon mr-3" title="Edit  details"></span>
-                                            <button class="btn btn-danger btn--icon-text ml-2 deactivate-user"
-                                                title="deactvate this account" data-toggle="modal"
-                                                data-target="#deactivate-user"><i class="zmdi zmdi-block"></i> Block
-                                                Account</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w60">
-
-                                            <a title="" href="user-profile.html">
-                                                <div class="avatar-char">SO</div>
-                                            </a>
-                                        </td>
-                                        <td class="the_user">
-                                            <p class="mb-0"><a href="user-profile.html"><strong>Scott
-                                                        Ortega</strong></a></p>
-                                            <a href="tel:070235689" title="">070235689</a>
-                                        </td>
-                                        <td><span class="listview__item chat__available">Online (2hrs)</span></td>
-                                        <td>
-                                            <span>22 May 2020 10:02</span>
-                                        </td>
-                                        <td><span>25 Jul 2019 12:56</span></td>
-                                        <td>Ms Mafuko</td>
-                                        <td>
-                                            <span class="icon_pencil-edit icon mr-3" title="Edit  details"></span>
-                                            <button class="btn btn-danger btn--icon-text ml-2 deactivate-user"
-                                                title="deactvate this account" data-toggle="modal"
-                                                data-target="#deactivate-user"><i class="zmdi zmdi-block"></i> Block
-                                                Account</button>
-                                        </td>
-                                    </tr>
+                                                <a title="" href="user-profile.html">
+                                                    <div class="avatar-char">
+                                                        {{ $activeUser->first_name[0] }}{{ $activeUser->last_name[0] }}
+                                                    </div>
+                                                </a>
+                                            </td>
+                                            <td class="the_user">
+                                                <p class="mb-0"><a><strong>{{ $activeUser->first_name }}
+                                                            {{ $activeUser->last_name }}</strong></a></p>
+                                                <a href="tel:{{ $activeUser->phone }}" title="">{{ $activeUser->phone }}</a>
+                                            </td>
+                                            <td>
+                                                @if ($activeUser->online)
+                                                <span class="listview__item chat__available">Online</span>
+                                                @endif
+                                                @if (!$activeUser->online)
+                                                <span class="listview__item chat__busy">Offline</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="mailto:{{ $activeUser->email }}" title="Click to send email">{{ $activeUser->email }}</a>
+                                            </td>
+                                            <td>
+                                                <span>{{ date('d M Y h:i A', strtotime($activeUser->last_login))}}</span>
+                                            </td>
+                                            <td class="d-none">Ms Mafuko</td>
+                                            <td>
+                                                <span class="icon_pencil-edit icon mr-3" title="Edit  details"></span>
+                                                <button class="btn btn-danger btn--icon-text ml-2 deactivate-user"
+                                                    title="deactvate this account" data-toggle="modal"
+                                                    data-target="#deactivate-user"><i class="zmdi zmdi-block"></i> Block
+                                                    Account</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

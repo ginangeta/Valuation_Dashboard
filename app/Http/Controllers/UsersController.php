@@ -46,4 +46,28 @@ class UsersController extends Controller
 
         // dd(Session::all());
     }
+
+    public function getactiveUsers(Request $request){
+        $url = config('global.url').'client_logs/';
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('activeUsers')->with('errors', 'An error occured.');
+        }
+
+        if(!$created->success)
+        {
+            return redirect()->route('activeUsers')->with('errors', 'Obtaining properties');
+        }
+
+        return view('content/active_users', ['activeUsers' => $created->data]);
+        // return view('usv')->with($lr_no);
+    }
 }

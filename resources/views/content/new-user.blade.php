@@ -124,6 +124,11 @@
 
                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                             <div class="checkbox">
+                                                <input type="checkbox" name="roles[]" id="customCheck7" checked>
+                                                <label class="checkbox__label" for="customCheck7">Admin</label>
+                                            </div>
+
+                                            <div class="checkbox">
                                                 <input type="checkbox" id="customCheck1">
                                                 <label class="checkbox__label" for="customCheck1">Payment Movements</label>
                                             </div>
