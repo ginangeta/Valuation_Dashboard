@@ -29,6 +29,7 @@
                                     <th>Situation</th>
                                     <th>Owner</th>
                                     <th>Phone</th>
+                                    <th>Documents</th>
                                     <th>Objection Date</th>
                                     <th>USV</th>
                                     <th>Actions</th>
@@ -48,6 +49,9 @@
                                         </td>
                                         <td>{{ $Objection->property->owner }}</td>
                                         <td><a href="tel:{{ $Objection->phone }}">{{ $Objection->phone }}</a></td>
+                                        <td><a href="#" data-toggle="modal"
+                                                data-target="#objection-documents{{ $key + 1 }}">{{ count($Objection->documents) }}
+                                                Documents</a></td>
                                         <td>{{ date('d M Y h:i A', strtotime($Objection->objection_date)) }}</td>
                                         <td>KES {{ number_format($Objection->property->usv) }}</td>
                                         <td>
@@ -67,7 +71,47 @@
                                         </td>
 
                                         <!-- Modals -->
-                                        <!-- objector modal -->
+                                        <!-- objector documents -->
+                                        <div class="modal fade" id="objection-documents{{ $key + 1 }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">
+                                                            LR No: {{ $Objection->property->lr_no }} objection
+                                                            documents
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        @if (count($Objection->documents) > 0)
+                                                            <h6><strong>Click to download</strong></h6>
+                                                            <ul style="padding-left: 20px;">
+
+                                                                @foreach ($Objection->documents as $key => $document)
+                                                                    <li>
+                                                                        <a href="{{ $document->file_name }}"
+                                                                            download>{{ $document->file_name }}</a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif
+                                                        @if (count($Objection->documents) == 0)
+                                                            <h5>No Documents</h5>
+                                                        @endif
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success btn-secondary"
+                                                            data-dismiss="modal">OK</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
                                         <!-- objection modal -->
@@ -330,7 +374,8 @@
             let url =
                 "singleobjection/:LRNo";
             url = url.replace(':LRNo', SerialNo + '.0');
-            document.location.href = url;
+            // document.location.href = url;
+            window.open(url);
         }
 
     </script>

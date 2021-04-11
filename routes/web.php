@@ -48,7 +48,10 @@ Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getA
 Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
 Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 
-
+//Roll
 Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
+
+//Users
+Route::post('createUser', 'UsersController@createUser' )->name('createUser');
 
 
