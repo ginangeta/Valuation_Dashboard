@@ -19,8 +19,6 @@ Route::get('/', function () {
 
 Route::get('/', 'PagesController@home')->name('home');
 
-Route::get('dashboard', 'SiteController@dashboard')->name('dashboard');
-
 // Authentication
 Route::get('forgot-password', 'AuthController@forgotPassword')->name('forgot-password');
 Route::post('authenticate', 'AuthController@authenticate')->name('authenticate');
@@ -30,30 +28,33 @@ Route::get('change-password', 'AuthController@changePassword')->name('password.c
 Route::post('password-reset', 'AuthController@resetPassword')->name('password.reset');
 Route::get('logout', 'AuthController@logout')->name('logout');
 
-//Pages
-Route::get('AddProperty', 'SiteController@addProperty')->name('AddProperty');
-Route::get('AllProperty', 'SiteController@allProperty')->name('AllProperty');
-Route::get('AllObjections', 'SiteController@allObjection')->name('AllObjections');
-Route::get('AllPayments', 'SiteController@allPayments')->name('AllPayments');
+Route::group(['middleware' => ['active']], function () {
+    //Pages
+    Route::get('dashboard', 'SiteController@dashboard')->name('dashboard');
+    Route::get('AddProperty', 'SiteController@addProperty')->name('AddProperty');
+    Route::get('AllProperty', 'SiteController@allProperty')->name('AllProperty');
+    Route::get('AllObjections', 'SiteController@allObjection')->name('AllObjections');
+    Route::get('AllPayments', 'SiteController@allPayments')->name('AllPayments');
 
-Route::get('systemUsage', 'SiteController@systemUsage')->name('systemUsage');
-Route::get('newUser', 'SiteController@newUser')->name('newUser');
-Route::get('activeUsers', 'SiteController@activeUsers')->name('activeUsers');
-Route::get('blockedUsers', 'SiteController@blockedUsers')->name('blockedUsers');
-Route::get('userManage', 'SiteController@userManage')->name('userManage');
+    Route::get('systemUsage', 'SiteController@systemUsage')->name('systemUsage');
+    Route::get('newUser', 'SiteController@newUser')->name('newUser');
+    Route::get('activeUsers', 'SiteController@activeUsers')->name('activeUsers');
+    Route::get('blockedUsers', 'SiteController@blockedUsers')->name('blockedUsers');
+    Route::get('userManage', 'SiteController@userManage')->name('userManage');
 
-//Reports
-Route::get('getAllObjections', 'ReportsController@getAllObjections')->name('getAllObjections');
-Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
-Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
-Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
+    //Reports
+    Route::get('getAllObjections', 'ReportsController@getAllObjections')->name('getAllObjections');
+    Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
+    Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
+    Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 
-//Roll
-Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
+    //Roll
+    Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');
 
-//Users
-Route::post('createUser', 'UsersController@createUser' )->name('createUser');
-Route::get('getactiveUsers', 'UsersController@getactiveUsers')->name('getactiveUsers');
+    //Users
+    Route::post('createUser', 'UsersController@createUser' )->name('createUser');
+    Route::get('getactiveUsers', 'UsersController@getactiveUsers')->name('getactiveUsers');
 
+});
 
 

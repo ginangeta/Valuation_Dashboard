@@ -21,8 +21,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        // \JulioMotol\AuthTimeout\Middleware\AuthTimeoutMiddleware::class,
-    ];
+        // \App\Http\Middleware\Authenticate::class// add this line according to your namespace
+        ];
 
     /**
      * The application's route middleware groups.
@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'active' => \App\Http\Middleware\UserSession::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
