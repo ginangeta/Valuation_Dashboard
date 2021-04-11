@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>NCCG Draft Valuation </title>
+    <title>NCCG - Online Valuation Roll Dashboard</title>
     <link rel='icon' href='demo/img/icon_3.png' type='image/x-icon' />
 
 
@@ -206,7 +206,7 @@
             <div class="header__logo sidebar_logo">
                 <h1 style="margin-left: 30px;">
                     <a class="text-white">Nairobi City Council</a>
-                    <p class="text-white">NCCG Draft Valuation Dashboard</p>
+                    <p class="text-white">NCCG Online Valuation Roll Dashboard</p>
                 </h1>
             </div>
             <div class="scrollbar-inner">
