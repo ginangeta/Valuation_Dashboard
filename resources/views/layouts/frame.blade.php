@@ -223,8 +223,8 @@
                     </div>
 
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">View Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item d-none" href="#">View Profile</a>
+                        <a class="dropdown-item d-none" href="#">Settings</a>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
                 </div>

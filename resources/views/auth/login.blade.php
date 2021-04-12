@@ -112,7 +112,7 @@
                         </div>
                     </form>
 
-                    <p class="text-center mt-4"> Powered by <strong><a href="https://nouveta.tech/" target="new">Nouveta
+                    <p class="text-center mt-4 d-none"> Powered by <strong><a href="https://nouveta.tech/" target="new">Nouveta
                                 LTD</a></strong></p>
 
                 </div>

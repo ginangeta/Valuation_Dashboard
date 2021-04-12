@@ -149,7 +149,7 @@
             </div>
         </div>
 
-        <footer class="footer hidden-xs-down">
+        <footer class="footer hidden-xs-down d-none">
             <p>Powered by</p>
             <center>
                 <a class="nouveta-logoo" href="https://nouveta.tech/">
