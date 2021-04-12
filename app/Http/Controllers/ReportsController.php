@@ -66,8 +66,7 @@ class ReportsController extends Controller
 
         $created  = json_decode($response->body());
 
-        dd(Session::get('token'));
-
+        // dd(Session::get('token'));
 
         if(is_null($created))
         {
