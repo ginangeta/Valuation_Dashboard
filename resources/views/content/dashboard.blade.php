@@ -17,7 +17,7 @@
             <h3>Important statistics</h3>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-6">
-            <a href="institutions.html" class="card light-card calc-34">
+            <a class="card light-card calc-34">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="icon-in-bg bg-warning text-white rounded-circle">
@@ -33,7 +33,7 @@
             </a>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-6">
-            <a href="objections.html" class="card light-card calc-34">
+            <a class="card light-card calc-34">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="icon-in-bg bg-warning text-white rounded-circle">
@@ -48,7 +48,7 @@
             </a>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-6">
-            <a href="payments.html" class="card calc-34">
+            <a class="card calc-34">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="icon-in-bg text-white rounded-circle bg-info text-uppercase">
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <a class="card" href="total_invoices.html">
+            <a class="card">
                 <div class="card-body" style="background-color: #346f45;">
                     <div class="d-flex align-items-center">
                         <div class="w-100">
