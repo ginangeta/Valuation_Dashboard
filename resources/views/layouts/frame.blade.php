@@ -254,7 +254,7 @@
                         </ul>
                     </li>
 
-                    <li class="navigation__active"><a href="{{ route('systemUsage') }}"><i
+                    <li class="navigation__active d-none"><a href="{{ route('systemUsage') }}"><i
                                 class="mdi mdi-chart-arc"></i>System
                             Usage</a></li>
 

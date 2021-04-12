@@ -26,7 +26,7 @@
                         <div class="ml-4">
                             <span class="font-12">Properties<strong
                                     class="today-full d-none"></strong></span>
-                            <h4 class="mt-1 mb-0 font-weight-bold">156,711</h4>
+                            <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->property_count) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="ml-4">
                             <span class="font-12">Objections</span>
-                            <h4 class="mt-1 mb-0 font-weight-bold">10</h4>
+                            <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->objections_count) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="ml-4">
                             <span class="font-12">Payments</span>
-                            <h4 class="mt-1 mb-0 font-weight-bold">10</h4>
+                            <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->payment_count) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                         class="week-full d-none"></strong></span>
                             </p>
                             <p class="text-right invoice-header">
-                                <span class="mt-1 mb-0 font-weight-bold text-white">KES 5,000</span>
+                                <span class="mt-1 mb-0 font-weight-bold text-white">KES {{ number_format($DashboardData->total_collection) }}</span>
                             </p>
                         </div>
                     </div>
@@ -99,18 +99,6 @@
                         <div class="col-auto">
                             <!-- Tabs -->
                             <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-                                <!-- <li class="nav-item">
-                                    <a href="#" title="Show all transactions" class="nav-link active allproperties"
-                                        data-toggle="tab">
-                                        All Properties
-                                    </a>
-                                </li> -->
-                                <!-- <li class="nav-item">
-                                    <a href="#" title="Show money received" class="nav-link properties"
-                                        data-toggle="tab">
-                                        Properties Breakdown
-                                    </a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -119,7 +107,6 @@
                 <div class="card-body">
                     <!-- Chart -->
                     <div class="chart">
-                        <!-- <div id="loanBreakdown" class="highChartStyles d-none animated fade-in-up" style="height: 100%; "></div> -->
                         <div id="all-objections" class="highChartStyles animated fade-in-up" style="height: 100%; ">
                         </div>
                     </div>

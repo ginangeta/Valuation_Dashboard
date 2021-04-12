@@ -117,122 +117,48 @@ Highcharts.chart('all-objections', {
         colorByPoint: false,
 		color: '#346f45', // green
         data: [{
-                name: "1st",
-                y: 2000000,
-                drilldown: "january"
-            },
-            {
-                name: "2nd",
-                y: 300000,
-                drilldown: "february"
-            },
-            {
-                name: "3rd",
-                y: 2536000,
-                drilldown: "march"
-            },
-            {
                 name: "4th",
-                y: 3258023,
-                drilldown: "april"
+                y: 500,
+                drilldown: "4th"
             },
             {
                 name: "5th",
-                y: 1956895,
-                drilldown: "june"
+                y: 0,
+                drilldown: "5th"
             },
             {
                 name: "6th",
-                y: 2356987,
-                drilldown: "july"
+                y: 0,
+                drilldown: "6th"
             },
             {
                 name: "7th",
-                y: 2758956,
-                drilldown: "august"
+                y: 500,
+                drilldown: "7th"
             },
             {
                 name: "8th",
-                y: 3569263,
-                drilldown: "september"
+                y: 500,
+                drilldown: "8th"
             },
             {
                 name: "9th",
-                y: 2658956,
-                drilldown: "october"
+                y: 500,
+                drilldown: "9th"
             },
             {
                 name: "10th",
-                y: 3258596,
-                drilldown: "november"
+                y: 2500,
+                drilldown: "10th"
             },
             {
                 name: "11th",
-                y: 3256968,
-                drilldown: "dec"
+                y: 500,
+                drilldown: "11th"
             },            {
                 name: "12th",
-                y: 300000,
-                drilldown: "february"
-            },
-            {
-                name: "13th",
-                y: 2536000,
-                drilldown: "march"
-            },
-            {
-                name: "14th",
-                y: 3258023,
-                drilldown: "april"
-            },
-            {
-                name: "15th",
-                y: 2225895,
-                drilldown: "may"
-            },
-            {
-                name: "16th",
-                y: 1956895,
-                drilldown: "june"
-            },
-            {
-                name: "17th",
-                y: 2356987,
-                drilldown: "july"
-            },
-            {
-                name: "18th",
-                y: 2758956,
-                drilldown: "august"
-            },
-            {
-                name: "19th",
-                y: 3569263,
-                drilldown: "september"
-            },
-            {
-                name: "20th",
-                y: 2658956,
-                drilldown: "october"
-            },
-            {
-                name: "21st",
-                y: 3258596,
-                drilldown: "november"
-            },
-            {
-                name: "22nd",
-                y: 3256968,
-                drilldown: "dec"
-            },            {
-                name: "23rd",
-                y: 2658956,
-                drilldown: "november"
-            },
-            {
-                name: "24th",
-                y: 3256968,
-                drilldown: "dec"
+                y: 1000,
+                drilldown: "12th"
             }
         ]
     }],

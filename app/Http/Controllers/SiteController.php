@@ -10,8 +10,26 @@ class SiteController extends Controller
 {
     public function dashboard()
     {
-        return view('content/dashboard');
-    }
+        $dashUrl = config('global.url').'/dashboard_info';
+
+        $dashResponse = Http::withToken(Session::get('token'))->get($dashUrl);
+
+        $dashCreated  = json_decode($dashResponse->body());
+
+        if(is_null($dashCreated))
+        {
+            return redirect()->back()->with('errors', 'Failed to get dashboard data.');
+        }
+
+        if(!$dashCreated->success)
+        {
+            return redirect()->back()->with('errors', 'Obtaining properties');
+        }
+
+        // dd($dashCreated);
+        
+        return view('content/dashboard', [
+            'DashboardData' => $dashCreated->data]);    }
 
     public function addProperty()
     {

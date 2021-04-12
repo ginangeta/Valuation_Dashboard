@@ -56,12 +56,26 @@ class AuthController extends Controller
 
         Session::put('token', $created->data->token);
 
-        return redirect()->route('dashboard');
-        
-        // dd($created->data->token);
-    
+        $dashUrl = config('global.url').'/dashboard_info';
 
-        // dd(Session::all());
+        $dashResponse = Http::withToken(Session::get('token'))->get($dashUrl);
+
+        $dashCreated  = json_decode($dashResponse->body());
+
+        if(is_null($dashCreated))
+        {
+            return redirect()->back()->with('errors', 'Failed to get dashboard data.');
+        }
+
+        if(!$dashCreated->success)
+        {
+            return redirect()->back()->with('errors', 'Obtaining properties');
+        }
+
+        // dd($dashCreated);
+        
+        return view('content/dashboard', [
+            'DashboardData' => $dashCreated->data]);
     }
 
     public function registration(Request $request){
