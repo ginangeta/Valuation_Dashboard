@@ -54,7 +54,7 @@ class AuthController extends Controller
         
         Session::put('user', $created->data);
 
-        dd($created->data);
+        // dd($created->data);
 
         Session::put('token', $created->data->token);
         
