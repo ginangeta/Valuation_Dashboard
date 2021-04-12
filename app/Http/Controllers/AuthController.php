@@ -74,8 +74,7 @@ class AuthController extends Controller
 
         // dd($dashCreated);
         
-        return view('content/dashboard', [
-            'DashboardData' => $dashCreated->data]);
+        return redirect()->route('dashboard');
     }
 
     public function registration(Request $request){
