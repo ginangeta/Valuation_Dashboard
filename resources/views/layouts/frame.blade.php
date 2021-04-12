@@ -66,11 +66,12 @@
 
             <div class="header__logo hidden-sm-down">
                 <h1>
-                    <a href="index.html"><img class="img-fluid" src="demo/img/logo-files/nairobi-county2.png"></a>
+                    <a href="index.html"><img class="img-fluid" src="https://test.nairobicitycounty.ke/"></a>
                 </h1>
             </div>
 
             <form class="search">
+                @csrf
                 <div class="search__inner">
                     <input type="text" class="search__text" placeholder="Search through the dashboard">
                     <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
@@ -255,8 +256,7 @@
                     </li>
 
                     <li class="navigation__active d-none"><a href="{{ route('systemUsage') }}"><i
-                                class="mdi mdi-chart-arc"></i>System
-                            Usage</a></li>
+                                class="mdi mdi-chart-arc"></i>System Usage</a></li>
 
                     <li class="navigation__sub">
                         <a href="#"><i class="mdi mdi-account-multiple"></i>User Accounts <i
