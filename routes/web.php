@@ -28,6 +28,7 @@ Route::get('change-password', 'AuthController@changePassword')->name('password.c
 Route::post('password-reset', 'AuthController@resetPassword')->name('password.reset');
 Route::get('logout', 'AuthController@logout')->name('logout');
 
+Route::group(['middleware' => ['active']], function () {
     //Pages
     Route::get('dashboard', 'SiteController@dashboard')->name('dashboard');
     Route::get('AddProperty', 'SiteController@addProperty')->name('AddProperty');
@@ -53,8 +54,6 @@ Route::get('logout', 'AuthController@logout')->name('logout');
     //Users
     Route::post('createUser', 'UsersController@createUser' )->name('createUser');
     Route::get('getactiveUsers', 'UsersController@getactiveUsers')->name('getactiveUsers');
-    Route::group(['middleware' => ['active']], function () {
-
 
 });
 
