@@ -16,7 +16,6 @@ class UsersController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'password' => '12345678',
             'roles' => $request->roles,
             'phone' => $request->phone,
             'identification_no' => $request->identification_no,
