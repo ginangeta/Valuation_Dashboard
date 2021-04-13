@@ -152,7 +152,7 @@
                                                             </div>
                                                             <div class="col-sm-12 col-lg-6">
                                                                 <h6><strong>Objector</strong></h6>
-                                                                <p>{{ $Objection->objector }}</p>
+                                                                <p>{{ $Objection->objector_name }}</p>
 
                                                                 <h6><strong>P.O.Box Address</strong></h6>
                                                                 <p class="mb-0">
