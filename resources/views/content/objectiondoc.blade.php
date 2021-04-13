@@ -198,7 +198,7 @@
                             <span style="color: black; text-transform: capitalize;">Signature
                                 of objector</span>
                             <span
-                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{$ObjectionDetails->property->owner}}
+                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{$ObjectionDetails->objector_name}}
                             </span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
@@ -206,7 +206,16 @@
                                 if Ratable
                                 Owner or Otherwise of objector</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 495px;">{{$ObjectionDetails->ratable_relation}}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 495px;">
+                                {{$ObjectionDetails->ratable_owner}}
+                                @csrf
+                                @if (!$ObjectionDetails->ratable_owner)
+                                NO
+                                @endif
+                                @if ($ObjectionDetails->ratable_owner)
+                                YES
+                                @endif
+                            </span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
                             <span style="color: black; text-transform: capitalize;">Full Address of
