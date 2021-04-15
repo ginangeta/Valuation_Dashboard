@@ -76,9 +76,12 @@ class ReportsController extends Controller
         if($created->count = 0)
         {
             return redirect()->route('AllPayments')->with('errors', 'Obtaining properties');
+        
         }
+       
+            // dd($created->results);
 
-        return view('content/payments', ['payments' => $created->results]);
+        return view('content/payments', ['payments' => $created->results]);    
         // return view('usv')->with($lr_no);
 
     }

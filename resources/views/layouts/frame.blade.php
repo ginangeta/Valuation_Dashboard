@@ -207,7 +207,7 @@
         <aside class="sidebar px-0 pt-0">
             <div class="header__logo sidebar_logo">
                 <h1 style="margin-left: 30px;">
-                    <a class="text-white">Nairobi City Council</a>
+                    <a class="text-white">Nairobi City County</a>
                     <p class="text-white">NCCG Online Valuation Roll Dashboard</p>
                 </h1>
             </div>

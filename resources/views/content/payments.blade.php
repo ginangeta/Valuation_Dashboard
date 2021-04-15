@@ -26,36 +26,42 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>Receipt No</th>
-                                    <th>Ref No.</th>
                                     <th>Objection No.</th>
                                     <th>Transaction Date.</th>
                                     <th>Transacted By</th>
-                                    <th class="d-none">Phone No.</th>
+                                    <th>Status</th>
                                     <th>Amount</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($payments as $payment)
-                                <tr>
-                                    <td>{{$payment->bill_no}}</td>
-                                    <td>PCP{{$payment->bill_no}}</td>
-                                    <td>OBJ-2021-20856/19</td>
-                                    <td>{{date('d M Y h:i A', strtotime($payment->created_at))}}</td>
-                                    <td class="w60">
-                                        <a href="#" data-toggle="modal">NCCG Valuation Portal</a>
-                                    </td>
-                                    <td class="d-none"><a href="tel:=254 700 112 233">+254 700 112 233</a></td>
-                                    <td class="text-capitalize">KES {{$payment->total}}</td>
-                                    <td>
-                                        <a href="#" class="btn btn-success btn-sm btn--icon-text"><i
-                                                class="zmdi zmdi-print"></i>Print</a>
-                                        &nbsp;
-                                        <a href="#" data-toggle="modal"
-                                            class="btn btn-primary btn-sm btn--icon-text"><i class="zmdi zmdi-eye"></i>View
-                                            details</a>
-                                    </td>
-                                </tr>
+                                    @if (!is_null($payment->status))
+                                        @if ($payment->status !== 'UnPaid')
+                                            <tr>
+                                                <td>{{ $payment->bill_no }}</td>
+                                                <td>OBJ-2021-20856/19</td>
+                                                <td>{{ date('d M Y h:i A', strtotime($payment->created_at)) }}</td>
+                                                <td class="w60">
+                                                    <a href="#" data-toggle="modal">NCCG Valuation Portal</a>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="listview__item chat__available">{{ $payment->status }}</span>
+                                                </td>
+                                                <td class="text-capitalize">KES {{ $payment->total }}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-success btn-sm btn--icon-text"><i
+                                                            class="zmdi zmdi-print"></i>Print</a>
+                                                    &nbsp;
+                                                    <a href="#" data-toggle="modal"
+                                                        class="btn btn-primary btn-sm btn--icon-text"><i
+                                                            class="zmdi zmdi-eye"></i>View
+                                                        details</a>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
