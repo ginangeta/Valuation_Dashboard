@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <title>NCCG - Online Valuation Roll Dashboard</title>
     <link rel='icon' href='demo/img/icon_3.png' type='image/x-icon' />
 
@@ -25,7 +25,8 @@
     <!-- Vendor styles -->
     <link rel="stylesheet"
         href="{{ asset('vendors/material-design-iconic-font/css/material-design-iconic-font.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/MaterialDesign-Webfont-master/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('vendors/MaterialDesign-Webfont-master/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/animate.css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/jquery-scrollbar/jquery.scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/fullcalendar/fullcalendar.min.css') }}">
@@ -259,12 +260,26 @@
                                 class="mdi mdi-chart-arc"></i>System Usage</a></li>
 
                     <li class="navigation__sub">
+                        <a href="#"><i class="mdi mdi mdi-chart-arc"></i>Site Activity <i
+                                class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
+                        <ul>
+                            <li><a href="{{ route('getSearchedProperties') }}"><i class="mdi mdi-history mr-2"></i>Search History</a>
+                            </li>
+                            <li><a href="{{ route('getClientLogs') }}"><i
+                                        class="mdi mdi-account-reactivate mr-2"></i>Client Logs</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="navigation__sub">
                         <a href="#"><i class="mdi mdi-account-multiple"></i>User Accounts <i
                                 class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
                         <ul>
-                            <li><a href="{{ route('newUser') }}"><i class="mdi mdi-account-plus mr-2"></i>New user</a>
+                            <li><a href="{{ route('newUser') }}"><i class="mdi mdi-account-plus mr-2"></i>New
+                                    user</a>
                             </li>
-                            <li><a href="{{ route('getactiveUsers') }}"><i class="zmdi zmdi-check-all mr-2"></i>Active
+                            <li><a href="{{ route('getactiveUsers') }}"><i
+                                        class="zmdi zmdi-check-all mr-2"></i>Active
                                     users</a></li>
                             <li><a href="{{ route('blockedUsers') }}"><i class="zmdi zmdi-block mr-2"></i>Inactive
                                     users</a></li>
@@ -368,11 +383,11 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Vendors: Data tables -->
-    <script src="{{ asset('vendors/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ asset('vendors/datatables-buttons/dataTables.buttons.min.js')}}"></script>
-    <script src="{{ asset('vendors/datatables-buttons/buttons.print.min.js')}}"></script>
-    <script src="{{ asset('vendors/jszip/jszip.min.js')}}"></script>
-    <script src="{{ asset('vendors/datatables-buttons/buttons.html5.min.js')}}"></script>
+    <script src="{{ asset('vendors/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables-buttons/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('vendors/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables-buttons/buttons.html5.min.js') }}"></script>
 
     <script src="{{ asset('vendors/highcharts/accesibility.js') }}"></script>
     <script src="{{ asset('vendors/highcharts/item-series.js') }}"></script>
@@ -391,7 +406,7 @@
 
 
     <!-- high chart data -->
-    <script src="{{ asset('js/chart-data/all-objections.js') }}"></script>
+    {{-- <script src="{{ asset('js/chart-data/all-objections.js') }}"></script> --}}
     <script src="{{ asset('js/chart-data/loan-breakdown.js') }}"></script>
 
     <!-- App functions and actions -->

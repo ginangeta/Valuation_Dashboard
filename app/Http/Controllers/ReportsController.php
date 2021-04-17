@@ -65,6 +65,8 @@ class ReportsController extends Controller
         $response = Http::withToken(Session::get('token'))->get($url);
 
         $created  = json_decode($response->body());
+        // dd($created);
+
 
         // dd(Session::get('token'));
 
@@ -108,5 +110,50 @@ class ReportsController extends Controller
 
         return view('content/objectiondoc', ['ObjectionDetails' => $created->data[0]]);
         // return view('usv')->with($lr_no);
+    }
+
+    public function getClientLogs(Request $request){
+        $url = config('global.url').'client_logs';
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('getClientLogs')->with('errors', 'An error occured.');
+        }
+
+        if($created->success == false)
+        {
+            return redirect()->route('getClientLogs')->with('errors', 'Obtaining properties');
+        }
+
+        return view('content/client_logs', ['ClientLogs' => $created->data]);
+        // return view('usv')->with($lr_no);
+
+    }
+
+    public function getSearchedProperties(Request $request){
+        $url = config('global.url').'properties_searched';
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('getSearchedProperties')->with('errors', 'An error occured.');
+        }
+
+        return view('content/searched_properties', ['SearchedProperties' => $created]);
+        // return view('usv')->with($lr_no);
+
     }
 }

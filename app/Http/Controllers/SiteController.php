@@ -10,11 +10,16 @@ class SiteController extends Controller
 {
     public function dashboard()
     {
-        $dashUrl = config('global.url').'/dashboard_info';
+        $dashUrl = config('global.url').'dashboard_info';
+        $chartUrl = config('global.url').'daily/collections';
 
         $dashResponse = Http::withToken(Session::get('token'))->get($dashUrl);
+        $chartResponse = Http::withToken(Session::get('token'))->get($chartUrl);
 
         $dashCreated  = json_decode($dashResponse->body());
+        $chartCreated  = json_decode($chartResponse->body());
+
+        // dd($chartCreated);
 
         if(is_null($dashCreated))
         {
@@ -29,7 +34,8 @@ class SiteController extends Controller
         // dd($dashCreated);
         
         return view('content/dashboard', [
-            'DashboardData' => $dashCreated->data]);    }
+            'DashboardData' => $dashCreated->data,
+            'ChartData' => $chartCreated]);    }
 
     public function addProperty()
     {

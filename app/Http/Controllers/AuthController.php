@@ -47,14 +47,17 @@ class AuthController extends Controller
             return redirect()->back()->with('errors', $created->msg);
         }
 
-        if(in_array('county_client', $created->data->roles, TRUE)){
-            dd($created->data->roles);
+        $array = $created->data->roles;
+        // dd($array);
+
+        if(array_key_exists('name', $array)){
+        }
+
+        if(array_search('county_client', $created->data->roles)){
             return redirect()->back()->with('errors', 'You have to be an admin to access this site.');
         }
         
         Session::put('user', $created->data);
-
-        // dd($created->data);
 
         Session::put('token', $created->data->token);
         
@@ -112,18 +115,22 @@ class AuthController extends Controller
         return view('auth.forgot');
     }
 
-    public function requestPassword(Request $request)
+    public function changePassword(Request $request)
     {
         // dd($request->all());
-        $url = config('global.url').'Account/ForgotPassword';
+        $url = config('global.url').'user/change_password/';
+        // dd($url);
 
         $data = [
-            'email' => $request->email,
+            'email' => $request->Reset_email,
+            'password' => $request->Sent_password,
+            'new_password' => $request->Reset_password
         ];
 
         // dd($data);
 
-        $response = Http::withToken(Session::get('token'))->post($url,$data);
+        $response = Http::post($url,$data);
+        // dd($response);
 
         $created = json_decode($response->body());
 
@@ -131,40 +138,33 @@ class AuthController extends Controller
 
         if(is_null($created))
         {
-            return redirect()->back()->with('errors', 'An error occured.');
+            return redirect()->view('change-password')->with('errors', 'An error occured.');
         }
 
-        if($created->status_code !=200)
+        if(!$created->success)
         {
-            return redirect()->back()->with('errors', $created->message);
+            return redirect()->route('auth.login')->with('errors', $created->msg);
         }
 
         // dd($created);
 
-        return redirect()->route('sign-in')->with('success', 'The password has been reset successfully.');
+        return redirect()->route('home')->with('success', 'The password has been reset successfully.');
 
-
-    }
-
-    public function changePassword()
-    {
-        return view('auth.change');
-    }
-
+    }   
     public function resetPassword(Request $request)
     {
         // dd($request->all());
-        $url = config('global.url').'Account/ChangePassword';
+        $url = config('global.url').'user/forgot_password/';
+        // dd($url);
 
         $data = [
-            'old_password' => $request->old_password,
-            'new_password' => $request->new_password,
-            'user_id' => (int)Session::get('user')->user_id
+            'email' => $request->Forgot_email,
         ];
 
         // dd($data);
 
-        $response = Http::withToken(Session::get('token'))->post($url,$data);
+        $response = Http::post($url,$data);
+        // dd($response);
 
         $created = json_decode($response->body());
 
@@ -175,14 +175,14 @@ class AuthController extends Controller
             return redirect()->back()->with('errors', 'An error occured.');
         }
 
-        if($created->status_code !=200)
+        if(!$created->success)
         {
-            return redirect()->back()->with('errors', $created->message);
+            return redirect()->back()->with('errors', $created->msg);
         }
 
         // dd($created);
 
-        return redirect()->route('sign-in')->with('success', 'The password has been changed successfully.');
+        return view('auth.change-password')->with('success', $created->msg);
 
 
     }

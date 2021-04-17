@@ -116,7 +116,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <footer class="footer hidden-xs-down d-none">
@@ -130,4 +129,5 @@
 </section>
 @endsection
 @section('scripts')
+@include('content.objectionsdata')
 @endsection

@@ -24,7 +24,7 @@ Route::get('forgot-password', 'AuthController@forgotPassword')->name('forgot-pas
 Route::post('authenticate', 'AuthController@authenticate')->name('authenticate');
 Route::post('registration', 'AuthController@registration')->name('registration');
 Route::post('password-request', 'AuthController@requestPassword')->name('password.request');
-Route::get('change-password', 'AuthController@changePassword')->name('password.change');
+Route::post('change-password', 'AuthController@changePassword')->name('password.change');
 Route::post('password-reset', 'AuthController@resetPassword')->name('password.reset');
 Route::get('logout', 'AuthController@logout')->name('logout');
 
@@ -47,6 +47,9 @@ Route::group(['middleware' => ['active']], function () {
     Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
     Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
     Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
+
+    Route::get('getClientLogs', 'ReportsController@getClientLogs')->name('getClientLogs');
+    Route::get('getSearchedProperties', 'ReportsController@getSearchedProperties')->name('getSearchedProperties');
 
     //Roll
     Route::post('uploadRoll', 'UploadRollController@uploadRoll' )->name('uploadRoll');

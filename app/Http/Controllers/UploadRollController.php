@@ -12,17 +12,7 @@ class UploadRollController extends Controller
     public function uploadRoll(Request $request){
         // dd($request->all());
         $url = config('global.url').'uploaded_files/';
-
-        // $data = [
-        //     'token' => Session::get('token'),
-        //     'file_name' => $request->upload_roll,
-        // ];
-
-        // dd($data);
-                
-        // $created = json_decode($this->to_curl($url, $data));
-        // $response = Http::withToken(Session::get('token'))->post($url,$data);
-        
+       
         $file_name = $request->file('upload_roll')->getClientOriginalName();
 
         $file = fopen($request->file('upload_roll'), 'r');

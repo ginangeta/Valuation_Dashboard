@@ -94,8 +94,8 @@
 
                                                                 @foreach ($Objection->documents as $key => $document)
                                                                     <li>
-                                                                        <a href="{{ $document->file_name }}"
-                                                                            download>{{ $document->file_name }}</a>
+                                                                        <a href="{{ $document->url }}"
+                                                                            download>{{ $document->name }}</a>
                                                                     </li>
                                                                 @endforeach
                                                             </ul>

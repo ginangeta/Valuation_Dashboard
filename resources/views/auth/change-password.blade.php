@@ -61,9 +61,9 @@
             <div class="login-content fluid-container">
                 <div class="login-content-overlay op-1"></div>
                 <div class="d-flex flex-column login-form-container">
-                    <form id="login-form" action="{{ route('authenticate') }}" method="POST"
-                        class="login-form bg-white w-100">
-                        @csrf
+                    <form id="reset_form" action="{{ route('password.change') }}" method="POST"
+                    class="login-form bg-white w-100">
+                    @csrf
                         @if (Session::has('success'))
                             <p class="alert alert-success">
                                 {{ Session::get('success') }}</p>
@@ -73,22 +73,16 @@
                             </p>
                         @endif
                         <div class="login-form-header p-1">
-                            <a class="" href="#">
-                                <img class="the-login-logo nccg-logo"
-                                    src="{{ asset('demo/img/logo-files/nairobi-county2.png') }}">
-                                <img class="the-login-logo nms-logo" src="{{ asset('demo/img/logo-files/nms.png') }}">
-                            </a>
-                            <h2 class="mb-2">Dashboard Login</h2>
-                            <small>Fill in the information below to get access to the</small>
-                            <p class="mb-0 text-b font-weight-light text-capitalize font-12px">NCCG Draft Valuation Roll
-                            </p>
+                            <h2 class="mb-2">Reset Password</h2>
+                            <small>Fill in the information below to get access</small>
                         </div>
                         <div class="form-group">
                             <label>
                                 <strong>Email</strong> <strong class="text-danger">*</strong>
                             </label>
+                            {{-- <input name="user_name" value="{{old('user_name')}}" type="email" class="form-control" placeholder="Enter your email address" required> --}}
                             <div class="input-email-login">
-                                <input name="email" type="email" class="form-control"
+                                <input name="Reset_email" type="email" class="form-control"
                                     placeholder="Enter your email address" required>
                             </div>
 
@@ -96,21 +90,29 @@
 
                         <div class="form-group">
                             <label>
-                                <strong>Password</strong> <strong class="text-danger">*</strong>
+                                <strong>Sent Password</strong> <strong class="text-danger">*</strong>
                             </label>
+                            {{-- <input name="user_name" value="{{old('user_name')}}" type="email" class="form-control" placeholder="Enter your email address" required> --}}
                             <div class="input-pass-login">
-                                <input name="password" type="password" class="form-control"
-                                    placeholder="Enter your password" required>
+                                <input name="Sent_password" type="password" class="form-control"
+                                    placeholder="Enter the password sent to your email" required>
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary block center btn-block mb-3 py-2 btn-control">Login
-                            <i class="ti-arrow-right ml-2"></i></button>
 
-                        <div>
-                            <a href="#" data-toggle="modal" data-target="#user-forgot-password" tabindex="5">Forgot your
-                                password?</a>
+                        <div class="form-group">
+                            <label>
+                                <strong>New Password</strong> <strong class="text-danger">*</strong>
+                            </label>
+                            {{-- <input name="user_name" value="{{old('user_name')}}" type="email" class="form-control" placeholder="Enter your email address" required> --}}
+                            <div class="input-pass-login">
+                                <input name="Reset_password" type="password" class="form-control"
+                                    placeholder="Enter your email address" required>
+                            </div>
+
                         </div>
+                        <button type="submit" class="btn btn-primary block center btn-block mb-3 py-2 btn-control">Reset
+                            <i class="ti-arrow-right ml-2"></i></button>
                     </form>
 
                     <p class="text-center mt-4 d-none"> Powered by <strong><a href="https://nouveta.tech/"
@@ -120,57 +122,7 @@
                 </div>
             </div>
 
-            <!--Forgot Password starts-->
-            <div class="modal fade" id="user-forgot-password">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <!--User Login section starts-->
-                            <div class="user-login-section">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form action="{{ route('password.reset') }}"
-                                                enctype="application/x-www-form-urlencoded" id="reset_password"
-                                                method="POST">
-                                                @csrf
-                                                <div class="login-form-header p-1">
-                                                    <h2 class="mb-2">Forgot Password</h2>
-                                                    <small>Fill in the information below to reset password</small>
-                                                    <button type="button" class="close modal-close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true"><i
-                                                                class="lnr lnr-cross"></i></span></button>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label>
-                                                        <strong>Email</strong> <strong class="text-danger">*</strong>
-                                                    </label>
-                                                    <input name="Forgot_email" type="email" class="form-control"
-                                                        placeholder="Enter your email address" required>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <input type="submit"
-                                                        class="btn btn-primary block center btn-block mb-3 py-2 btn-control"
-                                                        value="Reset">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <a href="#" data-dismiss="modal">Go back to login page</a>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--User login section ends-->
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
     </main>

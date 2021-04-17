@@ -213,7 +213,7 @@
                                 NO
                                 @endif
                                 @if ($ObjectionDetails->ratable_owner)
-                                YES
+                                YES 
                                 @endif
                             </span>
                         </div>
