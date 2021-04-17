@@ -25,12 +25,12 @@
                         <table class="table table-sm table-bordered input-table table-striped" id="data-table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>Receipt No</th>
+                                    <th>Bill No</th>
                                     <th>Objection No.</th>
                                     <th>Transaction Date.</th>
                                     <th>Transacted By</th>
                                     <th>Status</th>
-                                    <th>Amount</th>
+                                    <th>Bill Amount</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -40,26 +40,86 @@
                                         @if ($payment->status !== 'UnPaid')
                                             <tr>
                                                 <td>{{ $payment->bill_no }}</td>
-                                                <td>OBJ-2021-20856/19</td>
+                                                <td>{{ $payment->objection_no }}</td>
                                                 <td>{{ date('d M Y h:i A', strtotime($payment->created_at)) }}</td>
-                                                <td class="w60">
-                                                    <a href="#" data-toggle="modal">NCCG Valuation Portal</a>
-                                                </td>
+                                                <td class="w60">{{ $payment->billed_user }}</td>
                                                 <td>
                                                     <span
                                                         class="listview__item chat__available">{{ $payment->status }}</span>
                                                 </td>
                                                 <td class="text-capitalize">KES {{ $payment->total }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-success btn-sm btn--icon-text"><i
-                                                            class="zmdi zmdi-print"></i>Print</a>
                                                     &nbsp;
                                                     <a href="#" data-toggle="modal"
+                                                        data-target="#payment-details{{ $payment->bill_no }}"
                                                         class="btn btn-primary btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-eye"></i>View
                                                         details</a>
                                                 </td>
                                             </tr>
+                                            <!-- objection modal -->
+                                            <div class="modal fade" id="payment-details{{ $payment->bill_no }}"
+                                                tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title text-capitalize"
+                                                                id="exampleModalLongTitle">
+                                                                Bill No: {{ $payment->bill_no }} payment
+                                                                details
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <h6><strong>Objection No.</strong></h6>
+                                                            <p>{{ $payment->objection_no }}</p>
+                                                            <hr>
+
+                                                            <h6><strong>Objection Items</strong></h6>
+                                                            @if (count($payment->bill_items) > 0)
+                                                                <ul style="padding-left: 20px;">
+                                                                    @foreach ($payment->bill_items as $key => $item)
+                                                                        <li>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <p>{{ $item->description }}</p>
+                                                                                <p>KES {{ number_format($item->amount) }}</p>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                            <hr>
+
+                                                            <h6><strong>Paid By</strong></h6>
+                                                            <p>{{ $payment->billed_user }}</p>
+                                                            <hr>
+
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <h6><strong>Payment Date</strong></h6>
+                                                                    <p>{{ date('d M Y h:i A', strtotime($payment->created_at)) }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+
+                                                            <h6><strong>Payment Status</strong></h6>
+                                                            <span class="badge badge-pill d-inline badge-warning">{{ $payment->status }}</span>
+                                                            <hr>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-success btn-secondary"
+                                                                data-dismiss="modal">OK</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endif
                                     @endif
                                 @endforeach

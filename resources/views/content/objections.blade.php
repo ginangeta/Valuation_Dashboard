@@ -24,6 +24,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
+                                    <th>Objection Id</th>
                                     <th>Serial No.</th>
                                     <th>LR No.</th>
                                     <th>Situation</th>
@@ -39,6 +40,7 @@
                                 @foreach ($Objections as $key => $Objection)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
+                                        <td>PV-2021-{{ $Objection->id }}</td>
                                         <td>{{ $Objection->property->serial_no }}</td>
                                         <td>{{ $Objection->property->lr_no }}</td>
                                         <td>
