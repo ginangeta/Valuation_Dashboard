@@ -58,7 +58,7 @@
                                         <td>KES {{ number_format($Objection->property->usv) }}</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                                data-toggle="modal" data-target="#objection-details{{ $key + 1 }}"><i
+                                                data-toggle="modal" data-target="#details{{ $Objection->id }}"><i
                                                     class="zmdi zmdi-eye"></i>Details</button>
                                             <a onclick="printObjection(String({{ $Objection->property->serial_no }}))"
                                                 class="btn btn-success btn-sm btn--icon-text"><i
@@ -73,6 +73,7 @@
                                         </td>
 
                                         <!-- Modals -->
+
                                         <!-- objector documents -->
                                         <div class="modal fade" id="objection-documents{{ $key + 1 }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -93,7 +94,6 @@
                                                         @if (count($Objection->documents) > 0)
                                                             <h6><strong>Click to download</strong></h6>
                                                             <ul style="padding-left: 20px;">
-
                                                                 @foreach ($Objection->documents as $key => $document)
                                                                     <li>
                                                                         <a href="{{ $document->url }}"
@@ -115,9 +115,8 @@
                                             </div>
                                         </div>
 
-
                                         <!-- objection modal -->
-                                        <div class="modal fade" id="objection-details{{ $key + 1 }}" tabindex="-1"
+                                        <div class="modal fade" id="details{{ $Objection->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -150,7 +149,8 @@
                                                                 <p class="mb-0">
                                                                     {{ $Objection->property->po_box }}-{{ $Objection->property->postal_code }}
                                                                 </p>
-                                                                <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                                <p class="mb-0">{{ $Objection->property->situation }}
+                                                                </p>
                                                             </div>
                                                             <div class="col-sm-12 col-lg-6">
                                                                 <h6><strong>Objector</strong></h6>
@@ -160,7 +160,8 @@
                                                                 <p class="mb-0">
                                                                     {{ $Objection->property->po_box }}-{{ $Objection->property->postal_code }}
                                                                 </p>
-                                                                <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                                <p class="mb-0">{{ $Objection->property->situation }}
+                                                                </p>
                                                             </div>
                                                         </div>
                                                         <hr>
@@ -191,10 +192,12 @@
                                                                 <h6 class="text-left"><strong>Unimproved Site
                                                                         Value(USV)</strong></h6>
                                                                 <h3 class="text-left">KES
-                                                                    {{ number_format($Objection->property->usv) }} </h3>
+                                                                    {{ number_format($Objection->property->usv) }}
+                                                                </h3>
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-success btn-secondary"
                                                             data-dismiss="modal">OK</button>
@@ -381,5 +384,5 @@
         }
 
     </script>
-    
+
 @endsection

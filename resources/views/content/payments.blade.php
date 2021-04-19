@@ -51,7 +51,7 @@
                                                 <td>
                                                     &nbsp;
                                                     <a href="#" data-toggle="modal"
-                                                        data-target="#payment-details{{ $payment->bill_no }}"
+                                                        data-target="#payment-details{{ $payment->bill_no}}"
                                                         class="btn btn-primary btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-eye"></i>View
                                                         details</a>

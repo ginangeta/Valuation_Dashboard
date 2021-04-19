@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -47,16 +48,13 @@ class AuthController extends Controller
             return redirect()->back()->with('errors', $created->msg);
         }
 
-        $array = $created->data->roles;
-        // dd($array);
-
-        if(array_key_exists('name', $array)){
+        foreach($created->data->roles as $array){
+            if($array->name === 'county_client'){
+                return Redirect::to('https://test.nairobicitycounty.ke/');
+                // return redirect()->back()->with('errors', 'You have to be an admin to access this site.');
+            }
         }
 
-        if(array_search('county_client', $created->data->roles)){
-            return redirect()->back()->with('errors', 'You have to be an admin to access this site.');
-        }
-        
         Session::put('user', $created->data);
 
         Session::put('token', $created->data->token);
