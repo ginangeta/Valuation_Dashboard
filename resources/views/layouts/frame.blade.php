@@ -80,7 +80,7 @@
             </form>
 
             <ul class="top-nav">
-                <li class="dropdown top-nav__notifications">
+                <li class="dropdown top-nav__notifications d-none">
                     <a href="#" data-toggle="dropdown" class="top-nav__notify">
                         <i class="mdi mdi-bell-outline"></i>
                         <span class="pl-2">Notifications</span><strong class="ml-2 text-danger">3</strong>
