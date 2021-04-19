@@ -156,4 +156,59 @@ class ReportsController extends Controller
         // return view('usv')->with($lr_no);
 
     }
+
+    public function getAllTowns(Request $request){
+        $url = config('global.url').'towns/';
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('getAllTowns')->with('errors', 'An error occured.');
+        }
+
+        if($created->count < 0)
+        {
+            return redirect()->route('getAllTowns')->with('errors', 'Failed to obtain towns');
+        }
+
+        return view('content/towns', ['Towns' => $created->results]);
+        // return view('usv')->with($lr_no);
+
+    }
+
+    public function addTown(Request $request){
+        // dd($request->all());
+        $url = config('global.url').'towns/';
+        // dd($url);
+
+        $data = [
+            'name' => $request->Addtown,
+        ];
+
+        // dd($data);
+
+        $response = Http::post($url,$data);
+        // dd($response);
+
+        $created = json_decode($response->body());
+
+        // dd($created);
+
+        if(is_null($created))
+        {
+            return redirect()->back()->with('errors', 'An error occured.');
+        }
+
+
+        return redirect()->back()->with('success', 'Town Created');
+        
+
+        // dd($created);
+    }
 }

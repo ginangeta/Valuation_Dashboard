@@ -263,13 +263,15 @@
                         <a href="#"><i class="mdi mdi mdi-chart-arc"></i>Site Activity <i
                                 class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
                         <ul>
-                            <li><a href="{{ route('getSearchedProperties') }}"><i class="mdi mdi-history mr-2"></i>Search History</a>
+                            <li><a href="{{ route('getSearchedProperties') }}"><i
+                                        class="mdi mdi-history mr-2"></i>Search History</a>
                             </li>
                             <li><a href="{{ route('getClientLogs') }}"><i
                                         class="mdi mdi-account-reactivate mr-2"></i>Client Logs</a></li>
+                            <li><a href="{{ route('getAllTowns') }}"><i
+                                        class="mdi mdi-city-variant-outline mr-2"></i>Towns</a></li>
                         </ul>
                     </li>
-
 
                     <li class="navigation__sub">
                         <a href="#"><i class="mdi mdi-account-multiple"></i>User Accounts <i

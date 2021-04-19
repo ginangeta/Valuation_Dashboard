@@ -48,6 +48,9 @@ Route::group(['middleware' => ['active']], function () {
     Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
     Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 
+    Route::get('getAllTowns', 'ReportsController@getAllTowns')->name('getAllTowns');
+    Route::post('addTown', 'ReportsController@addTown')->name('addTown');
+
     Route::get('getClientLogs', 'ReportsController@getClientLogs')->name('getClientLogs');
     Route::get('getSearchedProperties', 'ReportsController@getSearchedProperties')->name('getSearchedProperties');
 
