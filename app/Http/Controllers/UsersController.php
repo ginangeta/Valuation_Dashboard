@@ -47,7 +47,7 @@ class UsersController extends Controller
     }
 
     public function getactiveUsers(Request $request){
-        $url = config('global.url').'client_logs/';
+        $url = config('global.url').'user_logs/?q=admin';
 
         $response = Http::withToken(Session::get('token'))->get($url);
 

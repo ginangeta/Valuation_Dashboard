@@ -113,7 +113,7 @@ class ReportsController extends Controller
     }
 
     public function getClientLogs(Request $request){
-        $url = config('global.url').'client_logs';
+        $url = config('global.url').'user_logs/?q=county_client';
 
         $response = Http::withToken(Session::get('token'))->get($url);
 
