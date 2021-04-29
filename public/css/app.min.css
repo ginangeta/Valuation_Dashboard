@@ -10198,8 +10198,8 @@ opacity:1
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0)
 }
-.user {
-    margin: 0 0 1.5rem
+ {
+    mar.usergin: 0 0 1.5rem
 }
 .user .dropdown-menu {
     width: 100%;
