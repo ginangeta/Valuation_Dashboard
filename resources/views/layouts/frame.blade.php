@@ -158,31 +158,34 @@
                         </div>
                     </div>
                 </li>
-                <a href="https://test.revenuesure.co.ke/Valuation/public/"
+                <a href="https://test.nairobicitycounty.ke"
                     class="btn btn-warning text-black btn--icon-text btn-sm ml-3"><i
                         class="mdi mdi-arrange-send-backward"></i>Public Portal</a>
 
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="rad-50"><img src="demo/img/profile-pics/1.jpg"
-                            class="listview__img m-0" style="height: 32px;" alt="profile picture"></a>
+                    <a href="#" data-toggle="dropdown" class="rad-50">
+                        <div class="avatar-char mr-2 listview__img m-0" alt="profile picture">
+                            {{ Session::get('user')->name[0] }}</div>
+                    </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
                         <div class="listview listview--hover acc-options">
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="profile picture">
+                                <div class="avatar-char mr-2">{{ Session::get('user')->name[0] }}</div>
 
                                 <div class="listview__content">
                                     <div class="listview__heading">
-                                        John Doe
+                                        {{ Session::get('user')->name }}
                                     </div>
-                                    <p>johndoe@email.com</p>
+                                    <p>{{ Session::get('user')->username }}</p>
                                 </div>
                             </a>
                             <hr>
                             <div class="listview__item">
                                 <div class="listview__content">
                                     <div class="listview__heading">
-                                        <a><i class="ti-unlock"></i><span>Change Password</span></a>
+                                        <a href="{{ route('user-password-reset') }}"><i
+                                                class="ti-unlock"></i><span>Change Password</span></a>
                                     </div>
                                 </div>
 

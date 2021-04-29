@@ -26,6 +26,7 @@ Route::post('registration', 'AuthController@registration')->name('registration')
 Route::post('password-request', 'AuthController@requestPassword')->name('password.request');
 Route::post('change-password', 'AuthController@changePassword')->name('password.change');
 Route::post('password-reset', 'AuthController@resetPassword')->name('password.reset');
+Route::get('user-password-reset', 'AuthController@userResetPassword')->name('user-password-reset');
 Route::get('logout', 'AuthController@logout')->name('logout');
 
 Route::group(['middleware' => ['active']], function () {

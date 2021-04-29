@@ -185,6 +185,42 @@ class AuthController extends Controller
 
     }
 
+    public function userResetPassword(Request $request)
+    {
+        // dd($request->all());
+        $url = config('global.url').'user/forgot_password/';
+        // dd($url);
+
+        $data = [
+            'email' => Session::get('user')->username,
+        ];
+
+        // dd($data);
+
+        $response = Http::post($url,$data);
+        // dd($response);
+
+        $created = json_decode($response->body());
+
+        // dd($created);
+
+        if(is_null($created))
+        {
+            return redirect()->back()->with('errors', 'An error occured.');
+        }
+
+        if(!$created->success)
+        {
+            return redirect()->back()->with('errors', $created->msg);
+        }
+
+        // dd($created);
+
+        return view('auth.change-password')->with('success', $created->msg);
+
+
+    }
+
     public function logout()
     {
         Session::flush('token');

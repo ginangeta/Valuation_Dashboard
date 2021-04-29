@@ -60,10 +60,10 @@
         <section>
             <div class="login-content fluid-container">
                 <div class="login-content-overlay op-1"></div>
-                <div class="d-flex flex-column login-form-container">
+                <div class="d-flex flex-column login-form-container" style="width: 450px;">
                     <form id="reset_form" action="{{ route('password.change') }}" method="POST"
-                    class="login-form bg-white w-100">
-                    @csrf
+                        class="login-form bg-white w-100">
+                        @csrf
                         @if (Session::has('success'))
                             <p class="alert alert-success">
                                 {{ Session::get('success') }}</p>
@@ -74,7 +74,8 @@
                         @endif
                         <div class="login-form-header p-1">
                             <h2 class="mb-2">Reset Password</h2>
-                            <small>Fill in the information below to get access</small>
+                            <small><strong class="text-danger">*</strong>Please check your registered email for sent
+                                password<strong class="text-danger">*</strong></small>
                         </div>
                         <div class="form-group">
                             <label>
