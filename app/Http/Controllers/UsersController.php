@@ -122,7 +122,7 @@ class UsersController extends Controller
         $response = Http::withToken(Session::get('token'))->post($url,$data);
         $created = json_decode($response->body());
 
-        dd($created);
+        // dd($created);
 
         if(is_null($created))
         {
