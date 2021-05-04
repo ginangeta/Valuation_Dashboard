@@ -72,7 +72,8 @@ class UsersController extends Controller
 
     public function editUser(Request $request){
         // dd($request->all());
-        $url = config('global.url').'update_user/'.$request->user_id;
+        $url = config('global.url').'update_user/'.$request->user_id."/";
+        // dd($url);
 
         $data = [
             'first_name' => $request->first_name,
@@ -83,7 +84,7 @@ class UsersController extends Controller
         ];
         // dd($data);
 
-        $response = Http::withToken(Session::get('token'))->post($url,$data);
+        $response = Http::withToken(Session::get('token'))->put($url,$data);
         $created = json_decode($response->body());
 
         dd($created);
