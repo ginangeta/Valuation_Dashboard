@@ -124,20 +124,20 @@
 
                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                             <div class="checkbox">
-                                                <input type="checkbox" name="roles[]" id="customCheck7" checked>
+                                                <input type="checkbox" value="admin" name="roles[]" id="customCheck7" checked>
                                                 <label class="checkbox__label" for="customCheck7">Admin</label>
                                             </div>
 
                                             <div class="checkbox">
-                                                <input type="checkbox" id="customCheck1">
+                                                <input type="checkbox" value="payment-movement" id="customCheck1">
                                                 <label class="checkbox__label" for="customCheck1">Payment Movements</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" id="customCheck2">
+                                                <input type="checkbox" value="editting" id="customCheck2">
                                                 <label class="checkbox__label" for="customCheck2">Editting</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" id="customCheck3">
+                                                <input type="checkbox" value="receipting" id="customCheck3">
                                                 <label class="checkbox__label" for="customCheck3">Receipting</label>
                                             </div>
 
@@ -145,15 +145,15 @@
 
                                         <div class="col-md-6 col-sm-12 col-lg-6">
                                             <div class="checkbox">
-                                                <input type="checkbox" id="customCheck4">
+                                                <input type="checkbox" value="approvals" id="customCheck4">
                                                 <label class="checkbox__label" for="customCheck4">Approvals</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" id="customCheck5">
+                                                <input type="checkbox" value="reporting" id="customCheck5">
                                                 <label class="checkbox__label" for="customCheck5">Reporting</label>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" id="customCheck6">
+                                                <input type="checkbox" value="system_admin" id="customCheck6">
                                                 <label class="checkbox__label" for="customCheck6">System Admin</label>
                                             </div>
 

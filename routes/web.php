@@ -61,6 +61,8 @@ Route::group(['middleware' => ['active']], function () {
     //Users
     Route::post('createUser', 'UsersController@createUser' )->name('createUser');
     Route::get('getactiveUsers', 'UsersController@getactiveUsers')->name('getactiveUsers');
+    Route::post('editUser', 'UsersController@editUser')->name('editUser');
+    Route::post('deactivateUser', 'UsersController@deactivateUser')->name('deactivateUser');
 
 });
 

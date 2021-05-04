@@ -17130,7 +17130,7 @@ ul.hero_list li:last-child {
 }
 
 .login-content{
-    /* height: 100vh; */
+    height: 100vh;
     background: white;
     display: flex;
     padding: 4rem;
@@ -17396,8 +17396,12 @@ ul.hero_list li:last-child {
     border-color:  #163560;
 }
 .login-content{
-    background: url("../images/header/header_11.jpg");
+    background: url("../images/header/header_11.jpg") no-repeat center center fixed;
     background-color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .login-content-overlay{

@@ -96,7 +96,7 @@
                                                             <ul style="padding-left: 20px;">
                                                                 @foreach ($Objection->documents as $key => $document)
                                                                     <li>
-                                                                        <a href="{{ str_replace("http://osha.biller.co.ke","",$document->url) }}"
+                                                                        <a href="{{$document->url}}"
                                                                             download>{{ $document->name }}</a>
                                                                     </li>
                                                                 @endforeach
