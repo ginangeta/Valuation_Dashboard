@@ -25,6 +25,15 @@
             <div class="col-12 p-0">
                 <div class="card animated fade-in">
                     <div class="card-body">
+                        <div class="col-12">
+                            @csrf
+                            @if (Session::has('success'))
+                                <p class="alert alert-success">{{ Session::get('success') }}</p>
+                            @endif
+                            @if (Session::has('errors'))
+                                <p class="alert alert-danger">{{ Session::get('errors') }}</p>
+                            @endif
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-sm table-bordered input-table table-striped" id="data-table">
                                 <thead class="thead-dark">
