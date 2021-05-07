@@ -243,13 +243,13 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-12">
-                                                                        <div class="login-form-header p-1">
+                                                                        <div class="login-form-header p-1 d-flex flex-row justify-content-between">
                                                                             <h2 class="mb-2">Deactivate User</h2>
                                                                             <button type="button" class="close modal-close"
                                                                                 data-dismiss="modal"
                                                                                 aria-label="Close"><span
                                                                                     aria-hidden="true"><i
-                                                                                        class="lnr lnr-cross"></i></span></button>
+                                                                                        class="mdi mdi-close"></i></span></button>
 
                                                                         </div>
                                                                     </div>
@@ -265,6 +265,10 @@
                                                                                     class="form-control d-none"
                                                                                     value="{{ $activeUser->id }}"
                                                                                     required>
+                                                                            </div>
+
+                                                                            <div class="d-flex justify-content-center">
+                                                                                <img src="{{asset('images/delete.jpg')}}" style="height: 230px !important">
                                                                             </div>
 
 
