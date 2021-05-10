@@ -66,10 +66,6 @@
                                             <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
                                                 data-toggle="modal" data-target="#edit-car-booking"><i
                                                     class="zmdi zmdi-edit"></i>Edit</button>
-                                            <button type="button" class="btn btn-danger btn-sm btn--icon-text ml-2"
-                                                title="delete this property" data-toggle="modal"
-                                                data-target="#deactivate-property"><i
-                                                    class="zmdi zmdi-block"></i>Delete</button>
                                         </td>
 
                                         <!-- Modals -->

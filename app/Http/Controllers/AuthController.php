@@ -51,7 +51,6 @@ class AuthController extends Controller
         foreach($created->data->roles as $array){
             if($array->name === 'county_client'){
                 return Redirect::to('https://test.nairobicitycounty.ke/');
-                // return redirect()->back()->with('errors', 'You have to be an admin to access this site.');
             }
         }
 

@@ -14,7 +14,23 @@
             </div>
         </header>
 
-        <div class="">
+        <div class="col-12">
+            <div class="form-group">
+                <h3 class="site-heading text-black mb-0">Search For Property</h3>
+                <p class="mb-0 mt-0">Enter property details as provided below</p>
+                <div class="input-group mb-3">
+                    <input type="text" id="searchcriteria" name="searchcriteria"
+                        class="form-control filter-input mt-0"
+                        placeholder="Search by Land Reference Number/Property Number">
+
+                    <button type="button"
+                        class="btn btn-primary btn-payment btn-searchcriteria text-white"
+                        id="search-property">Search for Property</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm12">
             <div class="card">
                 <div class="card-header">
                     <h4>Valuation Roll Properties</h4>
