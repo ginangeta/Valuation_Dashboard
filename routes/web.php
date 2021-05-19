@@ -46,6 +46,7 @@ Route::group(['middleware' => ['active']], function () {
     //Reports
     Route::get('getAllObjections', 'ReportsController@getAllObjections')->name('getAllObjections');
     Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
+    Route::get('getProperties/{page}', 'ReportsController@getProperties')->name('getProperties');
     Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
     Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 

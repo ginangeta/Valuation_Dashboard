@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-sm table-bordered input-table table-striped" id="data-table">
+                        <table class="table table-sm table-bordered input-table table-striped" id="roll-data-table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
@@ -74,8 +74,8 @@
                                     </tr>
 
                                     <!-- Modals -->
-                                    <div class="modal fade" id="property-details{{ $property->id }}" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="property-details{{ $property->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -101,7 +101,8 @@
                                                     <hr>
 
                                                     <h6><strong>P.O.Box Address</strong></h6>
-                                                    <p class="mb-0">{{ $property->po_box }}-{{ $property->postal_code }}</p>
+                                                    <p class="mb-0">
+                                                        {{ $property->po_box }}-{{ $property->postal_code }}</p>
                                                     <p class="mb-0 d-none">Nairobi,KENYA</p>
                                                     <hr>
 
@@ -122,14 +123,16 @@
                                                     <hr>
 
                                                     <h6><strong>Objection Status</strong></h6>
-                                                    <span class="label label-pill label-primary">{{ $property->is_objected }}</span>
+                                                    <span
+                                                        class="label label-pill label-primary">{{ $property->is_objected }}</span>
                                                     <hr>
 
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <h6 class="text-left"><strong>Unimproved Site
                                                                     Value(USV)</strong></h6>
-                                                            <h3 class="text-left">KES {{ number_format($property->usv) }} </h3>
+                                                            <h3 class="text-left">KES {{ number_format($property->usv) }}
+                                                            </h3>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -163,4 +166,72 @@
 
 @endsection
 @section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var current = '{{ Session::get('paginationCurrent') }}';
+            if (current != '') {
+                current = current.split('=');
+                $('.current').html(current[1]);
+            } else {
+                $('.current').html("1");
+            }
+
+            var next = '{{ Session::get('paginationNext') }}';
+            if (next != '') {
+                next = next.split('?');
+                next = next[1];
+                $('#roll-data-table_next').removeClass('disabled');
+                $('#roll-data-table_next').on('click', function(e) {
+                    e.preventDefault();
+                    let url = "{{ URL::to('getProperties/:PageNo') }}";
+                    url = url.replace(':PageNo', next);
+                    window.location.href = url
+
+                    // document.location.href = url;
+                    // window.open(url);
+                });
+            } else {
+                $('#roll-data-table_next').addClass('d-none');
+            }
+
+            console.log(next);
+
+            var prev = '{{ Session::get('paginationPrev') }}';
+            if (prev != '') {
+                $('#roll-data-table_previous').removeClass('disabled');
+
+                if (prev.includes('?')) {
+                    prev = prev.split('?');
+                    prev = prev[1];
+                    $('#roll-data-table_previous').on('click', function(e) {
+                        let url = "{{ URL::to('getProperties/:PageNo') }}";
+                        e.preventDefault();
+                        url = url.replace(':PageNo', prev);
+                        window.location.href = url
+
+                        // document.location.href = url;
+                        // window.open(url);
+                    });
+                } else {
+                    prev = '';
+                    $('#roll-data-table_previous').on('click', function(e) {
+                        let url = "{{ URL::to('getAllProperties') }}";
+                        e.preventDefault();
+                        url = url.replace(':PageNo', prev);
+                        window.location.href = url
+
+                        // document.location.href = url;
+                        // window.open(url);
+                    });
+                }
+            } else {
+                $('#roll-data-table_previous').addClass('d-none');
+            }
+
+            console.log(prev);
+        });
+
+    </script>
+    <script type="text/javascript">
+    </script>
 @endsection

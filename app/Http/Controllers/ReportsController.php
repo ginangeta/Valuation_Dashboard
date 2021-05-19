@@ -54,8 +54,42 @@ class ReportsController extends Controller
             return redirect()->route('AllProperty')->with('errors', 'Obtaining properties');
         }
 
+        $page = 1;
+
+        Session::put('paginationCurrent', $page);
+        Session::put('paginationNext', $created->next);
+        Session::put('paginationPrev', $created->previous);
+
         return view('content/valuation-roll', ['properties' => $created->results]);
         // return view('usv')->with($lr_no);
+
+    }
+
+    public function getProperties($page){
+        $url = config('global.url').'properties/?'.$page;
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('AllProperty')->with('errors', 'An error occured.');
+        }
+
+        if($created->count = 0)
+        {
+            return redirect()->route('AllProperty')->with('errors', 'Obtaining properties');
+        }
+
+        Session::put('paginationCurrent', $page);
+        Session::put('paginationNext', $created->next);
+        Session::put('paginationPrev', $created->previous);
+
+        return view('content/valuation-roll', ['properties' => $created->results]);
 
     }
 
