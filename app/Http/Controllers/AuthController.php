@@ -55,7 +55,7 @@ class AuthController extends Controller
         }
 
         Session::put('user', $created->data);
-
+        Session::put('userRoles', $created->data->roles);
         Session::put('token', $created->data->token);
         
         return redirect()->route('dashboard');

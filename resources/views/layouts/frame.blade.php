@@ -237,64 +237,118 @@
                     <li class="navigation__active"><a href="{{ route('dashboard') }}"><i
                                 class="flaticon-bar-chart"></i>Dashboard</a>
                     </li>
+                    @if (Session::get('userRoles')[0]->name == 'superAdmin')
+                        <li class="navigation__active"><a href="{{ route('getAllObjections') }}"><i
+                                    class="mdi mdi-clipboard-edit-outline"></i>Objections</a></li>
+                        <li class="navigation__active"><a href="{{ route('getAllPayments') }}"><i
+                                    class="mdi mdi-cash"></i>Payments</a></li>
+                        <li class="navigation__sub">
+                            <a href="{{ route('AddProperty') }}"><i
+                                    class="mdi mdi-clipboard-text-multiple-outline"></i>Valuation Roll<i
+                                    class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                            <ul class="">
+                                <li><a href="{{ route('AddProperty') }}"><i
+                                            class="mdi mdi-clipboard-plus-outline mx-2"></i>Add
+                                        Property</a></li>
+                                <li><a href="{{ route('getAllProperties') }}"><i
+                                            class="mdi mdi-clipboard-text-outline mx-2"></i>Listed
+                                        Properties</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navigation__active d-none"><a href="{{ route('systemUsage') }}"><i
+                                    class="mdi mdi-chart-arc"></i>System Usage</a></li>
 
+                        <li class="navigation__sub">
+                            <a href="#"><i class="mdi mdi mdi-chart-arc"></i>Site Activity <i
+                                    class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
+                            <ul>
+                                <li><a href="{{ route('getSearchedProperties') }}"><i
+                                            class="mdi mdi-history mr-2"></i>Search History</a>
+                                </li>
+                                <li><a href="{{ route('getClientLogs') }}"><i
+                                            class="mdi mdi-account-reactivate mr-2"></i>Client Logs</a></li>
+                                <li><a href="{{ route('getAllTowns') }}"><i
+                                            class="mdi mdi-city-variant-outline mr-2"></i>Towns</a></li>
+                            </ul>
+                        </li>
+                        <li class="navigation__sub">
+                            <a href="#"><i class="mdi mdi-account-multiple"></i>User Accounts <i
+                                    class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
+                            <ul>
+                                <li><a href="{{ route('newUser') }}"><i class="mdi mdi-account-plus mr-2"></i>New
+                                        user</a>
+                                </li>
+                                <li><a href="{{ route('getactiveUsers') }}"><i
+                                            class="zmdi zmdi-check-all mr-2"></i>Active
+                                        users</a></li>
+                                <li><a href="{{ route('blockedUsers') }}"><i
+                                            class="zmdi zmdi-block mr-2"></i>Inactive
+                                        users</a></li>
+                                <li class="d-none"><a href="{{ route('userManage') }}"><i
+                                            class="zmdi zmdi-settings mr-2"></i>User
+                                        Management</a></li>
+                            </ul>
+                        </li>
+                    @endif
 
-                    <li class="navigation__active"><a href="{{ route('getAllObjections') }}"><i
-                                class="mdi mdi-clipboard-edit-outline"></i>Objections</a></li>
-                    <li class="navigation__active"><a href="{{ route('getAllPayments') }}"><i
-                                class="mdi mdi-cash"></i>Payments</a></li>
+                    @if (Session::get('userRoles')[0]->name == 'user')
+                        <li class="navigation__active"><a href="{{ route('getAllObjections') }}"><i
+                                    class="mdi mdi-clipboard-edit-outline"></i>Objections</a></li>
+                        <li class="navigation__active"><a href="{{ route('getAllPayments') }}"><i
+                                    class="mdi mdi-cash"></i>Payments</a></li>
+                        <li class="navigation__sub">
+                            <a href="{{ route('AddProperty') }}"><i
+                                    class="mdi mdi-clipboard-text-multiple-outline"></i>Valuation Roll<i
+                                    class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                            <ul class="">
+                                <li><a href="{{ route('AddProperty') }}"><i
+                                            class="mdi mdi-clipboard-plus-outline mx-2"></i>Add
+                                        Property</a></li>
+                                <li><a href="{{ route('getAllProperties') }}"><i
+                                            class="mdi mdi-clipboard-text-outline mx-2"></i>Listed
+                                        Properties</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
 
-                    <li class="navigation__sub">
-                        <a href="{{ route('AddProperty') }}"><i
-                                class="mdi mdi-clipboard-text-multiple-outline"></i>Valuation Roll<i
-                                class="zmdi zmdi-caret-down drop-down-icon"></i></a>
-                        <ul class="">
-                            <li><a href="{{ route('AddProperty') }}"><i
-                                        class="mdi mdi-clipboard-plus-outline mx-2"></i>Add
-                                    Property</a></li>
-                            <li><a href="{{ route('getAllProperties') }}"><i
-                                        class="mdi mdi-clipboard-text-outline mx-2"></i>Listed
-                                    Properties</a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (Session::get('userRoles')[0]->name == 'admin')
+                        <li class="navigation__active d-none"><a href="{{ route('systemUsage') }}"><i
+                                    class="mdi mdi-chart-arc"></i>System Usage</a></li>
 
-                    <li class="navigation__active d-none"><a href="{{ route('systemUsage') }}"><i
-                                class="mdi mdi-chart-arc"></i>System Usage</a></li>
-
-                    <li class="navigation__sub">
-                        <a href="#"><i class="mdi mdi mdi-chart-arc"></i>Site Activity <i
-                                class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
-                        <ul>
-                            <li><a href="{{ route('getSearchedProperties') }}"><i
-                                        class="mdi mdi-history mr-2"></i>Search History</a>
-                            </li>
-                            <li><a href="{{ route('getClientLogs') }}"><i
-                                        class="mdi mdi-account-reactivate mr-2"></i>Client Logs</a></li>
-                            <li><a href="{{ route('getAllTowns') }}"><i
-                                        class="mdi mdi-city-variant-outline mr-2"></i>Towns</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="navigation__sub">
-                        <a href="#"><i class="mdi mdi-account-multiple"></i>User Accounts <i
-                                class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
-                        <ul>
-                            <li><a href="{{ route('newUser') }}"><i class="mdi mdi-account-plus mr-2"></i>New
-                                    user</a>
-                            </li>
-                            <li><a href="{{ route('getactiveUsers') }}"><i
-                                        class="zmdi zmdi-check-all mr-2"></i>Active
-                                    users</a></li>
-                            <li><a href="{{ route('blockedUsers') }}"><i class="zmdi zmdi-block mr-2"></i>Inactive
-                                    users</a></li>
-                            <li class="d-none"><a href="{{ route('userManage') }}"><i
-                                        class="zmdi zmdi-settings mr-2"></i>User
-                                    Management</a></li>
-                        </ul>
-                    </li>
-
-
+                        <li class="navigation__sub">
+                            <a href="#"><i class="mdi mdi mdi-chart-arc"></i>Site Activity <i
+                                    class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
+                            <ul>
+                                <li><a href="{{ route('getSearchedProperties') }}"><i
+                                            class="mdi mdi-history mr-2"></i>Search History</a>
+                                </li>
+                                <li><a href="{{ route('getClientLogs') }}"><i
+                                            class="mdi mdi-account-reactivate mr-2"></i>Client Logs</a></li>
+                                <li><a href="{{ route('getAllTowns') }}"><i
+                                            class="mdi mdi-city-variant-outline mr-2"></i>Towns</a></li>
+                            </ul>
+                        </li>
+                        <li class="navigation__sub">
+                            <a href="#"><i class="mdi mdi-account-multiple"></i>User Accounts <i
+                                    class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
+                            <ul>
+                                <li><a href="{{ route('newUser') }}"><i class="mdi mdi-account-plus mr-2"></i>New
+                                        user</a>
+                                </li>
+                                <li><a href="{{ route('getactiveUsers') }}"><i
+                                            class="zmdi zmdi-check-all mr-2"></i>Active
+                                        users</a></li>
+                                <li><a href="{{ route('blockedUsers') }}"><i
+                                            class="zmdi zmdi-block mr-2"></i>Inactive
+                                        users</a></li>
+                                <li class="d-none"><a href="{{ route('userManage') }}"><i
+                                            class="zmdi zmdi-settings mr-2"></i>User
+                                        Management</a></li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class="navigation__active mt-1"><a href="{{ route('logout') }}"><i
                                 class="zmdi zmdi-power"></i>Logout</a>
                     </li>

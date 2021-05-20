@@ -122,42 +122,33 @@
                                             <p class="font-weight-bold">User privilages and permissions</p>
                                         </div>
 
-                                        <div class="col-md-6 col-sm-12 col-lg-6">
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="admin" name="roles[]" id="customCheck7" checked>
-                                                <label class="checkbox__label" for="customCheck7">Admin</label>
-                                            </div>
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-12 col-lg-4">
+                                                    <div class="checkbox">
+                                                        <input type="radio" value="user" name="roles[]" id="customCheck7"
+                                                            checked>
+                                                        <label class="checkbox__label" for="customCheck7">User</label>
+                                                    </div>
+                                                </div>
 
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="payment-movement" id="customCheck1">
-                                                <label class="checkbox__label" for="customCheck1">Payment Movements</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="editting" id="customCheck2">
-                                                <label class="checkbox__label" for="customCheck2">Editting</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="receipting" id="customCheck3">
-                                                <label class="checkbox__label" for="customCheck3">Receipting</label>
-                                            </div>
+                                                <div class="col-md-4 col-sm-12 col-lg-4">
+                                                    <div class="checkbox">
+                                                        <input type="radio" value="superAdmin" id="customCheck1">
+                                                        <label class="checkbox__label" for="customCheck1">Super
+                                                            Admin</label>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-md-4 col-sm-12 col-lg-4">
+                                                    <div class="checkbox">
+                                                        <input type="radio" value="admin" id="customCheck2">
+                                                        <label class="checkbox__label" for="customCheck2">Admin</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="col-md-6 col-sm-12 col-lg-6">
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="approvals" id="customCheck4">
-                                                <label class="checkbox__label" for="customCheck4">Approvals</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="reporting" id="customCheck5">
-                                                <label class="checkbox__label" for="customCheck5">Reporting</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input type="checkbox" value="system_admin" id="customCheck6">
-                                                <label class="checkbox__label" for="customCheck6">System Admin</label>
-                                            </div>
-
-                                        </div>
 
                                         <div class="col-12 mt-5">
                                             <button type="submit" class="btn btn-primary btn-add-user">Add User</button>
@@ -180,8 +171,7 @@
         $('.checkbox input').on('click', function() {
             if ($(this).is(':checked')) {
                 $(this).attr("name", "roles[]");
-            } else {
-                $(this).removeAttr('name');
+                $(this).parent().parent().siblings().find('input').removeAttr('name');
             }
         });
 
