@@ -220,6 +220,80 @@ class AuthController extends Controller
 
     }
 
+    public function otpLogin()
+    {
+        // dd($request->all());
+        $url = config('global.url').'otp_login/';
+        // dd($url);
+
+        $phone = Session::get('userphone');
+
+        $data = [
+            'phone' => $phone,
+        ];
+
+        // dd($data);
+
+        $response = Http::post($url,$data);
+        // dd($response);
+
+        $created = json_decode($response->body());
+
+        // dd($created);
+
+        if(is_null($created))
+        {
+            return redirect()->back()->with('errors', 'An error occured.');
+        }
+
+        if(!$created->success)
+        {
+            return redirect()->back()->with('errors', $created->msg);
+        }
+
+        // dd($created);
+
+        return redirect()->route('otp', [
+            'phoneNumber' => $phone] );
+
+    }
+
+    public function validateOTP(Request $request)
+    {
+        // dd($request->all());
+        $url = config('global.url').'validate_otp/';
+        // dd($url);
+
+        $data = [
+            'phone' => $request->phone,
+            'otp' => $request->otp,
+        ];
+
+        // dd($data);
+
+        $response = Http::post($url,$data);
+        // dd($response);
+        $created = json_decode($response->body());
+        // dd($created);
+
+        if(is_null($created))
+        {
+            return redirect()->back()->with('errors', 'An error occured.');
+        }
+
+        if(!$created->success)
+        {
+            return redirect()->back()->with('errors', $created->msg);
+        }
+
+        // dd($created);
+        Session::put('user', $created->data->data);
+        Session::put('Usertoken', $created->data->data->token);
+
+        return redirect()->route('details');
+
+    }
+
     public function logout()
     {
         Session::flush('token');
