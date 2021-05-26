@@ -60,7 +60,7 @@
                                             <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
                                                 data-toggle="modal" data-target="#details{{ $Objection->id }}"><i
                                                     class="zmdi zmdi-eye"></i>Details</button>
-                                            <a onclick="printObjection(String({{ $Objection->property->serial_no }}))"
+                                            <a href="singleobjection/{{ $Objection->property->serial_no }}" target="_blank"
                                                 class="btn btn-success btn-sm btn--icon-text"><i
                                                     class="zmdi zmdi-print"></i>Print</a>
                                             <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
