@@ -158,7 +158,7 @@
                         </div>
                     </div>
                 </li>
-                <a href="https://test.nairobicitycounty.ke"
+                <a href="https://valuation.nairobi.go.ke/"
                     class="btn btn-warning text-black btn--icon-text btn-sm ml-3"><i
                         class="mdi mdi-arrange-send-backward"></i>Public Portal</a>
 
