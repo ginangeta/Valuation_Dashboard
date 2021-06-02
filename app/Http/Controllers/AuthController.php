@@ -135,12 +135,12 @@ class AuthController extends Controller
 
         if(is_null($created))
         {
-            return redirect()->view('change-password')->with('errors', 'An error occured.');
+            return redirect()->route('password.new')->with('errors', 'An error occured.');
         }
 
         if(!$created->success)
         {
-            return redirect()->route('auth.login')->with('errors', $created->msg);
+            return redirect()->route('password.new')->with('errors', $created->msg);
         }
 
         // dd($created);
@@ -148,6 +148,12 @@ class AuthController extends Controller
         return redirect()->route('home')->with('success', 'The password has been reset successfully.');
 
     }   
+
+    public function newPassword(){
+        return view('auth.change-password');
+
+    }
+
     public function resetPassword(Request $request)
     {
         // dd($request->all());

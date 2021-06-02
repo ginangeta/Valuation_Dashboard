@@ -31,6 +31,7 @@
                                     <th>Owner</th>
                                     <th>Phone</th>
                                     <th>Documents</th>
+                                    <th>Payment Status</th>
                                     <th>Objection Date</th>
                                     <th>USV</th>
                                     <th>Actions</th>
@@ -54,14 +55,26 @@
                                         <td><a href="#" data-toggle="modal"
                                                 data-target="#objection-documents{{ $key + 1 }}">{{ count($Objection->documents) }}
                                                 Documents</a></td>
+                                        <td>
+                                            @if ($Objection->status === 'Pending')
+                                                <span
+                                                    class="badge badge-pill d-inline badge-warning">{{ $Objection->status }}
+                                                </span>
+                                            @endif
+                                            @if ($Objection->status === 'Paid')
+                                            <span
+                                                class="badge badge-pill d-inline badge-success">{{ $Objection->status }}
+                                            </span>
+                                        @endif
+                                        </td>
                                         <td>{{ date('d M Y h:i A', strtotime($Objection->objection_date)) }}</td>
                                         <td>KES {{ number_format($Objection->property->usv) }}</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
                                                 data-toggle="modal" data-target="#details{{ $Objection->id }}"><i
                                                     class="zmdi zmdi-eye"></i>Details</button>
-                                            <a href="singleobjection/{{ $Objection->property->serial_no }}" target="_blank"
-                                                class="btn btn-success btn-sm btn--icon-text"><i
+                                            <a href="singleobjection/{{ $Objection->property->serial_no }}"
+                                                target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
                                                     class="zmdi zmdi-print"></i>Print</a>
                                             <button type="button" class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
                                                 data-toggle="modal" data-target="#edit-car-booking"><i
@@ -96,7 +109,7 @@
                                                             <ul style="padding-left: 20px;">
                                                                 @foreach ($Objection->documents as $key => $document)
                                                                     <li>
-                                                                        <a href="{{$document->url}}"
+                                                                        <a href="{{ $document->url }}"
                                                                             download>{{ $document->name }}</a>
                                                                     </li>
                                                                 @endforeach

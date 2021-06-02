@@ -25,6 +25,7 @@ Route::post('authenticate', 'AuthController@authenticate')->name('authenticate')
 Route::post('registration', 'AuthController@registration')->name('registration');
 Route::post('password-request', 'AuthController@requestPassword')->name('password.request');
 Route::post('change-password', 'AuthController@changePassword')->name('password.change');
+Route::get('newpassword', 'AuthController@newPassword')->name('password.new');
 Route::post('password-reset', 'AuthController@resetPassword')->name('password.reset');
 Route::get('user-password-reset', 'AuthController@userResetPassword')->name('user-password-reset');
 Route::get('logout', 'AuthController@logout')->name('logout');
