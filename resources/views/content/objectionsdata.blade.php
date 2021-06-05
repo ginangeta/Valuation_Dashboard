@@ -29,8 +29,6 @@
             }
         },
 
-
-
         xAxis: {
             crosshair: true,
             type: 'category',
@@ -88,27 +86,33 @@
         },
         tooltip: {
             headerFormat: '<span style="font-size:16px; font-weight:800;">{series.name}</span><br>',
+            //		useHTML: true,
             pointFormat: '<span  style="font-size:16px; font-weight:800; color:{point.color}">{point.name}</span>: <b style="color:{point.color}">KES {point.y}</b><br/>',
             formatter: function() {
 
                 var point = this.point,
-                    s = '<span style="font-size:16px; font-weight:800;">' + this.series.name +
-                    '</span><br/><p><span  style="font-size:16px; font-weight:800; color:{point.color}>' +
-                    point.name + '</span> :<b> KES ' + Highcharts.numberFormat(point.y, 0, '.', ',') + '' +
-                    '<br/></p>';
+                    s = '<span style="font-size:14px; font-weight:600;color:' + point.color + '; margin-bottom: 10px;">' + this
+                    .series.name +
+                    '</span><br/><span style="color: white;"><span style="font-size:16px; font-weight:800; color: white;">' +
+                    point
+                    .name + '</span> :<b> KES ' + Highcharts.numberFormat(point.y, 0, '.', ',') + ' ' +
+                    '</span>';
                 if (point.drilldown) {
-                    s += '<p><br/> Click to view <b>' + point.name + '</b> Collections </p>';
+                    s = '<span style="font-size:14px; font-weight:600;  color:' + point.color + ';">' + this
+                        .series.name +
+                        '</span><br/><p><span  style="font-size:16px; font-weight:800; color:' + point
+                        .color + ';">' + point.name + '</span> :<b> KES ' + Highcharts.numberFormat(point.y,
+                            0, '.', ',') + ' (' + Highcharts.numberFormat(this.percentage, 0, '.', ',') +
+                        '%)</p><br/>';
+                    s += '<p>Click to view <b>' + point.name + '</b> Collections </p>';
                 }
                 return s;
             },
             crosshairs: true
-
-
         },
         lang: {
             thousandsSep: ','
         },
-        
         series: [{
             animation: {
                 duration: 5000,
