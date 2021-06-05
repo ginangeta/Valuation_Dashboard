@@ -40,7 +40,7 @@
                             <span class="mdi mdi-account-cancel-outline"></span>
                         </div>
                         <div class="ml-4">
-                            <span class="font-12">Objections</span>
+                            <span class="font-12">Attempts</span>
                             <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->objections_count) }}</h4>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <span class="mdi mdi-cash-check"></span>
                         </div>
                         <div class="ml-4">
-                            <span class="font-12">Payments</span>
+                            <span class="font-12">Valid Objections</span>
                             <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->payment_count) }}</h4>
                         </div>
                     </div>
