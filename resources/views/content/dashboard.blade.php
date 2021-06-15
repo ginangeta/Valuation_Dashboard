@@ -56,7 +56,7 @@
                         </div>
                         <div class="ml-4">
                             <span class="font-12">Valid Objections</span>
-                            <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->payment_count) }}</h4>
+                            <h4 class="mt-1 mb-0 font-weight-bold">{{ number_format($DashboardData->paid_objections) }}</h4>
                         </div>
                     </div>
                 </div>
