@@ -46,15 +46,18 @@ Route::group(['middleware' => ['active']], function () {
 
     //Reports
     Route::get('getAllObjections', 'ReportsController@getAllObjections')->name('getAllObjections');
+    Route::get('getObjections/{page}', 'ReportsController@getObjections')->name('getObjections');
     Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
     Route::get('getProperties/{page}', 'ReportsController@getProperties')->name('getProperties');
     Route::get('getAllPayments', 'ReportsController@getAllPayments')->name('getAllPayments');
+    Route::get('getPayments/{page}', 'ReportsController@getPayments')->name('getPayments');
     Route::get('singleobjection/{lr_no}', 'ReportsController@singleobjection')->name('singleobjection');
 
     Route::get('getAllTowns', 'ReportsController@getAllTowns')->name('getAllTowns');
     Route::post('addTown', 'ReportsController@addTown')->name('addTown');
 
     Route::post('getSearchedBill', 'ReportsController@getSearchedBill')->name('getSearchedBill');
+    Route::post('getSearchedObjection', 'ReportsController@getSearchedObjection')->name('getSearchedObjection');
 
     Route::get('getClientLogs', 'ReportsController@getClientLogs')->name('getClientLogs');
     Route::get('getSearchedProperties', 'ReportsController@getSearchedProperties')->name('getSearchedProperties');

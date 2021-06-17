@@ -73,7 +73,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-sm table-bordered input-table table-striped" id="data-table">
+                        <table class="table table-sm table-bordered input-table table-striped" id="roll-data-table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>Bill No</th>
@@ -327,16 +327,77 @@
 
         <!-- Modals -->
 
-        <footer class="footer hidden-xs-down d-none">
-            <p>Powered by</p>
-            <center>
-                <a class="nouveta-logoo" href="https://nouveta.tech/">
-                    <img src="demo/img/logo-files/nouveta_logo.png" target="new">
-                </a>
-            </center>
-        </footer>
     </section>
 
 @endsection
+
 @section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var current = '{{ Session::get('paginationCurrent') }}';
+            if (current != '') {
+                current = current.split('=');
+                $('.current').html(current[1]);
+            } else {
+                $('.current').html("1");
+            }
+
+            var next = '{{ Session::get('paginationNext') }}';
+            if (next != '') {
+                next = next.split('?');
+                next = next[1];
+                $('#roll-data-table_next').removeClass('disabled');
+                $('#roll-data-table_next').on('click', function(e) {
+                    e.preventDefault();
+                    let url = "{{ URL::to('getPayments/:PageNo') }}";
+                    url = url.replace(':PageNo', next);
+                    window.location.href = url
+
+                    // document.location.href = url;
+                    // window.open(url);
+                });
+            } else {
+                $('#roll-data-table_next').addClass('d-none');
+            }
+
+            console.log(next);
+
+            var prev = '{{ Session::get('paginationPrev') }}';
+            if (prev != '') {
+                $('#roll-data-table_previous').removeClass('disabled');
+
+                if (prev.includes('?')) {
+                    prev = prev.split('?');
+                    prev = prev[1];
+                    $('#roll-data-table_previous').on('click', function(e) {
+                        let url = "{{ URL::to('getPayments/:PageNo') }}";
+                        e.preventDefault();
+                        url = url.replace(':PageNo', prev);
+                        window.location.href = url
+
+                        // document.location.href = url;
+                        // window.open(url);
+                    });
+                } else {
+                    prev = '';
+                    $('#roll-data-table_previous').on('click', function(e) {
+                        let url = "{{ URL::to('getAllPayments') }}";
+                        e.preventDefault();
+                        url = url.replace(':PageNo', prev);
+                        window.location.href = url
+
+                        // document.location.href = url;
+                        // window.open(url);
+                    });
+                }
+            } else {
+                $('#roll-data-table_previous').addClass('d-none');
+            }
+
+            console.log(prev);
+        });
+
+    </script>
+    <script type="text/javascript">
+    </script>
 @endsection

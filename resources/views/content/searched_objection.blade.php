@@ -8,58 +8,9 @@
                 <div class="col-sm-12 col-md-6">
                     <ol class="breadcrumb border-0">
                         <li class="breadcrumb-item">Home</li>
-                        <li class="breadcrumb-item active">Objections</li>
+                        <li class="breadcrumb-item">Objections</li>
+                        <li class="breadcrumb-item active">Property Objection</li>
                     </ol>
-                </div>
-                <div class="col-sm-12 col-md-6 d-flex justify-content-end align-items-center d-none">
-                    <div class="form-group mt-0 mb-0">
-                        <button type="button" data-target="#objectionmodal" data-toggle="modal"
-                            class="btn btn-success btn-info">Search Objection</button>
-                    </div>
-                </div>
-
-                <!-- bill request modal -->
-                <div class="modal fade" id="objectionmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true" data-backdrop="static">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <form action="{{ route('getSearchedObjection') }}" id="searchbill" method="POST">
-                                @csrf
-                                @if (Session::has('success'))
-                                    <p class="alert alert-success">
-                                        {{ Session::get('success') }}</p>
-                                @endif
-                                @if (Session::has('errors'))
-                                    <p class="alert alert-danger">{{ Session::get('errors') }}
-                                    </p>
-                                @endif
-                                <div class="modal-header">
-
-                                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Search Objection Modal</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <h6><strong>LR Number/Serial Number</strong></h6>
-                                        <input type="text" class="form-control filter-input mt-0" name="billNumber"
-                                            placeholder="Enter to search objection">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <!-- show if payment was successful -->
-                                    <button type="submit" onclick="$('#searchbill').submit();" class="btn btn-success btn--icon-text" data-dismiss="modal"
-                                        aria-label="Close">Search Objection</button>
-
-                                    <!-- show if payment was successful or when there is a need for closing -->
-                                    <button type="button" id="close"
-                                        class="btn btn-outline-dark text-black btn--icon-text d-none" data-dismiss="modal"
-                                        aria-label="Close">Close</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </header>

@@ -21,15 +21,22 @@ class ReportsController extends Controller
 
         if(is_null($created))
         {
-            return redirect()->route('getAllObjections')->with('errors', 'An error occured.');
+            return redirect()->route('AllObjections')->with('errors', 'An error occured.');
         }
 
-        if($created->success == false)
+        if($created->count = 0)
         {
-            return redirect()->route('getAllObjections')->with('errors', 'Obtaining properties');
+            return redirect()->route('AllObjections')->with('errors', 'Obtaining properties');
         }
 
-        return view('content/objections', ['Objections' => $created->data]);
+        $page = 1;
+
+        Session::put('paginationCurrent', $page);
+        Session::put('paginationNext', $created->next);
+        Session::put('paginationPrev', $created->previous);
+
+        return view('content/objections', ['Objections' => $created->results]);
+
         // return view('usv')->with($lr_no);
 
     }
@@ -90,6 +97,62 @@ class ReportsController extends Controller
         Session::put('paginationPrev', $created->previous);
 
         return view('content/valuation-roll', ['properties' => $created->results]);
+
+    }
+
+    public function getPayments($page){
+        $url = config('global.url').'bills/?'.$page;
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('AllPayments')->with('errors', 'An error occured.');
+        }
+
+        if($created->count = 0)
+        {
+            return redirect()->route('AllPayments')->with('errors', 'Obtaining properties');
+        }
+
+        Session::put('paginationCurrent', $page);
+        Session::put('paginationNext', $created->next);
+        Session::put('paginationPrev', $created->previous);
+
+        return view('content/payments', ['payments' => $created->results]);    
+
+    }
+
+    public function getObjections($page){
+        $url = config('global.url').'property/objection/?'.$page;
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('AllObjections')->with('errors', 'An error occured.');
+        }
+
+        if($created->count = 0)
+        {
+            return redirect()->route('AllObjections')->with('errors', 'Obtaining properties');
+        }
+
+        Session::put('paginationCurrent', $page);
+        Session::put('paginationNext', $created->next);
+        Session::put('paginationPrev', $created->previous);
+
+        return view('content/objections', ['Objections' => $created->results]);
 
     }
 
@@ -205,6 +268,25 @@ class ReportsController extends Controller
         if(is_null($created))
         {
             return redirect()->route('getAllPayments')->with('errors', 'An error occured.');
+        }
+
+        return view('content/searched_bill', ['payments' => $created->results]);
+    }
+
+    public function getSearchedObjection(Request $request){
+        // dd($request->all());
+
+        $url = config('global.url').'property/objection/?q='.$request->billNumber;
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+        if(is_null($created))
+        {
+            return redirect()->route('getAllObjections')->with('errors', 'An error occured.');
         }
 
         return view('content/searched_bill', ['payments' => $created->results]);
