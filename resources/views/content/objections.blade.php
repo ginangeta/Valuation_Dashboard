@@ -11,7 +11,7 @@
                         <li class="breadcrumb-item active">Objections</li>
                     </ol>
                 </div>
-                <div class="col-sm-12 col-md-6 d-flex justify-content-end align-items-center d-none">
+                <div class="col-sm-12 col-md-6 d-none d-flex justify-content-end align-items-center">
                     <div class="form-group mt-0 mb-0">
                         <button type="button" data-target="#objectionmodal" data-toggle="modal"
                             class="btn btn-success btn-info">Search Objection</button>
