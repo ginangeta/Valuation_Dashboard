@@ -4,12 +4,63 @@
     <section class="content">
         <header class="content__title px-0 border-0">
             <h4 class="p-0 mb-0 cl">Payments</h4>
-            <div class="">
-                <ol class="breadcrumb border-0">
-                    <li class="breadcrumb-item">Home</li>
-                    <li class="breadcrumb-item active">Payments</li>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <ol class="breadcrumb border-0">
+                        <li class="breadcrumb-item">Home</li>
+                        <li class="breadcrumb-item active">Payments</li>
+                    </ol>
+                </div>
+                <div class="col-sm-12 col-md-6 d-flex justify-content-end align-items-center">
+                    <div class="form-group mt-0 mb-0">
+                        <button type="button" data-target="#billmodal" data-toggle="modal"
+                            class="btn btn-success btn-info">Search Bill</button>
+                    </div>
+                </div>
 
-                </ol>
+                <!-- bill request modal -->
+                <div class="modal fade" id="billmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true" data-backdrop="static">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form action="{{ route('getSearchedBill') }}" id="searchbill" method="POST">
+                                @csrf
+                                @if (Session::has('success'))
+                                    <p class="alert alert-success">
+                                        {{ Session::get('success') }}</p>
+                                @endif
+                                @if (Session::has('errors'))
+                                    <p class="alert alert-danger">{{ Session::get('errors') }}
+                                    </p>
+                                @endif
+                                <div class="modal-header">
+
+                                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Search Bill Modal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <h6><strong>Bill Number</strong></h6>
+                                        <input type="text" class="form-control filter-input mt-0" name="billNumber"
+                                            placeholder="Enter Client's Bill Number">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- show if payment was successful -->
+                                    <button type="submit" onclick="$('#searchbill').submit();" class="btn btn-success btn--icon-text" data-dismiss="modal"
+                                        aria-label="Close">Search Bill</button>
+
+                                    <!-- show if payment was successful or when there is a need for closing -->
+                                    <button type="button" id="close"
+                                        class="btn btn-outline-dark text-black btn--icon-text d-none" data-dismiss="modal"
+                                        aria-label="Close">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -51,7 +102,7 @@
                                                 <td>
                                                     &nbsp;
                                                     <a href="#" data-toggle="modal"
-                                                        data-target="#payment-details{{ $payment->bill_no}}"
+                                                        data-target="#payment-details{{ $payment->bill_no }}"
                                                         class="btn btn-primary btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-eye"></i>View
                                                         details</a>
@@ -87,7 +138,8 @@
                                                                         <li>
                                                                             <div class="d-flex justify-content-between">
                                                                                 <p>{{ $item->description }}</p>
-                                                                                <p>KES {{ number_format($item->amount) }}</p>
+                                                                                <p>KES {{ number_format($item->amount) }}
+                                                                                </p>
                                                                             </div>
                                                                         </li>
                                                                     @endforeach
@@ -109,7 +161,8 @@
                                                             <hr>
 
                                                             <h6><strong>Payment Status</strong></h6>
-                                                            <span class="badge badge-pill d-inline badge-warning">{{ $payment->status }}</span>
+                                                            <span
+                                                                class="badge badge-pill d-inline badge-warning">{{ $payment->status }}</span>
                                                             <hr>
 
                                                         </div>

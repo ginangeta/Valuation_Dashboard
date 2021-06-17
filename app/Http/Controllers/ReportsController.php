@@ -191,6 +191,25 @@ class ReportsController extends Controller
 
     }
 
+    public function getSearchedBill(Request $request){
+        // dd($request->all());
+
+        $url = config('global.url').'bills/?q='.$request->billNumber;
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+        if(is_null($created))
+        {
+            return redirect()->route('getAllPayments')->with('errors', 'An error occured.');
+        }
+
+        return view('content/searched_bill', ['payments' => $created->results]);
+    }
+
     public function getAllTowns(Request $request){
         $url = config('global.url').'towns/';
 

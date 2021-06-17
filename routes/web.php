@@ -54,6 +54,8 @@ Route::group(['middleware' => ['active']], function () {
     Route::get('getAllTowns', 'ReportsController@getAllTowns')->name('getAllTowns');
     Route::post('addTown', 'ReportsController@addTown')->name('addTown');
 
+    Route::post('getSearchedBill', 'ReportsController@getSearchedBill')->name('getSearchedBill');
+
     Route::get('getClientLogs', 'ReportsController@getClientLogs')->name('getClientLogs');
     Route::get('getSearchedProperties', 'ReportsController@getSearchedProperties')->name('getSearchedProperties');
 
