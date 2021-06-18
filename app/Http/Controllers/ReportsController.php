@@ -276,7 +276,7 @@ class ReportsController extends Controller
     public function getSearchedObjection(Request $request){
         // dd($request->all());
 
-        $url = config('global.url').'property/objection/?q='.$request->billNumber;
+        $url = config('global.url').'search_objection/?q='.$request->billNumber;
 
         $response = Http::withToken(Session::get('token'))->get($url);
 
@@ -289,7 +289,7 @@ class ReportsController extends Controller
             return redirect()->route('getAllObjections')->with('errors', 'An error occured.');
         }
 
-        return view('content/searched_bill', ['payments' => $created->results]);
+        return view('content/searched_objection', ['Objections' => $created]);
     }
 
     public function getAllTowns(Request $request){
