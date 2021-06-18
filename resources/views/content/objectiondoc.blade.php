@@ -116,7 +116,7 @@
                         <p style="margin: 0;">Serial No.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->property->serial_no}}</h5>
+                            {{$ObjectionDetails[0]->property->serial_no}}</h5>
                     </div>
                     <!-- Name -->
                     <div style="padding: 0.02in; border: 1px solid black; font-size: 16px; text-align: left; padding-left: 0.1in; 
@@ -124,7 +124,7 @@
                         <p style="margin: 0;">Name of owner.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->property->owner}}</h5>
+                            {{$ObjectionDetails[0]->property->owner}}</h5>
                     </div>
                 </div>
                 <div style="margin-top: 0.2in; display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
@@ -134,7 +134,7 @@
                         <p style="margin: 0;">L. R. No.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->property->lr_no}}
+                            {{$ObjectionDetails[0]->property->lr_no}}
                         </h5>
                     </div>
 
@@ -144,7 +144,7 @@
                         <p style="margin: 0;">Situation.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{$ObjectionDetails->property->situation}}
+                            {{$ObjectionDetails[0]->property->situation}}
                         </h5>
                     </div>
 
@@ -154,7 +154,7 @@
                         <p style="margin: 0;">Unimproved Site Value(KES).</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{number_format($ObjectionDetails->property->usv)}}
+                            {{number_format($ObjectionDetails[0]->property->usv)}}
                         </h5>
                     </div>
 
@@ -179,7 +179,7 @@
                     </tfoot>
 
                     <tbody style="border-collapse: collapse;">
-                        @foreach ($ObjectionDetails->reasons as $key => $reason)
+                        @foreach ($ObjectionDetails[0]->reasons as $key => $reason)
                         <tr style="color: black;">
                             <td style="padding: 0.05in 0.2in; border: 2px solid #215939;">{{ $key + 1 }}</td>
                             <td style="padding: 0.05in 0.2in; border: 2px solid #215939;">
@@ -198,7 +198,7 @@
                             <span style="color: black; text-transform: capitalize;">Signature
                                 of objector</span>
                             <span
-                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{$ObjectionDetails->objector_name}}
+                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{$ObjectionDetails[0]->objector_name}}
                             </span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
@@ -207,12 +207,12 @@
                                 Owner or Otherwise of objector</span>
                             <span
                                 style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 495px;">
-                                {{$ObjectionDetails->ratable_owner}}
+                                {{$ObjectionDetails[0]->ratable_owner}}
                                 @csrf
-                                @if (!$ObjectionDetails->ratable_owner)
+                                @if (!$ObjectionDetails[0]->ratable_owner)
                                 NO
                                 @endif
-                                @if ($ObjectionDetails->ratable_owner)
+                                @if ($ObjectionDetails[0]->ratable_owner)
                                 YES 
                                 @endif
                             </span>
@@ -222,19 +222,19 @@
                                 Objector P.O.Box
                                 of objector</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">{{$ObjectionDetails->postal_address}}
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">{{$ObjectionDetails[0]->postal_address}}
                             </span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
                             <span style="color: black; text-transform: capitalize;">Dated this</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">{{date('d', strtotime($ObjectionDetails->objection_date))}}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">{{date('d', strtotime($ObjectionDetails[0]->objection_date))}}</span>
                             <span style="color: black; text-transform: capitalize;">day of</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{date('M', strtotime($ObjectionDetails->objection_date))}}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{date('M', strtotime($ObjectionDetails[0]->objection_date))}}</span>
                             <span style="color: black; text-transform: capitalize;">telephone no</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">{{$ObjectionDetails->phone}}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">{{$ObjectionDetails[0]->phone}}</span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
                             <span style="color: black; text-transform: capitalize;">Shs 500/= Non refundable fee Receipt
@@ -243,7 +243,7 @@
                                 style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 120px; font-weight: bold;">OBJ-24586</span>
                             <span style="color: black; text-transform: capitalize;">Dated</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 303px;">{{date('d-m-Y', strtotime($ObjectionDetails->objection_date))}}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 303px;">{{date('d-m-Y', strtotime($ObjectionDetails[0]->objection_date))}}</span>
                             <span style="color: black; text-transform: capitalize;">(DD/MM/YY)</span>
                         </div>
                     </div>

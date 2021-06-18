@@ -186,7 +186,9 @@ class ReportsController extends Controller
     }
 
     public function singleobjection($lr_no){
-        $url = config('global.url').'property/objection/?q='.$lr_no;
+        $lr_no = str_replace("-", "/", $lr_no);
+
+        $url = config('global.url').'search_objection/?q='.$lr_no;
 
         $response = Http::withToken(Session::get('token'))->get($url);
 
@@ -200,12 +202,7 @@ class ReportsController extends Controller
             return redirect()->back()->with('errors', 'An error occured.');
         }
 
-        if($created->success != true)
-        {
-            return redirect()->back()->with('errors', 'Obtaining property objection failed');
-        }
-
-        return view('content/objectiondoc', ['ObjectionDetails' => $created->data[0]]);
+        return view('content/objectiondoc', ['ObjectionDetails' => $created]);
         // return view('usv')->with($lr_no);
     }
 
