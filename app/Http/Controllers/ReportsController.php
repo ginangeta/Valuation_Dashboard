@@ -190,11 +190,13 @@ class ReportsController extends Controller
         if(strpos($lr_no, '-') !== false){
             $lr_no = str_replace("-", "/", $lr_no);
         }else{
-            $lr_no = str_replace("+", "/", $lr_no);
+            $lr_no = str_replace("+", "-", $lr_no);
 
         }
 
         $url = config('global.url').'search_objection/?q='.$lr_no;
+
+        // dd($url);
 
         $response = Http::withToken(Session::get('token'))->get($url);
 
