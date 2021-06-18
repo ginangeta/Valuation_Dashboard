@@ -186,7 +186,13 @@ class ReportsController extends Controller
     }
 
     public function singleobjection($lr_no){
-        $lr_no = str_replace("-", "/", $lr_no);
+
+        if(strpos($lr_no, '-') !== false){
+            $lr_no = str_replace("-", "/", $lr_no);
+        }else{
+            $lr_no = str_replace("+", "/", $lr_no);
+
+        }
 
         $url = config('global.url').'search_objection/?q='.$lr_no;
 

@@ -19,8 +19,8 @@
                 </div>
 
                 <!-- bill request modal -->
-                <div class="modal fade" id="objectionmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true" data-backdrop="static">
+                <div class="modal fade" id="objectionmodal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <form action="{{ route('getSearchedObjection') }}" id="searchbill" method="POST">
@@ -35,7 +35,8 @@
                                 @endif
                                 <div class="modal-header">
 
-                                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Search Objection Modal</h5>
+                                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Search Objection Modal
+                                    </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -49,7 +50,8 @@
                                 </div>
                                 <div class="modal-footer">
                                     <!-- show if payment was successful -->
-                                    <button type="submit" onclick="$('#searchbill').submit();" class="btn btn-success btn--icon-text" data-dismiss="modal"
+                                    <button type="submit" onclick="$('#searchbill').submit();"
+                                        class="btn btn-success btn--icon-text" data-dismiss="modal"
                                         aria-label="Close">Search Objection</button>
 
                                     <!-- show if payment was successful or when there is a need for closing -->
@@ -126,9 +128,15 @@
                                                 <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
                                                     data-toggle="modal" data-target="#details{{ $Objection->id }}"><i
                                                         class="zmdi zmdi-eye"></i>Details</button>
-                                                <a href="singleobjection/{{ str_replace("/", "-", $Objection->property->lr_no) }}"
-                                                    target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
-                                                        class="zmdi zmdi-print"></i>Print</a>
+                                                @if (strpos($Objection->property->lr_no, '/') !== false)
+                                                    <a href="singleobjection/{{ str_replace('/', '-', $Objection->property->lr_no) }}"
+                                                        target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
+                                                            class="zmdi zmdi-print"></i>Print</a>
+                                                @else
+                                                    <a href="singleobjection/{{ str_replace('-', '+', $Objection->property->lr_no)}}"
+                                                        target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
+                                                            class="zmdi zmdi-print"></i>Print</a>
+                                                @endif
                                                 <button type="button"
                                                     class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
                                                     data-toggle="modal" data-target="#edit-car-booking"><i
