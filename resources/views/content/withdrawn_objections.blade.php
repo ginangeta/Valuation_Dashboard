@@ -74,7 +74,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Valuation Roll Objections</h4>
-                    <p>The table below shows a list of NCCG Draft Valuation Roll Objections</p>
+                    <p>The table below shows a list of NCCG Draft Valuation Roll Withdrawn Objections</p>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
