@@ -36,6 +36,7 @@ Route::group(['middleware' => ['active']], function () {
     Route::get('AddProperty', 'SiteController@addProperty')->name('AddProperty');
     Route::get('AllProperty', 'SiteController@allProperty')->name('AllProperty');
     Route::get('AllObjections', 'SiteController@allObjection')->name('AllObjections');
+    Route::get('WithdrawnObjections', 'SiteController@withdrawnObjections')->name('WithdrawnObjections');
     Route::get('AllPayments', 'SiteController@allPayments')->name('AllPayments');
 
     Route::get('systemUsage', 'SiteController@systemUsage')->name('systemUsage');
@@ -46,6 +47,7 @@ Route::group(['middleware' => ['active']], function () {
 
     //Reports
     Route::get('getAllObjections', 'ReportsController@getAllObjections')->name('getAllObjections');
+    Route::get('getAllWithdrawnObjections', 'ReportsController@getAllWithdrawnObjections')->name('getAllWithdrawnObjections');
     Route::get('getObjections/{page}', 'ReportsController@getObjections')->name('getObjections');
     Route::get('getAllProperties', 'ReportsController@getAllProperties')->name('getAllProperties');
     Route::get('getProperties/{page}', 'ReportsController@getProperties')->name('getProperties');
@@ -71,6 +73,10 @@ Route::group(['middleware' => ['active']], function () {
     Route::get('getactiveUsers', 'UsersController@getactiveUsers')->name('getactiveUsers');
     Route::post('editUser', 'UsersController@editUser')->name('editUser');
     Route::post('deactivateUser', 'UsersController@deactivateUser')->name('deactivateUser');
+
+    Route::get('/export-pdf', 'PdfController@exportPdf')->name('export-pdf');
+
+    // Route::get('/export-pdf', [App\Http\Controllers\PdfController::class, 'exportPdf']);
 
 });
 

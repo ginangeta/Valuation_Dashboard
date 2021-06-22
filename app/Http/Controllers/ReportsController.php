@@ -41,6 +41,30 @@ class ReportsController extends Controller
 
     }
 
+    public function getAllWithdrawnObjections(Request $request){
+        $url = config('global.url').'withdrawn_properties';
+
+        $response = Http::withToken(Session::get('token'))->get($url);
+
+        $created  = json_decode($response->body());
+
+        // dd($created);
+
+
+        if(is_null($created))
+        {
+            return redirect()->route('WithdrawnObjections')->with('errors', 'An error occured.');
+        }
+
+        if($created->count = 0)
+        {
+            return redirect()->route('WithdrawnObjections')->with('errors', 'Obtaining properties');
+        }
+
+
+        return view('content/withdrawn_objections', ['Objections' => $created->results]);
+    }
+
     public function getAllProperties(Request $request){
         $url = config('global.url').'properties/?';
 

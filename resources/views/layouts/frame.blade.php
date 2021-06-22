@@ -11,7 +11,6 @@
     <title>NCCG - Online Valuation Roll Dashboard</title>
     <link rel='icon' href='demo/img/icon_3.png' type='image/x-icon' />
 
-
     <!-- icon files -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -21,6 +20,68 @@
     <link rel="stylesheet" href="{{ asset('css/icon_fonts/css/icon_set_3.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon_fonts/css/icon_set_4.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flaticon-font/flaticon.css') }}">
+
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            /* font-size: 11px; */
+            font-weight: 500;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        body {
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0mm;
+            /* this affects the margin in the printer settings */
+            -webkit-print-color-adjust: exact;
+        }
+
+        .print-btn {
+            display: flex;
+            z-index: 1000000000;
+            position: absolute;
+            background: #215939;
+            color: white;
+            top: 30px;
+            right: -400px;
+            border-radius: 50%;
+            padding: 1rem;
+            margin: 0px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 1px 0px 20px 4px rgb(136 136 136 / 0.65);
+            cursor: pointer;
+            transition: 0.4s;
+
+        }
+
+        .print-btn img {
+            height: 35px;
+        }
+
+        .print-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media print {
+
+            /* All your print styles go here */
+            .print-btn {
+                display: none !important;
+            }
+        }
+
+    </style>
 
     <!-- Vendor styles -->
     <link rel="stylesheet"
@@ -43,6 +104,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/top-navigation.css') }}">
     <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
+
 
 </head>
 
@@ -240,6 +302,8 @@
                     @if (Session::get('userRoles')[0]->name == 'superAdmin')
                         <li class="navigation__active"><a href="{{ route('getAllObjections') }}"><i
                                     class="mdi mdi-clipboard-edit-outline"></i>Objections</a></li>
+                        <li class="navigation__active"><a href="{{ route('getAllWithdrawnObjections') }}"><i
+                                    class="mdi mdi-cancel"></i>Withdrawn Objections</a></li>
                         <li class="navigation__active"><a href="{{ route('getAllPayments') }}"><i
                                     class="mdi mdi-cash"></i>Payments</a></li>
                         <li class="navigation__sub">
@@ -295,6 +359,8 @@
                     @if (Session::get('userRoles')[0]->name == 'user')
                         <li class="navigation__active"><a href="{{ route('getAllObjections') }}"><i
                                     class="mdi mdi-clipboard-edit-outline"></i>Objections</a></li>
+                        <li class="navigation__active"><a href="{{ route('getAllWithdrawnObjections') }}"><i
+                                    class="mdi mdi-cancel"></i>Withdrawn Objections</a></li>
                         <li class="navigation__active"><a href="{{ route('getAllPayments') }}"><i
                                     class="mdi mdi-cash"></i>Payments</a></li>
                         <li class="navigation__sub">
@@ -467,6 +533,18 @@
     <!-- high chart data -->
     {{-- <script src="{{ asset('js/chart-data/all-objections.js') }}"></script> --}}
     <script src="{{ asset('js/chart-data/loan-breakdown.js') }}"></script>
+
+    <!-- JS PDF -->
+    <script src="https://unpkg.com/jspdf@2.3.1/dist/jspdf.es.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.min.js"
+        integrity="sha512-qVixWKsf397v6AtHODxJFtwvnH7sbs1IRdF8XZVRlb6glD9TFZxBHIyX05rSPThDzhwI99lF4yI5Y3mpVng3Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"
+        integrity="sha512-jzL0FvPiDtXef2o2XZJWgaEpVAihqquZT/tT89qCVaxVuHwJ/1DFcJ+8TBMXplSJXE8gLbVAUv+Lj20qHpGx+A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"
+        integrity="sha512-U5C477Z8VvmbYAoV4HDq17tf4wG6HXPC6/KM9+0/wEXQQ13gmKY2Zb0Z2vu0VNUWch4GlJ+Tl/dfoLOH4i2msw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 
     <!-- App functions and actions -->
     <script src="{{ asset('js/app.min.js') }}"></script>

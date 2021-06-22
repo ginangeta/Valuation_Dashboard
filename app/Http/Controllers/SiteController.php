@@ -48,6 +48,10 @@ class SiteController extends Controller
         return view('content/valuation-roll');
     }
 
+    public function withdrawnObjections(){
+        return view('content/withdrawn_objections');
+    }
+
     
     public function allObjection(){
         return view('content/objections');

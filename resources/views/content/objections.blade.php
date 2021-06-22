@@ -12,10 +12,13 @@
                     </ol>
                 </div>
                 <div class="col-sm-12 col-md-6 d-none d-flex justify-content-end align-items-center">
+
                     <div class="form-group mt-0 mb-0">
                         <button type="button" data-target="#objectionmodal" data-toggle="modal"
                             class="btn btn-success btn-info">Search Objection</button>
                     </div>
+
+
                 </div>
 
                 <!-- bill request modal -->
@@ -91,7 +94,7 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="roll-table-body">
                                 @foreach ($Objections as $key => $Objection)
                                     @if ($Objection->status === 'Paid')
                                         <tr>
@@ -124,16 +127,17 @@
                                             </td>
                                             <td>{{ date('d M Y h:i A', strtotime($Objection->objection_date)) }}</td>
                                             <td>KES {{ number_format($Objection->property->usv) }}</td>
-                                            <td>
+                                            <td class="table-actions">
                                                 <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
                                                     data-toggle="modal" data-target="#details{{ $Objection->id }}"><i
                                                         class="zmdi zmdi-eye"></i>Details</button>
                                                 @if (strpos($Objection->property->lr_no, '/') !== false)
                                                     <a href="singleobjection/{{ str_replace('/', '-', $Objection->property->lr_no) }}"
-                                                        target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
+                                                        target="_blank"
+                                                        class="btn-singleobjection btn btn-success btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-print"></i>Print</a>
                                                 @else
-                                                    <a href="singleobjection/{{ str_replace('-', '+', $Objection->property->lr_no)}}"
+                                                    <a href="singleobjection/{{ str_replace('-', '+', $Objection->property->lr_no) }}"
                                                         target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-print"></i>Print</a>
                                                 @endif
@@ -141,6 +145,7 @@
                                                     class="btn btn-warning d-none btn-sm btn--icon-text ml-2"
                                                     data-toggle="modal" data-target="#edit-car-booking"><i
                                                         class="zmdi zmdi-edit"></i>Edit</button>
+                                                @include('content.massprint')
                                                 <button type="button"
                                                     class="btn btn-danger btn-sm btn--icon-text ml-2 d-none"
                                                     title="delete this property" data-toggle="modal"
@@ -293,6 +298,10 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <iframe frameBorder="0" id="sample-pdf"
+                        style="right:0; top:53px; bottom:0; height:400px; width:100%"></iframe>
+
                 </div>
             </div>
         </div>
@@ -462,7 +471,6 @@
             // document.location.href = url;
             window.open(url);
         }
-
     </script>
 
     <script type="text/javascript">
@@ -529,9 +537,179 @@
 
             console.log(prev);
         });
-
     </script>
     <script type="text/javascript">
+        $(document).ready(function() {
+            var pdf, page_section, HTML_Width, HTML_Height, top_left_margin, PDF_Width, PDF_Height,
+                canvas_image_width, canvas_image_height;
+
+            function calculatePDF_height_width(selector, index) {
+                page_section = $(selector).eq(index);
+                HTML_Width = page_section.width();
+                HTML_Height = page_section.height();
+                top_left_margin = 15;
+                PDF_Width = HTML_Width + (top_left_margin * 2);
+                PDF_Height = (PDF_Width * 1.2) + (top_left_margin * 2);
+                canvas_image_width = HTML_Width;
+                canvas_image_height = HTML_Height;
+            }
+
+            //Generate PDF
+            function generatePDF() {
+                pdf = "";
+
+                html2canvas($(".page:eq(0)")[0], {
+                    onrendered: function(canvas) {
+                        calculatePDF_height_width(".page", 0);
+                        var imgData = canvas.toDataURL("image/png", 1.0);
+                        pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, HTML_Width,
+                            HTML_Height);
+                    }
+                });
+
+                html2canvas($(".page:eq(1)")[0], {
+                    onrendered: function(canvas) {
+                        calculatePDF_height_width(".page", 1);
+                        var imgData = canvas.toDataURL("image/png", 1.0);
+                        pdf.addPage(PDF_Width, PDF_Height);
+                        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, HTML_Width,
+                            HTML_Height);
+                    }
+                });
+
+                html2canvas($(".page:eq(2)")[0], {
+                    onrendered: function(canvas) {
+                        calculatePDF_height_width(".page", 2);
+                        var imgData = canvas.toDataURL("image/png", 1.0);
+                        pdf.addPage(PDF_Width, PDF_Height);
+                        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, HTML_Width,
+                            HTML_Height);
+
+                        //console.log((page_section.length-1)+"==="+index);
+                        setTimeout(function() {
+
+                            //Save PDF Doc	
+                            pdf.save("HTML-Document.pdf");
+
+                            //Generate BLOB object
+                            var blob = pdf.output("blob");
+
+                            //Getting URL of blob object
+                            var blobURL = URL.createObjectURL(blob);
+
+                            //Showing PDF generated in iFrame element
+                            var iframe = document.getElementById('sample-pdf');
+                            iframe.src = blobURL;
+
+                            //Setting download link
+                            var downloadLink = document.getElementById('pdf-download-link');
+                            downloadLink.href = blobURL;
+
+                            $("#sample-pdf").slideDown();
+                        }, 0);
+                    }
+                });
+            };
+
+            $('.btn-print-docs').on('click', function(e) {
+                e.preventDefault();
+                var forPDF = $("#roll-table-body").find(".page");
+                var len = forPDF.length;
+                console.log(len);
+
+                for (var i = 0; i < forPDF.length; i++) {
+                    var PDFname = $(forPDF[i]).attr('id');
+                }
+
+                generatePDF();
+
+            });
+        });
     </script>
+
+    {{-- <script type="text/javascript">
+        $('.btn-print-docs').on('click', function(e) {
+            e.preventDefault();
+
+            var forPDF = $("#roll-table-body").find(".btn-singleobjection");
+            var len = forPDF.length;
+            var PDFlinks = [];
+            console.log(len);
+
+            for (var i = 0; i < forPDF.length; i++) {
+                PDFlinks.push(forPDF[i].href);
+            }
+
+            console.log(PDFlinks);
+
+            function loadPdf(pdfUrl, pdfindex, next) {
+                var self = this;
+                console.log("Here");
+
+                PDFJS.getDocument(pdfUrl).then(function(pdf) {
+
+                    var currentPage = 1;
+
+                    function getPage() {
+                        pdf.getPage(currentPage).then(function(page) {
+                            var scale = 2,
+                                viewport = page.getViewport(scale),
+                                canvas = document.createElement('canvas'),
+                                context = canvas.getContext('2d'),
+                                renderContext = {
+                                    canvasContext: context,
+                                    viewport: viewport,
+                                    intent: 'print'
+                                };
+
+                            // Prepare canvas using PDF page dimensions
+
+                            canvas.setAttribute('class', 'canvaspdf');
+                            canvas.id = 'canvas' + currentPage + '-' + pdfindex;
+                            canvas.height = viewport.height;
+                            canvas.width = viewport.width;
+
+                            // Render PDF page into canvas context
+
+                            page.render(renderContext).then(function(page) {
+                                document.body.appendChild(canvas);
+                                if (currentPage < pdf.numPages) {
+                                    currentPage++;
+                                    getPage();
+                                } else {
+                                    next();
+                                }
+                            });
+                        });
+                    }
+
+                    if (currentPage < pdf.numPages) {
+                        getPage();
+                    }
+                });
+            }
+
+            var pdfUrls = [PDFlinks],
+
+                function next() {
+                    // console.log("NEXT");
+                    if (pdfUrls.length === 0) {
+                        window.print();
+                    } else {
+                        self.loadPdf(pdfUrls.pop(), pdfUrls.length, next);
+                    }
+                };
+
+            for (var j in coredatalist) {
+                if (coredatalist.hasOwnProperty(j)) {
+                    pdfUrls.push('url');
+                }
+            }
+
+            next();
+        });
+    </script> --}}
+
 
 @endsection
