@@ -12,11 +12,20 @@
                     </ol>
                 </div>
                 <div class="col-sm-12 col-md-6 d-none d-flex justify-content-end align-items-center">
+                    {{-- <div class="form-group mt-0 mb-0 mx-2">
+                        <button type="button" class="btn btn-success btn-print-docs">Print
+                            Objections</button>
+                    </div> --}}
                     <div class="form-group mt-0 mb-0">
                         <button type="button" data-target="#objectionmodal" data-toggle="modal"
                             class="btn btn-success btn-info">Search Objection</button>
                     </div>
 
+                    {{-- <!--Download PDF Link-->
+                    <a id="pdf-download-link" title="Download PDF File">Download PDF file</a>
+
+                    <!--Create iFrame URL-->
+                    <a id="pdf-showiFrame-link" title="Show PDF in iFrame">Show PDF in iFrame</a> --}}
                 </div>
 
                 <!-- bill request modal -->

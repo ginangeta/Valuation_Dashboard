@@ -96,41 +96,43 @@
                             </thead>
                             <tbody id="roll-table-body">
                                 @foreach ($Objections as $key => $Objection)
-                                    <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $Objection->property_objection->objection_no }}</td>
-                                        <td>{{ $Objection->property_objected->lr_no }}</td>
-                                        <td>
-                                            <p class="mb-0">{{ $Objection->property_objected->situation }}</p>
-                                        </td>
-                                        <td>{{ $Objection->property_objected->owner }}</td>
-                                        <td><a
-                                                href="tel:{{ $Objection->property_objection->phone }}">{{ $Objection->property_objection->phone }}</a>
-                                        </td>
-                                        <td><a
-                                                href="mailto:{{ $Objection->withdrawn_by }}">{{ $Objection->withdrawn_by }}</a>
-                                        </td>
-                                        <td>
-                                            @if ($Objection->property_objection->status === 'Pending')
-                                                <span
-                                                    class="badge badge-pill d-inline badge-warning">{{ $Objection->property_objection->status }}
-                                                </span>
-                                            @endif
-                                            @if ($Objection->property_objection->status === 'Paid')
-                                                <span
-                                                    class="badge badge-pill d-inline badge-success">{{ $Objection->property_objection->status }}
-                                                </span>
-                                            @endif
-                                        </td>
-                                        <td>{{ date('d M Y h:i A', strtotime($Objection->property_objection->objection_date)) }}
-                                        </td>
-                                        <td>KES {{ number_format($Objection->property_objected->usv) }}</td>
-                                        <td class="table-actions">
-                                            <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                                data-toggle="modal"
-                                                data-target="#details{{ $Objection->property_objection->id }}"><i
-                                                    class="zmdi zmdi-eye"></i>Details</button>
-                                            {{-- @if (strpos($Objection->property_objected->lr_no, '/') !== false)
+                                    @if ($Objection->status === 'Paid')
+
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $Objection->property_objection->objection_no }}</td>
+                                            <td>{{ $Objection->property_objected->lr_no }}</td>
+                                            <td>
+                                                <p class="mb-0">{{ $Objection->property_objected->situation }}</p>
+                                            </td>
+                                            <td>{{ $Objection->property_objected->owner }}</td>
+                                            <td><a
+                                                    href="tel:{{ $Objection->property_objection->phone }}">{{ $Objection->property_objection->phone }}</a>
+                                            </td>
+                                            <td><a
+                                                    href="mailto:{{ $Objection->withdrawn_by }}">{{ $Objection->withdrawn_by }}</a>
+                                            </td>
+                                            <td>
+                                                @if ($Objection->property_objection->status === 'Pending')
+                                                    <span
+                                                        class="badge badge-pill d-inline badge-warning">{{ $Objection->property_objection->status }}
+                                                    </span>
+                                                @endif
+                                                @if ($Objection->property_objection->status === 'Paid')
+                                                    <span
+                                                        class="badge badge-pill d-inline badge-success">{{ $Objection->property_objection->status }}
+                                                    </span>
+                                                @endif
+                                            </td>
+                                            <td>{{ date('d M Y h:i A', strtotime($Objection->property_objection->objection_date)) }}
+                                            </td>
+                                            <td>KES {{ number_format($Objection->property_objected->usv) }}</td>
+                                            <td class="table-actions">
+                                                <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
+                                                    data-toggle="modal"
+                                                    data-target="#details{{ $Objection->property_objection->id }}"><i
+                                                        class="zmdi zmdi-eye"></i>Details</button>
+                                                {{-- @if (strpos($Objection->property_objected->lr_no, '/') !== false)
                                                 <a href="singleobjection/{{ str_replace('/', '-', $Objection->property_objected->lr_no) }}"
                                                     target="_blank"
                                                     class="btn-singleobjection btn btn-success btn-sm btn--icon-text"><i
@@ -140,80 +142,83 @@
                                                     target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
                                                         class="zmdi zmdi-print"></i>Print</a>
                                             @endif --}}
-                                        </td>
+                                            </td>
 
-                                        <!-- Modals -->
+                                            <!-- Modals -->
 
-                                        <!-- objection modal -->
-                                        <div class="modal fade" id="details{{ $Objection->property_objection->id }}"
-                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">
-                                                            LR No: {{ $Objection->property_objected->lr_no }} objection
-                                                            details
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <h6><strong>Serial No.</strong></h6>
-                                                        <p>{{ $Objection->property_objected->serial_no }}</p>
-                                                        <hr>
-
-                                                        <h6><strong>Location/Situation</strong></h6>
-                                                        <p class="mb-0">{{ $Objection->property_objected->situation }}
-                                                        </p>
-                                                        <hr>
-
-                                                        <div class="row">
-                                                            <div class="col-sm-12 col-lg-6">
-                                                                <h6><strong>Owner</strong></h6>
-                                                                <p>{{ $Objection->property_objected->owner }}</p>
-
-                                                                <h6><strong>P.O.Box Address</strong></h6>
-                                                                <p class="mb-0">
-                                                                    {{ $Objection->property_objected->po_box }}-{{ $Objection->property_objected->postal_code }}
-                                                                </p>
-                                                                <p class="mb-0">
-                                                                    {{ $Objection->property_objected->situation }}
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-sm-12 col-lg-6">
-                                                                <h6><strong>Objector</strong></h6>
-                                                                <p>{{ $Objection->property_objection->objector_name }}
-                                                                </p>
-
-                                                                <h6><strong>P.O.Box Address</strong></h6>
-                                                                <p class="mb-0">
-                                                                    {{ $Objection->property_objected->po_box }}-{{ $Objection->property_objected->postal_code }}
-                                                                </p>
-                                                                <p class="mb-0">
-                                                                    {{ $Objection->property_objected->situation }}
-                                                                </p>
-                                                            </div>
+                                            <!-- objection modal -->
+                                            <div class="modal fade" id="details{{ $Objection->property_objection->id }}"
+                                                tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title text-capitalize"
+                                                                id="exampleModalLongTitle">
+                                                                LR No: {{ $Objection->property_objected->lr_no }}
+                                                                objection
+                                                                details
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
-                                                        <hr>
 
-                                                        <h6><strong>Approximate Area in Hectares</strong></h6>
-                                                        <p>{{ $Objection->property_objected->approx_area }}</p>
-                                                        <hr>
+                                                        <div class="modal-body">
+                                                            <h6><strong>Serial No.</strong></h6>
+                                                            <p>{{ $Objection->property_objected->serial_no }}</p>
+                                                            <hr>
 
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <h6><strong>Objection Date</strong></h6>
-                                                                <p>{{ date('d M Y h:i A', strtotime($Objection->property_objection->objection_date)) }}
-                                                                </p>
+                                                            <h6><strong>Location/Situation</strong></h6>
+                                                            <p class="mb-0">
+                                                                {{ $Objection->property_objected->situation }}
+                                                            </p>
+                                                            <hr>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-lg-6">
+                                                                    <h6><strong>Owner</strong></h6>
+                                                                    <p>{{ $Objection->property_objected->owner }}</p>
+
+                                                                    <h6><strong>P.O.Box Address</strong></h6>
+                                                                    <p class="mb-0">
+                                                                        {{ $Objection->property_objected->po_box }}-{{ $Objection->property_objected->postal_code }}
+                                                                    </p>
+                                                                    <p class="mb-0">
+                                                                        {{ $Objection->property_objected->situation }}
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-sm-12 col-lg-6">
+                                                                    <h6><strong>Objector</strong></h6>
+                                                                    <p>{{ $Objection->property_objection->objector_name }}
+                                                                    </p>
+
+                                                                    <h6><strong>P.O.Box Address</strong></h6>
+                                                                    <p class="mb-0">
+                                                                        {{ $Objection->property_objected->po_box }}-{{ $Objection->property_objected->postal_code }}
+                                                                    </p>
+                                                                    <p class="mb-0">
+                                                                        {{ $Objection->property_objected->situation }}
+                                                                    </p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <hr>
+                                                            <hr>
 
-                                                        {{-- <h6><strong>Objections</strong></h6>
+                                                            <h6><strong>Approximate Area in Hectares</strong></h6>
+                                                            <p>{{ $Objection->property_objected->approx_area }}</p>
+                                                            <hr>
+
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <h6><strong>Objection Date</strong></h6>
+                                                                    <p>{{ date('d M Y h:i A', strtotime($Objection->property_objection->objection_date)) }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+
+                                                            {{-- <h6><strong>Objections</strong></h6>
                                                         <ul>
                                                             @foreach ($Objection->property_objection->reasons as $key => $reason)
                                                                 <li>{{ $reason->description }}</li>
@@ -221,28 +226,29 @@
                                                         </ul>
                                                         <hr> --}}
 
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <h6 class="text-left"><strong>Unimproved Site
-                                                                        Value(USV)</strong></h6>
-                                                                <h3 class="text-left">KES
-                                                                    {{ number_format($Objection->property_objected->usv) }}
-                                                                </h3>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <h6 class="text-left"><strong>Unimproved Site
+                                                                            Value(USV)</strong></h6>
+                                                                    <h3 class="text-left">KES
+                                                                        {{ number_format($Objection->property_objected->usv) }}
+                                                                    </h3>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-success btn-secondary"
-                                                            data-dismiss="modal">OK</button>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-success btn-secondary"
+                                                                data-dismiss="modal">OK</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Modals -->
+                                            <!-- Modals -->
 
-                                    </tr>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
