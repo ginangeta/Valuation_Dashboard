@@ -96,7 +96,7 @@
                             </thead>
                             <tbody id="roll-table-body">
                                 @foreach ($Objections as $key => $Objection)
-                                    @if ($Objection->status === 'Paid')
+                                    @if ($Objection->property_objection->status === 'Paid')
 
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
