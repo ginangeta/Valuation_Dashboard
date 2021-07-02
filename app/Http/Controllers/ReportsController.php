@@ -35,7 +35,7 @@ class ReportsController extends Controller
         Session::put('paginationNext', $created->next);
         Session::put('paginationPrev', $created->previous);
 
-        return view('content/objections', ['Objections' => $created->results]);
+        return view('content/objections', ['Objections' => $created->results, 'ObjectionsUrl' => $url]);
 
         // return view('usv')->with($lr_no);
 
@@ -176,7 +176,10 @@ class ReportsController extends Controller
         Session::put('paginationNext', $created->next);
         Session::put('paginationPrev', $created->previous);
 
-        return view('content/objections', ['Objections' => $created->results]);
+        return view('content/objections', [
+            'Objections' => $created->results,
+            'ObjectionsUrl' => $url
+            ]);
 
     }
 

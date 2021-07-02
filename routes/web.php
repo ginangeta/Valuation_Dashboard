@@ -75,6 +75,7 @@ Route::group(['middleware' => ['active']], function () {
     Route::post('deactivateUser', 'UsersController@deactivateUser')->name('deactivateUser');
 
     Route::get('/export-pdf', 'PdfController@exportPdf')->name('export-pdf');
+    Route::get('/printObjections/{url}', 'PdfController@printObjections')->name('printObjections');
 
     // Route::get('/export-pdf', [App\Http\Controllers\PdfController::class, 'exportPdf']);
 
