@@ -188,7 +188,8 @@
                     <tfoot>
                         <tr>
                         <tr style="color: white; text-transform: uppercase; background-color: #215939;">
-                            <td colspan="2" style="padding: 0.05in 0.2in;font-weight: bold;;">3 Objections</td>
+                            <td colspan="2" style="padding: 0.05in 0.2in;font-weight: bold;;">{{ $ReasonsCount }}
+                                Objections</td>
                         </tr>
                         </tr>
                     </tfoot>

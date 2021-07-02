@@ -40,7 +40,8 @@ class PdfController extends Controller
         foreach($Objections as $key => $ObjectionDetails)
         {
             if($ObjectionDetails->status === 'Paid'){
-            $view = view('content.massprint')->with(compact('ObjectionDetails'));
+            $ReasonsCount =  count($ObjectionDetails->reasons);
+            $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
             $html .= $view->render();
             // PDF::loadHTML($html)->save(public_path().'/bulk_objections/'.$ObjectionDetails->property->lr_no.'.pdf');
 
@@ -51,8 +52,8 @@ class PdfController extends Controller
         // $Snappy->setOption('disable-smart-shrinking', true);
         $Snappy->setPaper('a4');
         $Snappy->setOption('zoom', 1);
-        // $Snappy->setOption('margin-left', 0);
-        // $Snappy->setOption('margin-right', 0);
+        $Snappy->setOption('margin-left', 0);
+        $Snappy->setOption('margin-right', 0);
         $Snappy->setOption('margin-top', 0);
         $Snappy->setOption('margin-bottom', 0);
         $Snappy->setOption('lowquality', false);

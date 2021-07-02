@@ -1,10 +1,11 @@
-<div class="page" id="{{ $ObjectionDetails->property->lr_no }}" style="page-break-inside: avoid; size: auto; margin: 0mm; font-family: 'Montserrat', sans-serif; font-size: 11px;font-weight: 500; 
+<div class="page" id="{{ $ObjectionDetails->property->lr_no }}" style="page-break-inside: avoid; size: auto; margin: auto; font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: normal;font-weight: 500; 
     -webkit-print-color-adjust: exact; width: 8.3in; position: relative; height: 10.7in; background-color: white; display: flex; 
-    flex-flow: column; padding: 0.2in; ">
+    flex-flow: column; padding: 0.2in; letter-spacing: normal;">
     <div>
         <!-- page number goes here -->
         <div class="page-number" style="border-bottom:0.001in solid black; margin-bottom: 0.1in;">
-            <p style="width: 100%; text-align: center; font-size: 11px; color: black;">THIS FORM CAN BE USED FOR AND
+            <p style="width: 100%; text-align: center; font-size: 12px; letter-spacing: normal; color: black;">THIS FORM
+                CAN BE USED FOR AND
                 OBJECTION AGAINST ONLY ONE ENTRY IN THE DRAFT VALUATION ROLL</p>
         </div>
 
@@ -12,9 +13,9 @@
             <p
                 style="width: 100%; text-align: center; font-size: 15px; color: black; font-weight: bold; margin-bottom: 10px;">
                 NAIROBI CITY COUNTY</p>
-            <img style="height: 100px; margin: auto !important;"
+            <img style="height: 100px; margin-left: 20px !important;"
                 src="data:image/jpeg;base64,
-                    {{ base64_encode(@file_get_contents(url('https://valuation.nairobi.go.ke/dashboard/demo/img/logo-files/pdf-logo.jpg'))) }}">
+                    {{ base64_encode(@file_get_contents(url('https://valuation.nairobi.go.ke/dashboard/images/pdf-logo.jpg'))) }}">
             <p
                 style="width: 100%; text-align: center; font-size: 15px; color: black;font-weight: bold; margin-top: 10px;">
                 NOTICE OF OBJECTION</p>
@@ -28,14 +29,15 @@
         <div style="display: flex; display: -webkit-box;">
             <!-- sender details -->
             <div class="" style="padding: 0.2in; margin-bottom: 0.05in; width: 7.9in; height: auto;">
-                <span style="margin: 0px;">To:</span>
-                <h5 style="font-size: 11px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
+                <span style=" font-size: 12px; margin: 0px;">To:</span>
+                <h5
+                    style="font-size: 12px; letter-spacing: normal; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
                     THE COUNTY SECRETARY</h5>
-                <div style="display:flex; display: -webkit-box; font-size: 11px;">
-                    <div style="display: flex; flex-flow: column; font-size: 11px;">
-                        <span class="" style="font-size: 11px;">CITY HALL</span>
-                        <span style="font-size: 11px;">P.O.BOX 30075</span>
-                        <span style="font-size: 11px;">NAIROBI</span>
+                <div style="display:flex; display: -webkit-box; font-size: 12px; letter-spacing: normal;">
+                    <div style="display: flex; flex-flow: column; font-size: 12px; letter-spacing: normal;">
+                        <span class="" style="font-size: 12px; letter-spacing: normal;">CITY HALL</span>
+                        <span style=" font-size: 12px; font-size: 12px; letter-spacing: normal;">P.O.BOX 30075</span>
+                        <span style=" font-size: 12px; font-size: 12px; letter-spacing: normal;">NAIROBI</span>
                     </div>
                 </div>
             </div>
@@ -44,7 +46,8 @@
         <!-- statement owner details -->
         <div class=""
             style="padding: 0.2in; margin-bottom: 0.2in; background-color: #f3f5f6; width: 7.9in; height: auto;">
-            <span style="margin-bottom: 0.2in;">The following entry has been made in the draft valuation roll of the
+            <span style=" font-size: 12px; margin-bottom: 0.2in;">The following entry has been made in the draft
+                valuation roll of the
                 <strong>Nairobi City County</strong> for <strong>2021</strong></span>
             <div
                 style="margin-top: 0.2in; display: flex; display: -webkit-box; flex-direction: row; flex-wrap: wrap; width: 100%;">
@@ -115,7 +118,8 @@
                 <tfoot>
                     <tr>
                     <tr style="color: white; text-transform: uppercase; background-color: #215939;">
-                        <td colspan="2" style="padding: 0.05in 0.2in;font-weight: bold;;">3 Objections</td>
+                        <td colspan="2" style="padding: 0.05in 0.2in;font-weight: bold;;">{{ $ReasonsCount }} Objections
+                        </td>
                     </tr>
                     </tr>
                 </tfoot>
@@ -138,14 +142,15 @@
             <div>
                 <div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <span style="color: black; text-transform: capitalize;">Signature
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">Signature
                             of objector</span>
                         <span
                             style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{ $ObjectionDetails->objector_name }}
                         </span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <span style="color: black; text-transform: capitalize; word-wrap: normal;">State
+                        <span
+                            style=" font-size: 12px; color: black; text-transform: capitalize; word-wrap: normal;">State
                             if Ratable
                             Owner or Otherwise of objector</span>
                         <span
@@ -161,7 +166,7 @@
                         </span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <span style="color: black; text-transform: capitalize;">Full Address of
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">Full Address of
                             Objector P.O.Box
                             of objector</span>
                         <span
@@ -169,25 +174,31 @@
                         </span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <span style="color: black; text-transform: capitalize;">Dated this</span>
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">Dated this</span>
                         <span
-                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">{{ date('d', strtotime($ObjectionDetails->objection_date)) }}</span>
-                        <span style="color: black; text-transform: capitalize;">day of</span>
+                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">
+                            {{ date('d', strtotime($ObjectionDetails->objection_date)) }}</span>
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">day of</span>
                         <span
-                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{ date('M', strtotime($ObjectionDetails->objection_date)) }}</span>
-                        <span style="color: black; text-transform: capitalize;">telephone no</span>
+                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">
+                            {{ date('M', strtotime($ObjectionDetails->objection_date)) }}</span>
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">telephone no</span>
                         <span
-                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">{{ $ObjectionDetails->phone }}</span>
+                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">
+                            {{ $ObjectionDetails->phone }}</span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <span style="color: black; text-transform: capitalize;">Shs 500/= Non refundable fee Receipt
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">Shs 500/= Non refundable
+                            fee Receipt
                             No</span>
                         <span
-                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 115px; font-weight: bold;">OBJ-24586</span>
-                        <span style="color: black; text-transform: capitalize;">Dated</span>
+                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 115px; font-weight: bold;">
+                            OBJ-24586</span>
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">Dated</span>
                         <span
-                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 380px;">{{ date('d-m-Y', strtotime($ObjectionDetails->objection_date)) }}</span>
-                        <span style="color: black; text-transform: capitalize;">(DD/MM/YY)</span>
+                            style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 380px;">
+                            {{ date('d-m-Y', strtotime($ObjectionDetails->objection_date)) }}</span>
+                        <span style=" font-size: 12px; color: black; text-transform: capitalize;">(DD/MM/YY)</span>
                     </div>
                 </div>
             </div>
@@ -196,12 +207,14 @@
         <div>
             <!-- page number goes here -->
             <div class="page-number" style="border-top:0.001in solid black; margin-bottom: 0.1in;">
-                <p style="width: 100%; text-align: center; font-size: 11px; color: black;">THIS SPACE IS NOT TO BE
+                <p style="width: 100%; text-align: center; font-size: 12px; letter-spacing: normal; color: black;">THIS
+                    SPACE IS NOT TO BE
                     FILLED IN BY THE OBJECTOR</p>
                 <p style="width: 100%; text-align: center; font-size: 15px; color: black;font-weight: bold;">
                     VALUATION COURT DETAILS</p>
-                <p style="width: 100%; text-align: center; font-size: 11px; color: black; margin-top: 0.1in;"><span
-                        style="color: black; text-transform: capitalize;">Date of
+                <p
+                    style="width: 100%; text-align: center; font-size: 12px; letter-spacing: normal; color: black; margin-top: 0.1in;">
+                    <span style=" font-size: 12px; color: black; text-transform: capitalize;">Date of
                         hearing...............................................................................................(DD/MM/YY)</span>
                 </p>
 
@@ -212,8 +225,9 @@
                         style="padding: 0.02in; border: 1px solid black; font-size: 16px; text-align: left; padding-left: 0.1in; 
                     display: flex; flex-direction: column; flex-basis: 100%;-webkit-box-flex: 1; -webkit-flex: 1; flex: 1;">
                         <p style="margin: 0;">Reduced To</p>
-                        <p style="width: 100%; text-align: left; font-size: 11px; color: black; margin-top: 0.3in;">
-                            <span style="color: black; text-transform: capitalize;">KES
+                        <p
+                            style="width: 100%; text-align: left; font-size: 12px; letter-spacing: normal; color: black; margin-top: 0.3in;">
+                            <span style=" font-size: 12px; color: black; text-transform: capitalize;">KES
                                 ............................................................................</span>
                         </p>
                     </div>
@@ -222,7 +236,8 @@
                         style="padding: 0.02in; border: 1px solid black; font-size: 16px; text-align: left; padding-left: 0.1in; 
                 display: flex; flex-direction: column; flex-basis: 100%;-webkit-box-flex: 1; -webkit-flex: 1; flex: 1;">
                         <p style="margin: 0;">Confirmed</p>
-                        <p style="width: 100%; text-align: left; font-size: 11px; color: black; margin-top: 0.3in;">
+                        <p
+                            style="width: 100%; text-align: left; font-size: 12px; letter-spacing: normal; color: black; margin-top: 0.3in;">
                             <span
                                 style="color: black; text-transform: capitalize;">............................................................................</span>
                         </p>
@@ -232,8 +247,9 @@
                         style="padding: 0.02in; border: 1px solid black; font-size: 16px; text-align: left; padding-left: 0.1in; 
                                         display: flex; flex-direction: column; flex-basis: 100%;-webkit-box-flex: 1; -webkit-flex: 1; flex: 1;">
                         <p style="margin: 0;">Increased To</p>
-                        <p style="width: 100%; text-align: left; font-size: 11px; color: black; margin-top: 0.3in;">
-                            <span style="color: black; text-transform: capitalize;">KES
+                        <p
+                            style="width: 100%; text-align: left; font-size: 12px; letter-spacing: normal; color: black; margin-top: 0.3in;">
+                            <span style=" font-size: 12px; color: black; text-transform: capitalize;">KES
                                 ............................................................................</span>
                         </p>
                     </div>

@@ -237,7 +237,10 @@ class ReportsController extends Controller
             return redirect()->back()->with('errors', 'An error occured.');
         }
 
-        return view('content/objectiondoc', ['ObjectionDetails' => $created]);
+        return view('content/objectiondoc', [
+            'ObjectionDetails' => $created, 
+            'ReasonsCount' => count($created[0]->reasons), 
+        ]);
         // return view('usv')->with($lr_no);
     }
 
