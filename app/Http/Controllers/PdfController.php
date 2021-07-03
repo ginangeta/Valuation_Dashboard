@@ -6,7 +6,6 @@ use App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
-use Barryvdh\DomPDF\Facade as PDF;
 use Barryvdh\Snappy\Facades\SnappyPdf as SnappyPDF;
 
 class PdfController extends Controller
