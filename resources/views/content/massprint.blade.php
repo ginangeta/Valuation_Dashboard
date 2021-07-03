@@ -196,7 +196,7 @@
                             OBJ-24586</p>
                         <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated</p>
                         <p
-                            style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 380px;">
+                            style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 280px;">
                             {{ date('d-m-Y', strtotime($ObjectionDetails->objection_date)) }}</p>
                         <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">(DD/MM/YY)</p>
                     </div>
