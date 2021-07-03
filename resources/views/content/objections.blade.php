@@ -13,9 +13,15 @@
                 </div>
                 <div class="col-sm-12 col-md-6 d-none d-flex justify-content-end align-items-center">
                     <div class="form-group mt-0 mb-0 mx-2">
-                        <a href="printObjections/{{ str_replace('/', '-', $ObjectionsUrl) }}"
-                            class="btn btn-warning btn-print-docs text-white">Print Page
-                            Objections</a>
+                        @if (Session::get('paginationCurrent') == 1){
+                            <a href="printObjections/{{ str_replace('/', '-', $ObjectionsUrl) }}"
+                                class="btn btn-warning btn-print-docs text-white">Print Page
+                                Objections</a>
+                        @else
+                            <a href="/printNextObjections/{{ str_replace('/', '-', $ObjectionsUrl) }}"
+                                class="btn btn-warning btn-print-docs text-white">Print Page
+                                Objections</a>
+                        @endif
                     </div>
                     <div class="form-group mt-0 mb-0">
                         <button type="button" data-target="#objectionmodal" data-toggle="modal"
