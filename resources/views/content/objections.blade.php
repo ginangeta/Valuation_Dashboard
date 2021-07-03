@@ -18,7 +18,7 @@
                                 class="btn btn-warning btn-print-docs text-white">Print Page
                                 Objections</a>
                         @else
-                            <a href="printNextObjections/{{ str_replace('/', '-', $ObjectionsUrl) }}"
+                            <a href="{{ route('printNextObjections/') }}{{ strtolower(str_replace('/', '-', $ObjectionsUrl)) }}"
                                 class="btn btn-warning btn-print-docs text-white">Print Page
                                 Objections</a>
                         @endif
