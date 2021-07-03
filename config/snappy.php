@@ -35,7 +35,7 @@ return [
     
     'pdf' => [
         'enabled' => true,
-        'binary' => base_path('../../../usr/local/bin/wkhtmltopdf'),
+        'binary' => '/usr/local/bin/wkhtmltopdf',
         'timeout' => false,
         'options' => [],
         'env'     => [],
