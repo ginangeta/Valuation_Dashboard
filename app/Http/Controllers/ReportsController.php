@@ -14,6 +14,8 @@ class ReportsController extends Controller
 
         $response = Http::withToken(Session::get('token'))->get($url);
 
+        dd($response);
+
         $created  = json_decode($response->body());
 
         // dd($created);
