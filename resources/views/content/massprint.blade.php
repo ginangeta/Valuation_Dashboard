@@ -143,7 +143,7 @@
             <div>
                 <div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p>
+                        <p style="margin-bottom: 0; white-space: nowrap;">
                             <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
                                 Signature
                                 of objector</span>
@@ -154,7 +154,7 @@
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p>
+                        <p style="margin-bottom: 0; white-space: nowrap;">
                             <span
                                 style="margin-bottom: 0;  font-size: 12px; color: black; text-transform: capitalize; word-wrap: normal;">
                                 State
@@ -174,7 +174,7 @@
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p>
+                        <p style="margin-bottom: 0; white-space: nowrap;">
                             <span
                                 style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Full
                                 Address of
@@ -187,7 +187,7 @@
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p>
+                        <p style="margin-bottom: 0; white-space: nowrap;">
                             <span
                                 style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
                                 this</span>
@@ -209,7 +209,7 @@
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p>
+                        <p style="margin-bottom: 0; white-space: nowrap;">
                             <span
                                 style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Shs
                                 500/= Non refundable
