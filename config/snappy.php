@@ -35,8 +35,8 @@ return [
     
     'pdf' => [
         'enabled' => true,
-        'binary' => base_path('/vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf'),
-        // 'binary' => '/usr/local/bin/wkhtmltopdf',
+        // 'binary' => base_path('/vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf'),
+        'binary' => '/usr/local/bin/wkhtmltopdf',
         'timeout' => false,
         'options' => [],
         'env'     => [],
