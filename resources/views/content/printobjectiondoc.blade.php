@@ -148,7 +148,7 @@
             <div class=""
                 style="padding: 0.2in; margin-bottom: 0.2in; background-color: #f3f5f6; width: 7.9in; height: auto;">
                 <span style="margin-bottom: 0.2in;">The following entry has been made in the draft valuation roll of the
-                    <strong>Nairobi City County</strong> for <strong>2021</strong></span>
+                    <strong>Nairobi City County</strong> for <strong>2019</strong></span>
                 <div class="flexie"
                     style="margin-top: 0.2in; display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
                     <!-- Serial -->
