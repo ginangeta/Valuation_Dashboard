@@ -118,7 +118,8 @@
                 <tfoot>
                     <tr>
                     <tr style="color: white; text-transform: uppercase; background-color: #215939;">
-                        <td colspan="2" style="padding: 0.05in 0.2in;font-weight: bold;;">{{ $ReasonsCount }} Objections
+                        <td colspan="2" style="padding: 0.05in 0.2in;font-weight: bold;;">{{ $ReasonsCount }}
+                            Objections
                         </td>
                     </tr>
                     </tr>
@@ -142,15 +143,18 @@
             <div>
                 <div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Signature
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
+                            Signature
                             of objector</p>
                         <p
-                            style="margin-bottom: 0;  font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{ $ObjectionDetails->objector_name }}
+                            style="margin-bottom: 0;  font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">
+                            {{ $ObjectionDetails->objector_name }}
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
                         <p
-                            style="margin-bottom: 0;  font-size: 12px; color: black; text-transform: capitalize; word-wrap: normal;">State
+                            style="margin-bottom: 0;  font-size: 12px; color: black; text-transform: capitalize; word-wrap: normal;">
+                            State
                             if Ratable
                             Owner or Otherwise of objector</p>
                         <p
@@ -166,39 +170,47 @@
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Full Address of
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Full
+                            Address of
                             Objector P.O.Box
                             of objector</p>
                         <p
-                            style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">{{ $ObjectionDetails->postal_address }}
+                            style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">
+                            {{ $ObjectionDetails->postal_address }}
                         </p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated this</p>
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
+                            this</p>
                         <p
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">
                             {{ date('d', strtotime($ObjectionDetails->objection_date)) }}</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">day of</p>
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">day of
+                        </p>
                         <p
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">
-                            {{ date('M', strtotime($ObjectionDetails->objection_date)) }}</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">telephone no</p>
+                            {{ date('M', strtotime($ObjectionDetails->objection_date)) }} 2021</p>
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
+                            telephone no</p>
                         <p
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">
                             {{ $ObjectionDetails->phone }}</p>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Shs 500/= Non refundable
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Shs
+                            500/= Non refundable
                             fee Receipt
                             No</p>
                         <p
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 115px; font-weight: bold;">
                             OBJ-24586</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated</p>
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
+                        </p>
                         <p
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 280px;">
                             {{ date('d-m-Y', strtotime($ObjectionDetails->objection_date)) }}</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">(DD/MM/YY)</p>
+                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
+                            (DD/MM/YY)</p>
                     </div>
                 </div>
             </div>

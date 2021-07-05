@@ -50,7 +50,9 @@
         }
 
         .flexie>.flexie-baby {
-            -webkit-box-flex: 1; -webkit-flex: 1; flex: 1;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
         }
 
         .flexie>.flexie-baby:last-child {
@@ -273,7 +275,8 @@
                                 style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">{{ date('d', strtotime($ObjectionDetails->objection_date)) }}</span>
                             <span style="color: black; text-transform: capitalize;">day of</span>
                             <span
-                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{ date('M', strtotime($ObjectionDetails->objection_date)) }}</span>
+                                style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">{{ date('M', strtotime($ObjectionDetails->objection_date)) }}
+                                2021</span>
                             <span style="color: black; text-transform: capitalize;">telephone no</span>
                             <span
                                 style="font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">{{ $ObjectionDetails->phone }}</span>
