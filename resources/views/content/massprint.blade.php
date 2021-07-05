@@ -143,21 +143,21 @@
             <div>
                 <div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
                             Signature
-                            of objector</p>
-                        <p
+                            of objector</span>
+                        <span
                             style="margin-bottom: 0;  font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">
                             {{ $ObjectionDetails->objector_name }}
-                        </p>
+                        </span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p
+                        <span
                             style="margin-bottom: 0;  font-size: 12px; color: black; text-transform: capitalize; word-wrap: normal;">
                             State
                             if Ratable
-                            Owner or Otherwise of objector</p>
-                        <p
+                            Owner or Otherwise of objector</span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 495px;">
                             {{ $ObjectionDetails->ratable_owner }}
                             @csrf
@@ -167,50 +167,51 @@
                             @if ($ObjectionDetails->ratable_owner)
                                 YES
                             @endif
-                        </p>
+                        </span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Full
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Full
                             Address of
                             Objector P.O.Box
-                            of objector</p>
-                        <p
+                            of objector</span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">
                             {{ $ObjectionDetails->postal_address }}
-                        </p>
+                        </span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
-                            this</p>
-                        <p
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
+                            this</span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 50px; font-weight: bold;">
-                            {{ date('d', strtotime($ObjectionDetails->objection_date)) }}</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">day of
-                        </p>
-                        <p
+                            {{ date('d', strtotime($ObjectionDetails->objection_date)) }}</span>
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">day
+                            of
+                        </span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 80px;">
-                            {{ date('M', strtotime($ObjectionDetails->objection_date)) }} 2021</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
-                            telephone no</p>
-                        <p
+                            {{ date('M', strtotime($ObjectionDetails->objection_date)) }} 2021</span>
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
+                            telephone no</span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 452px;">
-                            {{ $ObjectionDetails->phone }}</p>
+                            {{ $ObjectionDetails->phone }}</span>
                     </div>
                     <div style="display: flex; display: -webkit-box; margin-bottom: 0.05in">
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Shs
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Shs
                             500/= Non refundable
                             fee Receipt
-                            No</p>
-                        <p
+                            No</span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 115px; font-weight: bold;">
-                            OBJ-24586</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
-                        </p>
-                        <p
+                            OBJ-24586</span>
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">Dated
+                        </span>
+                        <span
                             style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 280px;">
-                            {{ date('d-m-Y', strtotime($ObjectionDetails->objection_date)) }}</p>
-                        <p style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
-                            (DD/MM/YY)</p>
+                            {{ date('d-m-Y', strtotime($ObjectionDetails->objection_date)) }}</span>
+                        <span style="margin-bottom: 0; font-size: 12px; color: black; text-transform: capitalize;">
+                            (DD/MM/YY)</span>
                     </div>
                 </div>
             </div>
@@ -240,7 +241,7 @@
                         <p
                             style="width: 100%; text-align: left; font-size: 12px; letter-spacing: normal; color: black; margin-top: 0.3in;">
                             <span style=" font-size: 12px; color: black; text-transform: capitalize;">KES
-                                ............................................................................</span>
+                                ...................................................................</span>
                         </p>
                     </div>
                     <!-- Confirmed -->
@@ -262,7 +263,7 @@
                         <p
                             style="width: 100%; text-align: left; font-size: 12px; letter-spacing: normal; color: black; margin-top: 0.3in;">
                             <span style=" font-size: 12px; color: black; text-transform: capitalize;">KES
-                                ............................................................................</span>
+                                ...................................................................</span>
                         </p>
                     </div>
                 </div>
