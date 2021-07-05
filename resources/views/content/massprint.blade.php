@@ -234,7 +234,7 @@
 
         <div>
             <!-- page number goes here -->
-            <div class="page-number" style="border-top:0.001in solid black; margin-bottom: 0.1in;">
+            <div class="page-number" style="border-top:0.001in solid black; margin-bottom: 0.1in; margin-top: 0.1in;">
                 <p style="width: 100%; text-align: center; font-size: 12px; letter-spacing: normal; color: black;">THIS
                     SPACE IS NOT TO BE
                     FILLED IN BY THE OBJECTOR</p>
