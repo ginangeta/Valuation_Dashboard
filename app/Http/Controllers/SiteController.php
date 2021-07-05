@@ -11,7 +11,7 @@ class SiteController extends Controller
     public function dashboard()
     {
         $dashUrl = config('global.url').'dashboard_info';
-        $chartUrl = config('global.url').'daily/collections/?month=5&year=2021';
+        $chartUrl = config('global.url').'daily/collections/?month=6&year=2021';
 
         $dashResponse = Http::withToken(Session::get('token'))->get($dashUrl);
         $chartResponse = Http::withToken(Session::get('token'))->get($chartUrl);
