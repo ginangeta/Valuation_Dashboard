@@ -72,7 +72,7 @@ class PdfController extends Controller
         $response = Http::withToken(Session::get('token'))->get($url);
         $created  = json_decode($response->body());
 
-        dd($created);
+        // dd($created);
 
         $html = '';
         $fileName = Session::get('paginationCurrent');
@@ -92,7 +92,7 @@ class PdfController extends Controller
         $Snappy = SnappyPDF::loadHTML($html);
         // $Snappy->setOption('disable-smart-shrinking', true);
         $Snappy->setPaper('a4');
-        $Snappy->setOption('zoom', 1.33);
+        $Snappy->setOption('zoom', 1);
         $Snappy->setOption('margin-left', 0);
         $Snappy->setOption('margin-right', 0);
         $Snappy->setOption('margin-top', 0);
