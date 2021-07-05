@@ -57,7 +57,7 @@ class PdfController extends Controller
         $Snappy->setOption('margin-bottom', 0);
         $Snappy->setOption('lowquality', false);
 
-        return $Snappy->inline('Objections Page'.$fileName.'.pdf');
+        return $Snappy->inline('Objections '.$fileName.'.pdf');
 
     }
 
