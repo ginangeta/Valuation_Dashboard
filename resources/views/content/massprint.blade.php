@@ -44,7 +44,7 @@
         </div>
 
         <!-- statement owner details -->
-        <div class=""
+        {{-- <div class=""
             style="padding: 0.2in; margin-bottom: 0.2in; background-color: #f3f5f6; width: 7.9in; height: auto;">
             <span style=" font-size: 12px; margin-bottom: 0.2in;">The following entry has been made in the draft
                 valuation roll of the
@@ -183,7 +183,7 @@
                                 of objector</span>
                             <span
                                 style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">
-                                {{-- {{ $ObjectionDetails->postal_address }} --}}
+                                {{ $ObjectionDetails->postal_address }}
                             </span>
                         </p>
                     </div>
@@ -231,7 +231,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div>
             <!-- page number goes here -->
