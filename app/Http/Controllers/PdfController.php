@@ -44,7 +44,7 @@ class PdfController extends Controller
             // dd($ObjectionDetails);
             if($ObjectionDetails->status__name === 'Paid'){
             $ReasonsCount =  count($ObjectionDetails->reasons);
-            $view = view('content.printobjectiondoc')->with(compact('ObjectionDetails', 'ReasonsCount'));
+            $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
             // dd($view);
             $html .= $view->render();
             // dd($html);
