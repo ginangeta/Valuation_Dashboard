@@ -23,7 +23,7 @@
         </div>
 
 
-    </div>
+    </div> --}}
     <div class="" style="width: 100%; height: 10.7in">
         <!-- statement heading -->
         <div style="display: flex; display: -webkit-box;">
@@ -149,7 +149,7 @@
                                 of objector</span>
                             <span
                                 style="margin-bottom: 0;  font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">
-                                {{ $ObjectionDetails->objector__first_name }} 
+                                {{ $ObjectionDetails->objector__first_name }}
                                 {{ $ObjectionDetails->objector__last_name }}
                             </span>
                         </p>
@@ -285,6 +285,6 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
 </div>
