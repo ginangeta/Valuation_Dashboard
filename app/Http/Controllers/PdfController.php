@@ -32,6 +32,9 @@ class PdfController extends Controller
 
         // dd($created);
 
+        $amountOfTime = 100;
+        ini_set('max_execution_time', $amountOfTime);
+
         $html = '';
         $fileName = Session::get('paginationCurrent');
 
@@ -74,6 +77,9 @@ class PdfController extends Controller
 
         // dd($created);
 
+        $amountOfTime = 100;
+        ini_set('max_execution_time', $amountOfTime);
+
         $html = '';
         $fileName = Session::get('paginationCurrent');
 
@@ -115,6 +121,9 @@ class PdfController extends Controller
         $created  = json_decode($response->body());
 
         // dd($created);
+
+        $amountOfTime = 100;
+        ini_set('max_execution_time', $amountOfTime);
 
         $html = '';
         $fileName = Session::get('paginationCurrent');
