@@ -1,7 +1,7 @@
 <div class="page" id="{{ $ObjectionDetails->properties__lr_no }}" style="page-break-inside: avoid; size: auto; margin: auto; font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: normal;font-weight: 500; 
     -webkit-print-color-adjust: exact; width: 8.3in; position: relative; height: 10.7in; background-color: white; display: flex; 
     flex-flow: column; padding: 0.2in; letter-spacing: normal;">
-    <div>
+    {{-- <div>
         <!-- page number goes here -->
         <div class="page-number" style="border-bottom:0.001in solid black; margin-bottom: 0.1in;">
             <p style="width: 100%; text-align: center; font-size: 12px; letter-spacing: normal; color: black;">THIS FORM
@@ -44,7 +44,7 @@
         </div>
 
         <!-- statement owner details -->
-        {{-- <div class=""
+        <div class=""
             style="padding: 0.2in; margin-bottom: 0.2in; background-color: #f3f5f6; width: 7.9in; height: auto;">
             <span style=" font-size: 12px; margin-bottom: 0.2in;">The following entry has been made in the draft
                 valuation roll of the
@@ -231,7 +231,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
         <div>
             <!-- page number goes here -->
@@ -285,6 +285,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 </div>
