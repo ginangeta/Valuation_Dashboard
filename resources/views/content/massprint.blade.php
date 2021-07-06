@@ -16,7 +16,7 @@
             {{-- <img style="height: 100px; margin-left: 20px !important;"
                 src="data:image/jpeg;base64,
                     {{ base64_encode(@file_get_contents(url('https://valuation.nairobi.go.ke/dashboard/images/pdf-logo.jpg'))) }}"> --}}
-            {{-- <img style="height: 100px; margin-left: 20px !important;" src="images/pdf-logo.jpg"> --}}
+            <img style="height: 100px; margin-left: 20px !important;" src="https://valuation.nairobi.go.ke/dashboard/images/pdf-logo.jpg">
             <p
                 style="width: 100%; text-align: center; font-size: 15px; color: black;font-weight: bold; margin-top: 10px;">
                 NOTICE OF OBJECTION</p>
