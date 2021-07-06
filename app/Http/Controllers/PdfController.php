@@ -52,6 +52,7 @@ class PdfController extends Controller
             }
         }
         dd($html);
+        
         $Snappy = SnappyPDF::loadHTML($html);
         // $Snappy->setOption('disable-smart-shrinking', true);
         $Snappy->setPaper('a4');
