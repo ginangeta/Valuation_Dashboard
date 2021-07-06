@@ -70,6 +70,8 @@ class PdfController extends Controller
     }
 
     public function printNextObjections($url){
+        $url = $url.'?'.Session::get('paginationCurrent');
+
         if(strpos($url, '-') !== false){
             $url = str_replace("-", "/", $url);
         }else{
@@ -77,6 +79,7 @@ class PdfController extends Controller
 
         }
 
+        // dd($url);
         $response = Http::withToken(Session::get('token'))->get($url);
         $created  = json_decode($response->body());
 
