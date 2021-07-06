@@ -44,7 +44,7 @@ class PdfController extends Controller
             // dd($ObjectionDetails);
             if($ObjectionDetails->status__name === 'Paid'){
             $ReasonsCount =  count($ObjectionDetails->reasons);
-            $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
+            $view = view('content.printobjectiondoc')->with(compact('ObjectionDetails', 'ReasonsCount'));
             // dd($view);
             $html .= $view->render();
             // dd($html);
@@ -53,7 +53,7 @@ class PdfController extends Controller
             }
         }
 
-        dd($html);
+        // dd($html);
 
         $Snappy = SnappyPDF::loadHTML($html);
         // $Snappy->setOption('disable-smart-shrinking', true);
