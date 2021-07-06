@@ -32,7 +32,7 @@ class PdfController extends Controller
 
         // dd($created);
 
-        $amountOfTime = 100;
+        $amountOfTime = 300;
         ini_set('max_execution_time', $amountOfTime);
 
         $html = '';
@@ -52,6 +52,7 @@ class PdfController extends Controller
 
             }
         }
+
         dd($html);
 
         $Snappy = SnappyPDF::loadHTML($html);
