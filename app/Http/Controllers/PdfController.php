@@ -30,7 +30,7 @@ class PdfController extends Controller
         $response = Http::withToken(Session::get('token'))->get($url);
         $created  = json_decode($response->body());
 
-        // dd($created);
+        dd($created);
 
         $amountOfTime = 100;
         ini_set('max_execution_time', $amountOfTime);
