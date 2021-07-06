@@ -321,7 +321,7 @@ class ReportsController extends Controller
 
         $created  = json_decode($response->body());
 
-        // dd($created);
+        // dd($url);
 
         if(is_null($created))
         {
