@@ -41,6 +41,7 @@ class PdfController extends Controller
         $Objections = $created->results;
         foreach($Objections as $key => $ObjectionDetails)
         {
+            dd($ObjectionDetails);
             if($ObjectionDetails->status__name === 'Paid'){
             $ReasonsCount =  count($ObjectionDetails->reasons);
             $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
