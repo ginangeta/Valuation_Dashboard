@@ -46,7 +46,7 @@ class PdfController extends Controller
             $ReasonsCount =  count($ObjectionDetails->reasons);
             $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
             $html .= $view->render();
-            dd($html);
+            // dd($html);
             // PDF::loadHTML($html)->save(public_path().'/bulk_objections/'.$ObjectionDetails->property->lr_no.'.pdf');
 
             }
