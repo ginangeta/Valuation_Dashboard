@@ -41,11 +41,12 @@ class PdfController extends Controller
         $Objections = $created->results;
         foreach($Objections as $key => $ObjectionDetails)
         {
-            dd($ObjectionDetails);
+            // dd($ObjectionDetails);
             if($ObjectionDetails->status__name === 'Paid'){
             $ReasonsCount =  count($ObjectionDetails->reasons);
             $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
             $html .= $view->render();
+            dd($html);
             // PDF::loadHTML($html)->save(public_path().'/bulk_objections/'.$ObjectionDetails->property->lr_no.'.pdf');
 
             }
