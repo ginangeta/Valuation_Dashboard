@@ -1,7 +1,7 @@
 <div class="page" id="{{ $ObjectionDetails->properties__lr_no }}" style="page-break-inside: avoid; size: auto; margin: auto; font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: normal;font-weight: 500; 
     -webkit-print-color-adjust: exact; width: 8.3in; position: relative; height: 10.7in; background-color: white; display: flex; 
     flex-flow: column; padding: 0.2in; letter-spacing: normal;">
-    {{-- <div>
+    <div>
         <!-- page number goes here -->
         <div class="page-number" style="border-bottom:0.001in solid black; margin-bottom: 0.1in;">
             <p style="width: 100%; text-align: center; font-size: 12px; letter-spacing: normal; color: black;">THIS FORM
@@ -9,7 +9,7 @@
                 OBJECTION AGAINST ONLY ONE ENTRY IN THE DRAFT VALUATION ROLL</p>
         </div>
 
-        <div style="flex-direction: column; display: flex; justify-content: center; align-items: center;">
+        {{-- <div style="flex-direction: column; display: flex; justify-content: center; align-items: center;">
             <p
                 style="width: 100%; text-align: center; font-size: 15px; color: black; font-weight: bold; margin-bottom: 10px;">
                 NAIROBI CITY COUNTY</p>
@@ -20,10 +20,10 @@
                 style="width: 100%; text-align: center; font-size: 15px; color: black;font-weight: bold; margin-top: 10px;">
                 NOTICE OF OBJECTION</p>
 
-        </div>
+        </div> --}}
 
 
-    </div> --}}
+    </div>
     <div class="" style="width: 100%; height: 10.7in">
         <!-- statement heading -->
         <div style="display: flex; display: -webkit-box;">
