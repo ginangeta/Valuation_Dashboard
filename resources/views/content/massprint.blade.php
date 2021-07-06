@@ -183,7 +183,7 @@
                                 of objector</span>
                             <span
                                 style="margin-bottom: 0; font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 517px;">
-                                {{ $ObjectionDetails->postal_address }}
+                                {{-- {{ $ObjectionDetails->postal_address }} --}}
                             </span>
                         </p>
                     </div>
