@@ -76,6 +76,7 @@ Route::group(['middleware' => ['active']], function () {
 
     Route::get('/export-pdf', 'PdfController@exportPdf')->name('export-pdf');
     Route::get('printObjections/{url}', 'PdfController@printObjections')->name('printObjections');
+    Route::get('printSearchedObjections/{url}', 'PdfController@printSearchedObjections')->name('printSearchedObjections');
     Route::get('printNextObjections/{url}', 'PdfController@printObjections')->name('printNextObjections');
 
     // Route::get('/export-pdf', [App\Http\Controllers\PdfController::class, 'exportPdf']);

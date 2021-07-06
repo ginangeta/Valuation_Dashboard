@@ -326,7 +326,10 @@ class ReportsController extends Controller
             return redirect()->route('getAllObjections')->with('errors', 'An error occured.');
         }
 
-        return view('content/searched_objection', ['Objections' => $created]);
+        return view('content/searched_objection', [
+            'Objections' => $created,
+            'ObjectionsUrl' => $url,
+        ]);
     }
 
     public function getAllTowns(Request $request){
