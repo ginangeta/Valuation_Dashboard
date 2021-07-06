@@ -102,6 +102,7 @@
                                     <th>Owner</th>
                                     <th>Phone</th>
                                     <th>Documents</th>
+                                    <th>Bill No</th>
                                     <th>Payment Status</th>
                                     <th>Objection Date</th>
                                     <th>USV</th>
@@ -110,48 +111,51 @@
                             </thead>
                             <tbody id="roll-table-body">
                                 @foreach ($Objections as $key => $Objection)
-                                    @if ($Objection->status === 'Paid')
+                                    @if ($Objection->status__name === 'Paid')
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>PV-2021-{{ $Objection->id }}</td>
-                                            <td>{{ $Objection->property->serial_no }}</td>
-                                            <td>{{ $Objection->property->lr_no }}</td>
+                                            <td>{{ $Objection->objection_no }}</td>
+                                            <td>{{ $Objection->properties__serial_no }}</td>
+                                            <td>{{ $Objection->properties__lr_no }}</td>
                                             <td>
-                                                <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                <p class="mb-0">{{ $Objection->properties__situation }}</p>
                                                 <p class="mb-0 d-none">
                                                     <small>Kasarani Road</small>
                                                 </p>
                                             </td>
-                                            <td>{{ $Objection->property->owner }}</td>
+                                            <td>{{ $Objection->properties__owner }}</td>
                                             <td><a href="tel:{{ $Objection->phone }}">{{ $Objection->phone }}</a></td>
                                             <td><a href="#" data-toggle="modal"
                                                     data-target="#objection-documents{{ $key + 1 }}">{{ count($Objection->documents) }}
-                                                    Documents</a></td>
+                                                    Documents</a>
+                                            </td>
+                                            <td>{{ $Objection->properties__bill_no }}</td>
                                             <td>
-                                                @if ($Objection->status === 'Pending')
+                                                @if ($Objection->status__name === 'Pending')
                                                     <span
-                                                        class="badge badge-pill d-inline badge-warning">{{ $Objection->status }}
+                                                        class="badge badge-pill d-inline badge-warning">{{ $Objection->status__name }}
                                                     </span>
                                                 @endif
-                                                @if ($Objection->status === 'Paid')
+                                                @if ($Objection->status__name === 'Paid')
                                                     <span
-                                                        class="badge badge-pill d-inline badge-success">{{ $Objection->status }}
+                                                        class="badge badge-pill d-inline badge-success">{{ $Objection->status__name }}
                                                     </span>
                                                 @endif
                                             </td>
                                             <td>{{ date('d M Y h:i A', strtotime($Objection->objection_date)) }}</td>
-                                            <td>KES {{ number_format($Objection->property->usv) }}</td>
+                                            <td>KES {{ number_format($Objection->properties__usv) }}</td>
                                             <td class="table-actions">
                                                 <button type="button" class="btn btn-info btn-sm btn--icon-text ml-2"
-                                                    data-toggle="modal" data-target="#details{{ $Objection->id }}"><i
+                                                    data-toggle="modal"
+                                                    data-target="#details{{ $Objection->objection_no }}"><i
                                                         class="zmdi zmdi-eye"></i>Details</button>
-                                                @if (strpos($Objection->property->lr_no, '/') !== false)
-                                                    <a href="singleobjection/{{ str_replace('/', '-', $Objection->property->lr_no) }}"
+                                                @if (strpos($Objection->properties__lr_no, '/') !== false)
+                                                    <a href="singleobjection/{{ str_replace('/', '-', $Objection->properties__lr_no) }}"
                                                         target="_blank"
                                                         class="btn-singleobjection btn btn-success btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-print"></i>Print</a>
                                                 @else
-                                                    <a href="singleobjection/{{ str_replace('-', '+', $Objection->property->lr_no) }}"
+                                                    <a href="singleobjection/{{ str_replace('-', '+', $Objection->properties__lr_no) }}"
                                                         target="_blank" class="btn btn-success btn-sm btn--icon-text"><i
                                                             class="zmdi zmdi-print"></i>Print</a>
                                                 @endif
@@ -178,7 +182,7 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title text-capitalize"
                                                                 id="exampleModalLongTitle">
-                                                                LR No: {{ $Objection->property->lr_no }} objection
+                                                                LR No: {{ $Objection->properties__lr_no }} objection
                                                                 documents
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
@@ -213,14 +217,15 @@
                                             </div>
 
                                             <!-- objection modal -->
-                                            <div class="modal fade" id="details{{ $Objection->id }}" tabindex="-1"
-                                                role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="details{{ $Objection->objection_no }}"
+                                                tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title text-capitalize"
                                                                 id="exampleModalLongTitle">
-                                                                LR No: {{ $Objection->property->lr_no }} objection
+                                                                LR No: {{ $Objection->properties__lr_no }} objection
                                                                 details
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
@@ -231,41 +236,44 @@
 
                                                         <div class="modal-body">
                                                             <h6><strong>Serial No.</strong></h6>
-                                                            <p>{{ $Objection->property->serial_no }}</p>
+                                                            <p>{{ $Objection->properties__serial_no }}</p>
                                                             <hr>
 
                                                             <h6><strong>Location/Situation</strong></h6>
-                                                            <p class="mb-0">{{ $Objection->property->situation }}</p>
+                                                            <p class="mb-0">{{ $Objection->properties__situation }}</p>
                                                             <hr>
 
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-lg-6">
                                                                     <h6><strong>Owner</strong></h6>
-                                                                    <p>{{ $Objection->property->owner }}</p>
+                                                                    <p>{{ $Objection->properties__owner }}</p>
 
                                                                     <h6><strong>P.O.Box Address</strong></h6>
                                                                     <p class="mb-0">
-                                                                        {{ $Objection->property->po_box }}-{{ $Objection->property->postal_code }}
+                                                                        {{ $Objection->properties__po_box }}-{{ $Objection->properties__postal_code }}
                                                                     </p>
-                                                                    <p class="mb-0">{{ $Objection->property->situation }}
+                                                                    <p class="mb-0">
+                                                                        {{ $Objection->properties__situation }}
                                                                     </p>
                                                                 </div>
                                                                 <div class="col-sm-12 col-lg-6">
                                                                     <h6><strong>Objector</strong></h6>
-                                                                    <p>{{ $Objection->objector_name }}</p>
+                                                                    <p>{{ $Objection->objector__first_name }}
+                                                                        {{ $Objection->objector__last_name }}</p>
 
                                                                     <h6><strong>P.O.Box Address</strong></h6>
                                                                     <p class="mb-0">
-                                                                        {{ $Objection->property->po_box }}-{{ $Objection->property->postal_code }}
+                                                                        {{ $Objection->properties__po_box }}-{{ $Objection->properties__postal_code }}
                                                                     </p>
-                                                                    <p class="mb-0">{{ $Objection->property->situation }}
+                                                                    <p class="mb-0">
+                                                                        {{ $Objection->properties__situation }}
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                             <hr>
 
                                                             <h6><strong>Approximate Area in Hectares</strong></h6>
-                                                            <p>{{ $Objection->property->approx_area }}</p>
+                                                            <p>{{ $Objection->properties__approx_area }}</p>
                                                             <hr>
 
                                                             <div class="row">
@@ -290,7 +298,7 @@
                                                                     <h6 class="text-left"><strong>Unimproved Site
                                                                             Value(USV)</strong></h6>
                                                                     <h3 class="text-left">KES
-                                                                        {{ number_format($Objection->property->usv) }}
+                                                                        {{ number_format($Objection->properties__usv) }}
                                                                     </h3>
                                                                 </div>
                                                             </div>

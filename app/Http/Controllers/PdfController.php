@@ -38,7 +38,7 @@ class PdfController extends Controller
         $Objections = $created->results;
         foreach($Objections as $key => $ObjectionDetails)
         {
-            if($ObjectionDetails->status === 'Paid'){
+            if($ObjectionDetails->status__name === 'Paid'){
             $ReasonsCount =  count($ObjectionDetails->reasons);
             $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
             $html .= $view->render();
@@ -80,7 +80,7 @@ class PdfController extends Controller
         $Objections = $created->results;
         foreach($Objections as $key => $ObjectionDetails)
         {
-            if($ObjectionDetails->status === 'Paid'){
+            if($ObjectionDetails->status__name === 'Paid'){
             $ReasonsCount =  count($ObjectionDetails->reasons);
             $view = view('content.massprint')->with(compact('ObjectionDetails', 'ReasonsCount'));
             $html .= $view->render();
@@ -130,7 +130,7 @@ class PdfController extends Controller
         // $Objections = $created->results;
         // foreach($Objections as $key => $ObjectionDetails)
         // {
-        //     if($ObjectionDetails->status === 'Paid'){
+        //     if($ObjectionDetails->status__name === 'Paid'){
         //     $view = view('content.printobjectiondoc')->with(compact('ObjectionDetails'));
         //     $html .= $view->render();
         //     // PDF::loadHTML($html)->save(public_path().'/bulk_objections/'.$ObjectionDetails->property->lr_no.'.pdf');

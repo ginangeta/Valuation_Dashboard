@@ -131,7 +131,7 @@
                         <p style="margin: 0;">Serial No.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{ $ObjectionDetails[0]->property->serial_no }}</h5>
+                            {{ $ObjectionDetails[0]->properties__serial_no }}</h5>
                     </div>
                     <!-- Name -->
                     <div style="padding: 0.02in; border: 1px solid black; font-size: 16px; text-align: left; padding-left: 0.1in; 
@@ -139,7 +139,7 @@
                         <p style="margin: 0;">Name of owner.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{ $ObjectionDetails[0]->property->owner }}</h5>
+                            {{ $ObjectionDetails[0]->properties__owner }}</h5>
                     </div>
                 </div>
                 <div style="margin-top: 0.2in; display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
@@ -149,7 +149,7 @@
                         <p style="margin: 0;">L. R. No.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{ $ObjectionDetails[0]->property->lr_no }}
+                            {{ $ObjectionDetails[0]->properties__lr_no }}
                         </h5>
                     </div>
 
@@ -159,7 +159,7 @@
                         <p style="margin: 0;">Situation.</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{ $ObjectionDetails[0]->property->situation }}
+                            {{ $ObjectionDetails[0]->properties__situation }}
                         </h5>
                     </div>
 
@@ -169,7 +169,7 @@
                         <p style="margin: 0;">Unimproved Site Value(KES).</p>
                         <h5
                             style="font-size: 13px; color:#215939; text-transform: capitalize; font-weight: bold; margin: 0px;">
-                            {{ number_format($ObjectionDetails[0]->property->usv) }}
+                            {{ number_format($ObjectionDetails[0]->properties__usv) }}
                         </h5>
                     </div>
 
@@ -214,7 +214,9 @@
                             <span style="color: black; text-transform: capitalize;">Signature
                                 of objector</span>
                             <span
-                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">{{ $ObjectionDetails[0]->objector_name }}
+                                style=" font-size: 13px; margin-left:0.05in; border-bottom: 1px dotted black; font-weight: bold; width: 643px;">
+                                {{ $ObjectionDetails[0]->objector__first_name }}
+                                {{ $ObjectionDetails[0]->objector__last_name }}
                             </span>
                         </div>
                         <div style="display: flex; margin-bottom: 0.05in">
