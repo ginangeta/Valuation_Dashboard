@@ -9,18 +9,18 @@
                 OBJECTION AGAINST ONLY ONE ENTRY IN THE DRAFT VALUATION ROLL</p>
         </div>
 
-        {{-- <div style="flex-direction: column; display: flex; justify-content: center; align-items: center;">
+        <div style="flex-direction: column; display: flex; justify-content: center; align-items: center;">
             <p
                 style="width: 100%; text-align: center; font-size: 15px; color: black; font-weight: bold; margin-bottom: 10px;">
                 NAIROBI CITY COUNTY</p>
-            <img style="height: 100px; margin-left: 20px !important;"
+            {{-- <img style="height: 100px; margin-left: 20px !important;"
                 src="data:image/jpeg;base64,
-                    {{ base64_encode(@file_get_contents(url('https://valuation.nairobi.go.ke/dashboard/images/pdf-logo.jpg'))) }}">
+                    {{ base64_encode(@file_get_contents(url('https://valuation.nairobi.go.ke/dashboard/images/pdf-logo.jpg'))) }}"> --}}
             <p
                 style="width: 100%; text-align: center; font-size: 15px; color: black;font-weight: bold; margin-top: 10px;">
                 NOTICE OF OBJECTION</p>
 
-        </div> --}}
+        </div>
 
 
     </div>
